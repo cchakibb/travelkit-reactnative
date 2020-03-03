@@ -7,16 +7,21 @@ export default function Start() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Text style={styles.startTxt}>Travel kit</Text>
+      <View>
+        <Text style={styles.startTxt}>Travel kit</Text>
+      </View>
+
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("Authentication");
         }}
       >
-        <Image
-          source={require("../assets/general/logo/logo.png")}
-          style={{ width: 100, height: 100 }}
-        />
+        <View>
+          <Image
+            source={require("../assets/general/logo/logo.png")}
+            style={{ width: 250, height: 250 }}
+          />
+        </View>
       </TouchableOpacity>
     </View>
   );
@@ -29,10 +34,10 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   startTxt: {
-    fontSize: 35,
-    fontWeight: "800",
-    marginBottom: 65,
-    color: "rgb(61,157,191)"
+    fontSize: 65,
+    fontWeight: "bold",
+
+    color: "#3794B5"
   }
 });
 
