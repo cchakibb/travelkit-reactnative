@@ -1,42 +1,73 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/core";
-import { Button, Text, View, ImageBackground, StyleSheet } from "react-native";
+import { Text, View, ImageBackground, StyleSheet, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function Home() {
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("Home");
-        }}
-      >
-        <Text>Ma checklist</Text>
-      </TouchableOpacity>
+    <ImageBackground
+      source={require("../assets/general/background/accueil.png")}
+      style={{ width: "100%", height: "100%", opacity: "0.9" }}
+    >
+      <View style={styles.logo}>
+        <Image
+          source={require("../assets/general/logo/logo.png")}
+          style={{ width: 60, height: 60 }}
+        />
+        <Ionicons name="bars" size={53} color="#3794B5" />
+      </View>
 
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("MyHealthProfile");
-        }}
-      >
-        <Text>Mon profil santé</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("Daily");
-        }}
-      >
-        <Text>Mon quotidien</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("Home");
-        }}
-      >
-        <Text>Mes documents</Text>
-      </TouchableOpacity>
-    </View>
+      <View style={styles.container}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Home");
+          }}
+        >
+          <Image
+            source={require("../assets/general/Icone accueil/checklist.png")}
+            style={{ width: 30, height: 30, backgroundColor: "red" }}
+          ></Image>
+          <Text style={styles.text}>Ma checklist</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("MyHealthProfile");
+          }}
+        >
+          <Image
+            source={require("../assets/general/Icone accueil/sante.png")}
+            style={{ width: 30, height: 30, backgroundColor: "red" }}
+          ></Image>
+          <Text style={styles.text}>Mon profil santé</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Daily");
+          }}
+        >
+          <Image
+            source={require("../assets/general/Icone accueil/checklist.png")}
+            style={{ width: 30, height: 30, backgroundColor: "red" }}
+          ></Image>
+          <Text style={styles.text}>Mon quotidien</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Home");
+          }}
+        >
+          <Image
+            source={require("../assets/general/Icone accueil/checklist.png")}
+            style={{ width: 30, height: 30, backgroundColor: "red" }}
+          ></Image>
+          <Text style={styles.text}>Mes documents</Text>
+        </TouchableOpacity>
+      </View>
+    </ImageBackground>
   );
 }
 
@@ -46,11 +77,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
-  textvoyage: {
-    color: "#3794B5"
+  text: {
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold"
   },
   logo: {
-    padding: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    padding: 15,
     marginTop: 25
   }
 });

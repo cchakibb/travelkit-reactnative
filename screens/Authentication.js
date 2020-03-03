@@ -24,7 +24,7 @@ export default function Authentication({ setToken }) {
         <View style={styles.logo}>
           <Image
             source={require("../assets/general/logo/logo.png")}
-            style={{ width: 95, height: 95 }}
+            style={{ width: 60, height: 60 }}
           ></Image>
         </View>
         <View
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     borderColor: "black"
   },
   logo: {
-    padding: 10,
+    padding: 15,
     marginTop: 25
   },
   connexion: {
