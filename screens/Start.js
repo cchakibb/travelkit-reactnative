@@ -7,7 +7,7 @@ export default function Start() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Text style={styles.startTxt}>Travel Kit</Text>
+      <Text style={styles.startTxt}>GUIGUI</Text>
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("Authentication");
