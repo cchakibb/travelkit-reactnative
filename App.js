@@ -209,7 +209,7 @@ export default function App() {
             </Tab.Navigator>
           )}
         </Stack.Screen>
-        <Stack.Screen name="EatAndDrink">
+        <Stack.Screen name="EatAndDrink" options={{ title: "" }}>
           {() => (
             <Tab.Navigator
               // ici on peut gérer le design de notre bottomTabBar
@@ -240,7 +240,7 @@ export default function App() {
             </Tab.Navigator>
           )}
         </Stack.Screen>
-        <Stack.Screen name="MosquitoesAndTicks">
+        <Stack.Screen name="MosquitoesAndTicks" options={{ title: "" }}>
           {() => (
             <Tab.Navigator
               // ici on peut gérer le design de notre bottomTabBar
@@ -272,7 +272,7 @@ export default function App() {
             </Tab.Navigator>
           )}
         </Stack.Screen>
-        <Stack.Screen name="Sun">
+        <Stack.Screen name="Sun" options={{ title: "" }}>
           {() => (
             <Tab.Navigator
               // ici on peut gérer le design de notre bottomTabBar
@@ -303,7 +303,7 @@ export default function App() {
             </Tab.Navigator>
           )}
         </Stack.Screen>
-        <Stack.Screen name="Swimming">
+        <Stack.Screen name="Swimming" options={{ title: "" }}>
           {() => (
             <Tab.Navigator
               // ici on peut gérer le design de notre bottomTabBar
@@ -335,7 +335,7 @@ export default function App() {
             </Tab.Navigator>
           )}
         </Stack.Screen>
-        <Stack.Screen name="Animals">
+        <Stack.Screen name="Animals" options={{ title: "" }}>
           {() => (
             <Tab.Navigator
               // ici on peut gérer le design de notre bottomTabBar
@@ -366,7 +366,7 @@ export default function App() {
             </Tab.Navigator>
           )}
         </Stack.Screen>
-        <Stack.Screen name="Quizz">
+        <Stack.Screen name="Quizz" options={{ title: "" }}>
           {() => (
             <Tab.Navigator
               // ici on peut gérer le design de notre bottomTabBar
