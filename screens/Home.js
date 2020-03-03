@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/core";
-import { Button, Text, View } from "react-native";
+import { Button, Text, View, ImageBackground, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function Home() {
   const navigation = useNavigation();
   return (
-    <View>
+    <View style={styles.container}>
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("Home");
@@ -39,3 +39,18 @@ export default function Home() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  textvoyage: {
+    color: "#3794B5"
+  },
+  logo: {
+    padding: 10,
+    marginTop: 25
+  }
+});
