@@ -18,7 +18,7 @@ export default function Authentication({ setToken }) {
           navigation.navigate("FirstConnexion");
         }}
       >
-        <Text>USERNAME PASSWORD and CHAKIB</Text>
+        <Text>USERNAME PASSWORD</Text>
       </TouchableOpacity>
     </View>
   );
