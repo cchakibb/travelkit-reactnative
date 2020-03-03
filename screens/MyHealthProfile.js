@@ -1,11 +1,13 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/core";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import Header from "../components/Header";
 
 export default function MyHealthProfile() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
+      <Header />
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("MyHealth");

@@ -84,20 +84,29 @@ export default function App() {
           name="FirstConnexion"
           options={{
             header: () => null,
-            animationEnabled: false
+            animationEnabled: false,
+            title: ""
           }}
         >
           {() => <FirstConnexion setToken={setToken} />}
         </Stack.Screen>
-        <Stack.Screen name="Home">
+        <Stack.Screen
+          name="Home"
+          options={{ header: () => null, animationEnabled: false }}
+        >
           {() => <Home setToken={setToken} />}
         </Stack.Screen>
         <Stack.Screen
           name="MyHealthProfile"
           options={{
             headerBackground: () => null,
-            headerTitle: "",
-            animationEnabled: false
+
+            headerTitle: "jddd",
+            animationEnabled: false,
+
+            headerStyle: {
+              backgroundColor: "#f4511e"
+            }
           }}
         >
           {() => <MyHealthProfile setToken={setToken} />}
