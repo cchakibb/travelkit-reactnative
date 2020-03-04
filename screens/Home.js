@@ -26,7 +26,7 @@ export default function Home() {
           }}
         >
           <Image
-            source={require("../assets/general/Icone accueil/checklist.png")}
+            source={require("../assets/general/icone-accueil/checklist.png")}
             style={{ width: 30, height: 30, backgroundColor: "red" }}
           ></Image>
           <Text style={styles.text}>Ma checklist</Text>
@@ -38,7 +38,7 @@ export default function Home() {
           }}
         >
           <Image
-            source={require("../assets/general/Icone accueil/sante.png")}
+            source={require("../assets/general/icone-accueil/sante.png")}
             style={{ width: 30, height: 30, backgroundColor: "red" }}
           ></Image>
           <Text style={styles.text}>Mon profil santé</Text>
@@ -50,7 +50,7 @@ export default function Home() {
           }}
         >
           <Image
-            source={require("../assets/general/Icone accueil/checklist.png")}
+            source={require("../assets/general/icone-accueil/checklist.png")}
             style={{ width: 30, height: 30, backgroundColor: "red" }}
           ></Image>
           <Text style={styles.text}>Mon quotidien</Text>
@@ -61,7 +61,7 @@ export default function Home() {
           }}
         >
           <Image
-            source={require("../assets/general/Icone accueil/checklist.png")}
+            source={require("../assets/general/icone-accueil/checklist.png")}
             style={{ width: 30, height: 30, backgroundColor: "red" }}
           ></Image>
           <Text style={styles.text}>Mes documents</Text>
