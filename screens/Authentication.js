@@ -19,7 +19,7 @@ export default function Authentication({ setToken }) {
     <View>
       <ImageBackground
         source={require("../assets/general/background/accueil.png")}
-        style={{ width: "100%", height: "100%", opacity: "0.9" }}
+        style={{ width: "100%", height: "100%", opacity: "1" }}
       >
         <View style={styles.logo}>
           <Image
@@ -27,15 +27,15 @@ export default function Authentication({ setToken }) {
             style={{ width: 60, height: 60 }}
           ></Image>
         </View>
+        <View>
+          <Text style={styles.connexion}>Connexion</Text>
+        </View>
         <View
           style={{
             alignItems: "center",
-            height: 630,
-            justifyContent: "center"
+            marginTop: 22
           }}
         >
-          <Text style={styles.connexion}>Connexion</Text>
-
           <TextInput
             style={styles.input}
             placeholder="Identifiant"
@@ -47,17 +47,21 @@ export default function Authentication({ setToken }) {
             placeholder="Mot de passe"
             color="black"
           ></TextInput>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate("FirstConnexion");
-            }}
-            style={styles.icone}
-          >
-            <View>
-              <Ionicons name="md-checkmark-circle" size={60} color="#3794B5" />
-            </View>
-          </TouchableOpacity>
         </View>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("FirstConnexion");
+          }}
+        >
+          <View
+            style={{
+              marginRight: 30,
+              alignItems: "flex-end"
+            }}
+          >
+            <Ionicons name="md-checkmark-circle" size={60} color="#3794B5" />
+          </View>
+        </TouchableOpacity>
       </ImageBackground>
     </View>
   );
@@ -65,13 +69,17 @@ export default function Authentication({ setToken }) {
 
 const styles = StyleSheet.create({
   input: {
-    marginTop: 20,
+    padding: 10,
+    marginBottom: 20,
+    marginLeft: 2,
     fontSize: 18,
     backgroundColor: "white",
     color: "white",
-    height: 50,
+    height: 55,
     width: 350,
-    borderRadius: 3,
+    borderRadius: 4,
+    borderStyle: "solid",
+    borderWidth: 1,
     borderColor: "black"
   },
   logo: {
@@ -79,12 +87,12 @@ const styles = StyleSheet.create({
     marginTop: 25
   },
   connexion: {
-    marginBottom: 30,
+    marginTop: 100,
+
+    textAlign: "center",
+    width: "100%",
     color: "white",
-    fontSize: 40,
+    fontSize: 44,
     fontWeight: "bold"
-  },
-  icone: {
-    width: 350
   }
 });

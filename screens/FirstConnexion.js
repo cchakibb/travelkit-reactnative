@@ -15,7 +15,7 @@ export default function FirstConnexion({ setToken }) {
   return (
     <ImageBackground
       source={require("../assets/general/background/accueil.png")}
-      style={{ width: "100%", height: "100%", opacity: "0.9" }}
+      style={{ width: "100%", height: "100%", opacity: "1" }}
     >
       <View>
         <View style={styles.logo}>
@@ -78,7 +78,10 @@ const styles = StyleSheet.create({
     width: 330,
     margin: 15,
     height: 70,
-    borderRadius: 30
+    borderRadius: 30,
+    borderStyle: "solid",
+    borderWidth: 2,
+    borderColor: "grey"
   },
   submitButtonText: {
     textAlign: "center",
