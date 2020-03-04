@@ -24,6 +24,23 @@ export default function FirstConnexion({ setToken }) {
             style={{ width: 60, height: 60 }}
           />
         </View>
+        <View
+          style={{
+            height: 200,
+            justifyContent: "flex-end",
+            alignItems: "center"
+          }}
+        >
+          <Text
+            style={{
+              color: "white",
+              fontWeight: "bold",
+              fontSize: 60
+            }}
+          >
+            Travel kit
+          </Text>
+        </View>
         <View style={styles.voyage}>
           <TouchableOpacity
             style={styles.submitButton}
@@ -57,10 +74,11 @@ const styles = StyleSheet.create({
   submitButton: {
     justifyContent: "center",
     backgroundColor: "white",
-    width: 325,
+    marginBottom: 500,
+    width: 330,
     margin: 15,
-    height: 50,
-    borderRadius: 15
+    height: 70,
+    borderRadius: 30
   },
   submitButtonText: {
     textAlign: "center",

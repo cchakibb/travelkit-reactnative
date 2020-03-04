@@ -46,12 +46,12 @@ export default function Authentication({ setToken }) {
             style={styles.input}
             placeholder="Mot de passe"
             color="black"
-            value={password}
           ></TextInput>
           <TouchableOpacity
             onPress={() => {
               navigation.navigate("FirstConnexion");
             }}
+            style={styles.icone}
           >
             <View>
               <Ionicons name="md-checkmark-circle" size={60} color="#3794B5" />
@@ -83,5 +83,8 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 40,
     fontWeight: "bold"
+  },
+  icone: {
+    width: 350
   }
 });
