@@ -6,36 +6,36 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground,
-  Button,
-  Alert
+  Button
 } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 
 export default function FirstConnexion({ setToken }) {
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={require("../assets/general/background/accueil.png")}
-        style={{ width: "100%", height: "100%", opacity: "0.9" }}
-      >
+    <ImageBackground
+      source={require("../assets/general/background/accueil.png")}
+      style={{ width: "100%", height: "100%", opacity: "0.9" }}
+    >
+      <View>
         <View style={styles.logo}>
           <Image
             source={require("../assets/general/logo/logo.png")}
-            style={{ width: 65, height: 65 }}
+            style={{ width: 60, height: 60 }}
           />
         </View>
-        <View>
+        <View style={styles.voyage}>
           <TouchableOpacity
+            style={styles.submitButton}
             onPress={() => {
               navigation.navigate("Home");
             }}
           >
-            <Text>Nouveau voyage</Text>
+            <Text style={styles.submitButtonText}> Nouveau Voyage </Text>
           </TouchableOpacity>
         </View>
-      </ImageBackground>
-    </View>
+      </View>
+    </ImageBackground>
   );
 }
 
@@ -45,11 +45,27 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
-  textvoyage: {
-    color: "#3794B5"
-  },
   logo: {
-    padding: 10,
+    padding: 15,
     marginTop: 25
+  },
+  voyage: {
+    height: 650,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  submitButton: {
+    justifyContent: "center",
+    backgroundColor: "white",
+    width: 325,
+    margin: 15,
+    height: 50,
+    borderRadius: 15
+  },
+  submitButtonText: {
+    textAlign: "center",
+    fontSize: 25,
+    fontWeight: "bold",
+    color: "#3794B5"
   }
 });
