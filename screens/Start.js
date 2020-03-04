@@ -19,7 +19,11 @@ export default function Start() {
         <View>
           <Image
             source={require("../assets/general/logo/logo.png")}
-            style={{ width: 225, height: 225 }}
+            style={{
+              width: 225,
+              height: 225,
+              marginTop: 20
+            }}
           />
         </View>
       </TouchableOpacity>
@@ -34,9 +38,8 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   startTxt: {
-    fontSize: 65,
+    fontSize: 55,
     fontWeight: "bold",
-
     color: "#3794B5"
   }
 });

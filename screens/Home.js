@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigation } from "@react-navigation/core";
 import { Text, View, ImageBackground, StyleSheet, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
 
 export default function Home() {
   const navigation = useNavigation();
@@ -11,12 +11,29 @@ export default function Home() {
       source={require("../assets/general/background/accueil.png")}
       style={{ width: "100%", height: "100%", opacity: "0.9" }}
     >
-      <View style={styles.logo}>
+      <View style={styles.logoProfil}>
         <Image
           source={require("../assets/general/logo/logo.png")}
           style={{ width: 60, height: 60 }}
         />
-        <Ionicons name="bars" size={53} color="#3794B5" />
+        <FontAwesome name="bars" size={55} color="#3794B5" />
+      </View>
+      <View
+        style={{
+          height: 150,
+          justifyContent: "flex-end",
+          alignItems: "center"
+        }}
+      >
+        <Text
+          style={{
+            color: "white",
+            fontWeight: "bold",
+            fontSize: 60
+          }}
+        >
+          Travel kit
+        </Text>
       </View>
 
       <View style={styles.container}>
@@ -24,47 +41,51 @@ export default function Home() {
           onPress={() => {
             navigation.navigate("Home");
           }}
+          style={styles.iconeMenu}
         >
           <Image
             source={require("../assets/general/icone-accueil/checklist.png")}
-            style={{ width: 30, height: 30, backgroundColor: "red" }}
+            style={{ width: 55, height: 55, marginLeft: 35 }}
           ></Image>
-          <Text style={styles.text}>Ma checklist</Text>
+          <Text style={styles.text}> Ma checklist</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => {
             navigation.navigate("MyHealthProfile");
           }}
+          style={styles.iconeMenu}
         >
           <Image
             source={require("../assets/general/icone-accueil/sante.png")}
-            style={{ width: 30, height: 30, backgroundColor: "red" }}
+            style={{ width: 55, height: 55, marginLeft: 95 }}
           ></Image>
-          <Text style={styles.text}>Mon profil santé</Text>
+          <Text style={styles.text}> Mon profil santé</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => {
             navigation.navigate("Daily");
           }}
+          style={styles.iconeMenu}
         >
           <Image
             source={require("../assets/general/icone-accueil/checklist.png")}
-            style={{ width: 30, height: 30, backgroundColor: "red" }}
+            style={{ width: 55, height: 55, marginLeft: 95 }}
           ></Image>
-          <Text style={styles.text}>Mon quotidien</Text>
+          <Text style={styles.text}> Mon quotidien</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
             navigation.navigate("Home");
           }}
+          style={styles.iconeMenu}
         >
           <Image
             source={require("../assets/general/icone-accueil/checklist.png")}
-            style={{ width: 30, height: 30, backgroundColor: "red" }}
+            style={{ width: 55, height: 55, marginLeft: 35 }}
           ></Image>
-          <Text style={styles.text}>Mes documents</Text>
+          <Text style={styles.text}> Mes documents</Text>
         </TouchableOpacity>
       </View>
     </ImageBackground>
@@ -73,19 +94,28 @@ export default function Home() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    height: 600,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "flex-start",
+    marginTop: 70
   },
   text: {
+    padding: 15,
     color: "white",
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: "bold"
   },
-  logo: {
+  logoProfil: {
     flexDirection: "row",
     justifyContent: "space-between",
     padding: 15,
     marginTop: 25
+  },
+  iconeMenu: {
+    width: 400,
+    flexDirection: "row",
+    marginBottom: 3,
+    padding: 5,
+    padding: 15
   }
 });

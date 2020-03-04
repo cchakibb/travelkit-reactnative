@@ -1,63 +1,138 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/core";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import Header from "../components/Header";
+import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 
 export default function MyHealthProfile() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("MyHealth");
+      <View>
+        <Image
+          source={require("../assets/general/background/small-screen.png")}
+        ></Image>
+        <View>
+          <Text style={styles.profilSante}>Mon profil santé</Text>
+        </View>
+      </View>
+      <View
+        style={{
+          flex: 1,
+          width: "100%",
+          height: "100%"
         }}
       >
-        <Text>Ma santé</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("MyVaccinationCard");
-        }}
-      >
-        <Text>Carnet de vaccination</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("MyHealthProfile");
-        }}
-      >
-        <Text>Médicaments</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("MyHealthProfile");
-        }}
-      >
-        <Text>Trousse de secours</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("MyHealthProfile");
-        }}
-      >
-        <Text>Consultation médicale</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("MyHealthProfile");
-        }}
-      >
-        <Text>Couverture santé</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("MyHealth");
+          }}
+          style={styles.btn}
+        >
+          <Image
+            style={styles.icone}
+            source={require("../assets/general/icone-sante/etat_de_sante.png")}
+          ></Image>
+          <Text style={styles.onglet}>Ma santé</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("MyVaccinationCard");
+          }}
+          style={styles.btn}
+        >
+          <Image
+            style={styles.icone}
+            source={require("../assets/general/icone-sante/vaccin.png")}
+          ></Image>
+          <Text style={styles.onglet}>Carnet de vaccination</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("MyHealthProfile");
+          }}
+          style={styles.btn}
+        >
+          <Image
+            style={styles.icone}
+            source={require("../assets/general/icone-sante/medicament.png")}
+          ></Image>
+          <Text style={styles.onglet}>Médicaments</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("MyHealthProfile");
+          }}
+          style={styles.btn}
+        >
+          <Image
+            style={styles.icone}
+            source={require("../assets/general/icone-sante/trousse_de_secours.png")}
+          ></Image>
+          <Text style={styles.onglet}>Trousse de secours</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("MyHealthProfile");
+          }}
+          style={styles.btn}
+        >
+          <Image
+            style={styles.icone}
+            source={require("../assets/general/icone-sante/consultation.png")}
+          ></Image>
+          <Text style={styles.onglet}>Consultation médicale</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("MyHealthProfile");
+          }}
+          style={styles.btn}
+        >
+          <Image
+            style={styles.icone}
+            source={require("../assets/general/icone-sante/couverture_sante.png")}
+          ></Image>
+          <View>
+            <Text style={styles.onglet}>Couverture santé</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    height: "100%",
-    backgroundColor: "orange",
+    flex: 1,
     alignItems: "center",
     justifyContent: "center"
+  },
+  profilSante: {
+    textAlign: "center",
+    color: "#3794B5",
+    fontSize: 40,
+    fontWeight: "bold"
+  },
+  onglet: {
+    fontSize: 20,
+    textAlign: "center",
+    color: "#3794B5"
+  },
+  btn: {
+    height: 55,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 40,
+    marginHorizontal: 25,
+    borderColor: "#3794B5",
+    borderRadius: 22,
+    borderWidth: 1,
+    borderStyle: "solid"
+  },
+  icone: {
+    width: 55,
+    height: 55,
+    marginTop: 23,
+    marginRight: 330
   }
 });
