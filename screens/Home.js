@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <ImageBackground
       source={require("../assets/general/background/accueil.png")}
-      style={{ width: "100%", height: "100%", opacity: "0.9" }}
+      style={{ width: "100%", height: "100%", opacity: "1" }}
     >
       <View style={styles.logoProfil}>
         <Image
@@ -45,7 +45,7 @@ export default function Home() {
         >
           <Image
             source={require("../assets/general/icone-accueil/checklist.png")}
-            style={{ width: 55, height: 55, marginLeft: 35 }}
+            style={styles.icone}
           ></Image>
           <Text style={styles.text}> Ma checklist</Text>
         </TouchableOpacity>
@@ -58,7 +58,7 @@ export default function Home() {
         >
           <Image
             source={require("../assets/general/icone-accueil/sante.png")}
-            style={{ width: 55, height: 55, marginLeft: 95 }}
+            style={styles.iconeMilieu}
           ></Image>
           <Text style={styles.text}> Mon profil santé</Text>
         </TouchableOpacity>
@@ -71,7 +71,7 @@ export default function Home() {
         >
           <Image
             source={require("../assets/general/icone-accueil/checklist.png")}
-            style={{ width: 55, height: 55, marginLeft: 95 }}
+            style={styles.iconeMilieu}
           ></Image>
           <Text style={styles.text}> Mon quotidien</Text>
         </TouchableOpacity>
@@ -83,7 +83,7 @@ export default function Home() {
         >
           <Image
             source={require("../assets/general/icone-accueil/checklist.png")}
-            style={{ width: 55, height: 55, marginLeft: 35 }}
+            style={styles.icone}
           ></Image>
           <Text style={styles.text}> Mes documents</Text>
         </TouchableOpacity>
@@ -117,5 +117,23 @@ const styles = StyleSheet.create({
     marginBottom: 3,
     padding: 5,
     padding: 15
+  },
+  icone: {
+    width: 55,
+    height: 55,
+    marginLeft: 35,
+    borderStyle: "solid",
+    borderWidth: 2,
+    borderColor: "#3794B5",
+    borderRadius: 50
+  },
+  iconeMilieu: {
+    width: 55,
+    height: 55,
+    marginLeft: 95,
+    borderStyle: "solid",
+    borderWidth: 2,
+    borderColor: "#3794B5",
+    borderRadius: 50
   }
 });
