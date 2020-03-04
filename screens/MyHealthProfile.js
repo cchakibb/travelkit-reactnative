@@ -7,7 +7,6 @@ export default function MyHealthProfile() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Header />
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("MyHealth");
@@ -56,7 +55,8 @@ export default function MyHealthProfile() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    height: "100%",
+    backgroundColor: "orange",
     alignItems: "center",
     justifyContent: "center"
   }

@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
   StyleSheet,
@@ -17,18 +17,21 @@ export default function Header() {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../assets/general/background/small-screen.png")}
-        style={{ width, height: 150, marginBottom: 250 }}
+        source={require("../assets/general/background/accueil.png")}
+        style={{
+          width,
+          height: 200
+        }}
       ></Image>
-
-      <Text>HEADER TITLE</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "flex-start"
   }
 });
+ */
