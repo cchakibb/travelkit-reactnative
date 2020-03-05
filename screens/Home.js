@@ -6,10 +6,15 @@ import { FontAwesome } from "@expo/vector-icons";
 
 export default function Home() {
   const navigation = useNavigation();
+
   return (
     <ImageBackground
       source={require("../assets/general/background/accueil.png")}
-      style={{ width: "100%", height: "100%", opacity: "1" }}
+      style={{
+        width: "100%",
+        height: "100%",
+        opacity: "1"
+      }}
     >
       <View style={styles.logoProfil}>
         <Image

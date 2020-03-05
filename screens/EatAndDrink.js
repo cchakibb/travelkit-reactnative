@@ -1,11 +1,20 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import HeaderTopImage from "../components/HeaderTopImage";
 
 export default function EatAndDrink() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
+      <HeaderTopImage title={"Boire et manger"}></HeaderTopImage>
+      <View
+        style={{
+          flex: 1,
+          width: "100%",
+          height: "100%"
+        }}
+      ></View>
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("Food");

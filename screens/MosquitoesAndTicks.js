@@ -1,11 +1,13 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import HeaderTopImage from "../components/HeaderTopImage";
 
 export default function MosquitoesAndTicks() {
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
+    <View>
+      <HeaderTopImage title={"Moustiques et tiques"}></HeaderTopImage>
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("Mosquitoes");
