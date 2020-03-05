@@ -18,21 +18,24 @@ export default function MyHealth() {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = async () => {
-    const response = await axios.get(
-      "https://c0d1syq1s6.execute-api.eu-central-1.amazonaws.com/dev/health/healthstatus",
-      {
-        headers: {
-          Authorization:
-            "Bearer " +
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTEwYzI1OTM1Y2IyZTYxMzQzYTA0M2UiLCJpYXQiOjE1ODMzMTUxMTUsImV4cCI6MTU4MzQwMTUxNX0.F7JFSDF0nOcTbQQ9eGzohK3tPrJU2j2t26L0PDshNtw"
+    try {
+      const response = await axios.get(
+        "https://c0d1syq1s6.execute-api.eu-central-1.amazonaws.com/dev/health/healthstatus",
+        {
+          headers: {
+            Authorization:
+              "Bearer " +
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTVkMmEwZGNkMmVlZTAwMDljYWRmZDEiLCJpYXQiOjE1ODMzNTQzODksImV4cCI6MTU4MzQ0MDc4OX0.2alEvawvZVLK7RGjvsgLp9J6x5GJyc9mKGB0p1Vb048"
+          }
         }
-      }
-    );
-    setData(response.data);
-    console.log(response.data);
-    setIsLoading(false);
-  };
+      );
+      setData(response.data);
 
+      setIsLoading(false);
+    } catch (error) {
+      alert("MyHealth: something went wrong");
+    }
+  };
   useEffect(() => {
     fetchData();
   }, []);
