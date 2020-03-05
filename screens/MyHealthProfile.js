@@ -1,19 +1,13 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/core";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+import HeaderTopImage from "../components/HeaderTopImage";
 
 export default function MyHealthProfile() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <View>
-        <Image
-          source={require("../assets/general/background/small-screen.png")}
-        ></Image>
-        <View>
-          <Text style={styles.profilSante}>Mon profil santé</Text>
-        </View>
-      </View>
+      <HeaderTopImage title={"Mon profil santé"}></HeaderTopImage>
       <View
         style={{
           flex: 1,
@@ -81,6 +75,7 @@ export default function MyHealthProfile() {
           ></Image>
           <Text style={styles.onglet}>Consultation médicale</Text>
         </TouchableOpacity>
+
         <TouchableOpacity
           onPress={() => {
             navigation.navigate("MyHealthProfile");
@@ -91,9 +86,8 @@ export default function MyHealthProfile() {
             style={styles.icone}
             source={require("../assets/general/icone-sante/couverture_sante.png")}
           ></Image>
-          <View>
-            <Text style={styles.onglet}>Couverture santé</Text>
-          </View>
+
+          <Text style={styles.onglet}>Couverture santé</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -102,15 +96,10 @@ export default function MyHealthProfile() {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "white",
     flex: 1,
     alignItems: "center",
     justifyContent: "center"
-  },
-  profilSante: {
-    textAlign: "center",
-    color: "#3794B5",
-    fontSize: 40,
-    fontWeight: "bold"
   },
   onglet: {
     fontSize: 20,
@@ -119,7 +108,7 @@ const styles = StyleSheet.create({
   },
   btn: {
     height: 55,
-    backgroundColor: "#fff",
+    backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
     marginTop: 40,

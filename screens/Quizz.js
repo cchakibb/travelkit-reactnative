@@ -1,12 +1,20 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import HeaderTopImage from "../components/HeaderTopImage";
 
 export default function Quizz() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Text>This is the Quizz component</Text>
+      <HeaderTopImage title={"Quizz"}></HeaderTopImage>
+      <View
+        style={{
+          flex: 1,
+          width: "100%",
+          height: "100%"
+        }}
+      ></View>
     </View>
   );
 }

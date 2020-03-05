@@ -4,8 +4,7 @@ import {
   Text,
   View,
   TouchableOpacity,
-  ActivityIndicator,
-  FlatList
+  ActivityIndicator
 } from "react-native";
 import axios from "axios";
 import { MaterialCommunityIcons } from "@expo/vector-icons";

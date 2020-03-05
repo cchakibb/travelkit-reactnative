@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import HeaderTopImage from "../components/HeaderTopImage";
 
 export default function Swimming() {
   const [getMoreInfo, setGetMoreInfo] = useState();
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Text>This is the Swimming component</Text>
+      <HeaderTopImage title={"Baignade"}></HeaderTopImage>
+      <View
+        style={{
+          flex: 1,
+          width: "100%",
+          height: "100%"
+        }}
+      ></View>
     </View>
   );
 }
