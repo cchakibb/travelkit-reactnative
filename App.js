@@ -5,7 +5,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import Home from "./screens/Home";
-import Profile from "./screens/Profile";
 
 import Settings from "./screens/Settings";
 import Start from "./screens/Start";
@@ -32,9 +31,6 @@ import FirstAidKit from "./screens/FirstAidKit";
 import DoctorAppointment from "./screens/DoctorAppointment";
 import HealthInsurance from "./screens/HealthInsurance";
 // MyHealthInformation TABS
-
-// COMPONENTS
-import HeaderTopImage from "./components/HeaderTopImage";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -102,21 +98,12 @@ export default function App() {
         <Stack.Screen
           name="MyHealthProfile"
           options={{
-            headerBackground: () => <HeaderTopImage />,
-
-            headerTitle: "jddd",
-            animationEnabled: false,
-            headerStyle: {
-              backgroundColor: "#f4511e"
-            }
+            headerShown: false
           }}
         >
           {() => <MyHealthProfile setToken={setToken} />}
         </Stack.Screen>
-        <Stack.Screen
-          name="MyHealth"
-          options={{ headerBackground: () => <HeaderTopImage />, title: "" }}
-        >
+        <Stack.Screen name="MyHealth" options={{ title: "" }}>
           {() => (
             <Tab.Navigator
               // ici on peut gérer le design de notre bottomTabBar
@@ -148,10 +135,7 @@ export default function App() {
             </Tab.Navigator>
           )}
         </Stack.Screen>
-        <Stack.Screen
-          name="MyVaccinationCard"
-          options={{ headerBackground: () => <HeaderTopImage />, title: "" }}
-        >
+        <Stack.Screen name="MyVaccinationCard" options={{ title: "" }}>
           {() => (
             <Tab.Navigator
               // ici on peut gérer le design de notre bottomTabBar
@@ -183,18 +167,12 @@ export default function App() {
             </Tab.Navigator>
           )}
         </Stack.Screen>
-        <Stack.Screen
-          name="Daily"
-          options={{ headerBackground: () => <HeaderTopImage />, title: "ddd" }}
-        >
+        <Stack.Screen name="Daily" options={{ headerShown: false, title: "" }}>
           {() => <Daily setToken={setToken} />}
         </Stack.Screen>
         <Stack.Screen
           name="GeneralInformation"
-          options={{
-            headerBackground: () => <HeaderTopImage />,
-            title: ""
-          }}
+          options={{ headerShown: false, title: "" }}
         >
           {() => (
             <Tab.Navigator
@@ -228,7 +206,7 @@ export default function App() {
         </Stack.Screen>
         <Stack.Screen
           name="EatAndDrink"
-          options={{ headerBackground: () => <HeaderTopImage />, title: "" }}
+          options={{ headerShown: false, title: "" }}
         >
           {() => (
             <Tab.Navigator
@@ -244,11 +222,11 @@ export default function App() {
                 }
               }}
             >
-              <Tab.Screen name="GeneralInformation">
-                {() => <GeneralInformation />}
-              </Tab.Screen>
               <Tab.Screen name="EatAndDrink">
                 {() => <EatAndDrink />}
+              </Tab.Screen>
+              <Tab.Screen name="GeneralInformation">
+                {() => <GeneralInformation />}
               </Tab.Screen>
               <Tab.Screen name="MosquitoesAndTicks">
                 {() => <MosquitoesAndTicks />}
@@ -262,7 +240,7 @@ export default function App() {
         </Stack.Screen>
         <Stack.Screen
           name="MosquitoesAndTicks"
-          options={{ headerBackground: () => <HeaderTopImage />, title: "" }}
+          options={{ headerShown: false, title: "" }}
         >
           {() => (
             <Tab.Navigator
@@ -295,10 +273,7 @@ export default function App() {
             </Tab.Navigator>
           )}
         </Stack.Screen>
-        <Stack.Screen
-          name="Sun"
-          options={{ headerBackground: () => <HeaderTopImage />, title: "" }}
-        >
+        <Stack.Screen name="Sun" options={{ headerShown: false, title: "" }}>
           {() => (
             <Tab.Navigator
               // ici on peut gérer le design de notre bottomTabBar
@@ -331,7 +306,7 @@ export default function App() {
         </Stack.Screen>
         <Stack.Screen
           name="Swimming"
-          options={{ headerBackground: () => <HeaderTopImage />, title: "" }}
+          options={{ headerShown: false, title: "" }}
         >
           {() => (
             <Tab.Navigator
@@ -366,7 +341,7 @@ export default function App() {
         </Stack.Screen>
         <Stack.Screen
           name="Animals"
-          options={{ headerBackground: () => <HeaderTopImage />, title: "" }}
+          options={{ headerShown: false, title: "" }}
         >
           {() => (
             <Tab.Navigator
@@ -398,10 +373,7 @@ export default function App() {
             </Tab.Navigator>
           )}
         </Stack.Screen>
-        <Stack.Screen
-          name="Quizz"
-          options={{ headerBackground: () => <HeaderTopImage />, title: "" }}
-        >
+        <Stack.Screen name="Quizz" options={{ headerShown: false, title: "" }}>
           {() => (
             <Tab.Navigator
               // ici on peut gérer le design de notre bottomTabBar
