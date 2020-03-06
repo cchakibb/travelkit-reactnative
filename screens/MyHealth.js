@@ -24,7 +24,7 @@ export default function MyHealth() {
           headers: {
             Authorization:
               "Bearer " +
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTVkMmEwZGNkMmVlZTAwMDljYWRmZDEiLCJpYXQiOjE1ODMzNTQzODksImV4cCI6MTU4MzQ0MDc4OX0.2alEvawvZVLK7RGjvsgLp9J6x5GJyc9mKGB0p1Vb048"
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTVkMmEwZGNkMmVlZTAwMDljYWRmZDEiLCJpYXQiOjE1ODM0OTg0NzEsImV4cCI6MTU4MzU4NDg3MX0.OHhLqpJSmOEmS4Ej3Vt_kieQUvrOkuiUcn4nm_8UATA"
           }
         }
       );
