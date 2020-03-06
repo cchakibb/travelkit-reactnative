@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { AsyncStorage } from "react-native";
+import { AsyncStorage, Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -178,12 +178,9 @@ export default function App() {
             <Tab.Navigator
               // ici on peut gérer le design de notre bottomTabBar
               tabBarOptions={{
-                activeTintColor: "violet",
                 inactiveTintColor: "gray",
-                inactiveBackgroundColor: "yellow",
-                activeBackgroundColor: "green",
                 style: {
-                  backgroundColor: "black",
+                  backgroundColor: "white",
                   height: 100
                 }
               }}
