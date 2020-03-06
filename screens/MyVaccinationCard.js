@@ -11,13 +11,17 @@ import axios from "axios";
 import ViewPager from "@react-native-community/viewpager";
 import moment from "moment";
 import ContraindicatedVaccine from "../components/ContraindicatedVaccine";
+import { ScrollView } from "react-native-gesture-handler";
 require("moment/locale/fr");
 
 export default function MyVaccinationCard() {
-  const [data, setData] = useState();
+  const [userVaccineData, setUserVaccineData] = useState();
+  const [recommendedvaccines, setRecommendedvaccines] = useState(null);
+  const [mandatoryOrRecommended, setMandatoryOrRecommended] = useState(null);
+  const [contraindicated, setContraindicated] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchData = async () => {
+  const fetchVaccineData = async () => {
     try {
       const response = await axios.get(
         "https://c0d1syq1s6.execute-api.eu-central-1.amazonaws.com/dev/health/vaccinationrecord",
@@ -25,11 +29,11 @@ export default function MyVaccinationCard() {
           headers: {
             Authorization:
               "Bearer " +
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTVkMmEwZGNkMmVlZTAwMDljYWRmZDEiLCJpYXQiOjE1ODM0MDc5ODMsImV4cCI6MTU4MzQ5NDM4M30.y8-x59y_td_dapsUd6JUEld_VYdl_xogZ7hXdvsYX7o"
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTVkMmEwZGNkMmVlZTAwMDljYWRmZDEiLCJpYXQiOjE1ODM0OTg0NzEsImV4cCI6MTU4MzU4NDg3MX0.OHhLqpJSmOEmS4Ej3Vt_kieQUvrOkuiUcn4nm_8UATA"
           }
         }
       );
-      setData(response.data);
+      setUserVaccineData(response.data);
       /* console.log(response.data); */
       setIsLoading(false);
     } catch (error) {
@@ -37,8 +41,62 @@ export default function MyVaccinationCard() {
     }
   };
 
+  const fetchRecommendedVaccinesInfo = async () => {
+    try {
+      const response = await axios.get(
+        "https://c0d1syq1s6.execute-api.eu-central-1.amazonaws.com/dev//health/vaccinationrecord/info/recommendedvaccines",
+        {
+          headers: {
+            Authorization:
+              "Bearer " +
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTVkMmEwZGNkMmVlZTAwMDljYWRmZDEiLCJpYXQiOjE1ODM0OTUxODksImV4cCI6MTU4MzU4MTU4OX0.vaA3Ug0Fs6f0mRhencdB3WyFW3wO8172Fw3DqqZeqZk"
+          }
+        }
+      );
+      setRecommendedvaccines(response.data);
+    } catch (error) {
+      alert("Something went wrong");
+    }
+  };
+
+  const fetchMandatoryOrRecommended = async () => {
+    try {
+      const response = await axios.get(
+        "https://c0d1syq1s6.execute-api.eu-central-1.amazonaws.com/dev//health/vaccinationrecord/info/mandatoryorrecommended",
+        {
+          headers: {
+            Authorization:
+              "Bearer " +
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTVkMmEwZGNkMmVlZTAwMDljYWRmZDEiLCJpYXQiOjE1ODM0OTUxODksImV4cCI6MTU4MzU4MTU4OX0.vaA3Ug0Fs6f0mRhencdB3WyFW3wO8172Fw3DqqZeqZk"
+          }
+        }
+      );
+      setMandatoryOrRecommended(response.data);
+    } catch (error) {
+      alert("Something went wrong");
+    }
+  };
+
+  const fetchVaccineContraindicated = async () => {
+    try {
+      const response = await axios.get(
+        "https://c0d1syq1s6.execute-api.eu-central-1.amazonaws.com/dev/health/vaccinationrecord/info/contraindications",
+        {
+          headers: {
+            Authorization:
+              "Bearer " +
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTVkMmEwZGNkMmVlZTAwMDljYWRmZDEiLCJpYXQiOjE1ODM0OTUxODksImV4cCI6MTU4MzU4MTU4OX0.vaA3Ug0Fs6f0mRhencdB3WyFW3wO8172Fw3DqqZeqZk"
+          }
+        }
+      );
+      setContraindicated(response.data);
+    } catch (error) {
+      alert("Something went wrong");
+    }
+  };
+
   useEffect(() => {
-    fetchData();
+    fetchVaccineData();
   }, []);
 
   return (
@@ -46,19 +104,23 @@ export default function MyVaccinationCard() {
       {isLoading === true ? (
         <ActivityIndicator />
       ) : (
-        <View>
+        <ScrollView>
           <ViewPager style={styles.viewPager} initialPage={0}>
             <View style={styles.page} key="1">
               <Text>Mes vaccins à jour:</Text>
-              {data.vaccinationRecord.previous_vaccines[0].name &&
-              data.vaccinationRecord.previous_vaccines[0].date ? (
+              {userVaccineData.vaccinationRecord.previous_vaccines[0].name &&
+              userVaccineData.vaccinationRecord.previous_vaccines[0].date ? (
                 <View>
                   <Text>
-                    {data.vaccinationRecord.previous_vaccines[0].name}
+                    {
+                      userVaccineData.vaccinationRecord.previous_vaccines[0]
+                        .name
+                    }
                   </Text>
                   <Text>
                     {moment(
-                      data.vaccinationRecord.previous_vaccines[0].date
+                      userVaccineData.vaccinationRecord.previous_vaccines[0]
+                        .date
                     ).format("LL")}
                   </Text>
                 </View>
@@ -68,31 +130,71 @@ export default function MyVaccinationCard() {
             </View>
             <View style={styles.page} key="2">
               <Text>Mes vaccins obligatoires:</Text>
-              {data.vaccinationRecord.mandatory[0].name ? (
-                <Text>{data.vaccinationRecord.mandatory[0].name}</Text>
+              {userVaccineData.vaccinationRecord.mandatory[0].name ? (
+                <Text>
+                  {userVaccineData.vaccinationRecord.mandatory[0].name}
+                </Text>
               ) : (
                 <Text>Aucun</Text>
               )}
             </View>
             <View style={styles.page} key="3">
               <Text>Mes vaccins recommandés:</Text>
-              {data.vaccinationRecord.recommended[0].name ? (
-                <Text>{data.vaccinationRecord.recommended[0].name}</Text>
+              {userVaccineData.vaccinationRecord.recommended[0].name ? (
+                <Text>
+                  {userVaccineData.vaccinationRecord.recommended[0].name}
+                </Text>
               ) : (
                 <Text>Aucun</Text>
               )}
             </View>
           </ViewPager>
           <ContraindicatedVaccine
-            contraindicated={data.vaccinationRecord.contraindicated}
+            contraindicated={userVaccineData.vaccinationRecord.contraindicated}
           />
-
-          {/* {data.vaccinationRecord.contraindicated[0].name ? (
-            <Text>{data.vaccinationRecord.contraindicated[0].name}</Text>
-          ) : (
-            <Text>Aucun</Text>
-          )} */}
-        </View>
+          <TouchableOpacity onPress={() => fetchRecommendedVaccinesInfo()}>
+            <Text style={{ color: "blue" }}>
+              Informations sur les vaccins recommandés
+            </Text>
+          </TouchableOpacity>
+          {recommendedvaccines !== null ? (
+            <FlatList
+              data={recommendedvaccines.subsections}
+              keyExtractor={item => {
+                return String(item.index);
+              }}
+              renderItem={({ item }) => <Text>{item}</Text>}
+            />
+          ) : null}
+          <TouchableOpacity onPress={() => fetchMandatoryOrRecommended()}>
+            <Text style={{ color: "blue" }}>
+              Vaccination obligatoire ou recommandée : quelle différence ?
+            </Text>
+          </TouchableOpacity>
+          {mandatoryOrRecommended !== null ? (
+            <FlatList
+              data={mandatoryOrRecommended.subsections}
+              keyExtractor={item => {
+                return String(item.index);
+              }}
+              renderItem={({ item }) => <Text>{item}</Text>}
+            />
+          ) : null}
+          <TouchableOpacity onPress={() => fetchVaccineContraindicated()}>
+            <Text style={{ color: "blue" }}>
+              Contre-indications aux vaccins
+            </Text>
+          </TouchableOpacity>
+          {contraindicated !== null ? (
+            <FlatList
+              data={contraindicated.subsections}
+              keyExtractor={item => {
+                return String(item.index);
+              }}
+              renderItem={({ item }) => <Text>{item}</Text>}
+            />
+          ) : null}
+        </ScrollView>
       )}
     </View>
   );

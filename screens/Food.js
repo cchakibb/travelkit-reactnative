@@ -7,7 +7,7 @@ export default function Food() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Text>L'alimentation.... CHAKIB</Text>
+      <Text>L'alimentation....</Text>
     </View>
   );
 }
