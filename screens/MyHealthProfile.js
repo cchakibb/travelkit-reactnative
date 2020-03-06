@@ -107,14 +107,14 @@ const styles = StyleSheet.create({
     color: "#3794B5"
   },
   btn: {
-    height: 55,
+    height: 58,
     backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
     marginTop: 40,
     marginHorizontal: 25,
     borderColor: "#3794B5",
-    borderRadius: 22,
+    borderRadius: 50,
     borderWidth: 1,
     borderStyle: "solid"
   },
