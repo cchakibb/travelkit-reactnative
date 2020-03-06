@@ -2,34 +2,23 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import HeaderTopImage from "../components/HeaderTopImage";
+import BtnIcone from "../components/BtnIcone";
 
 export default function EatAndDrink() {
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
+    <View>
       <HeaderTopImage title={"Boire et manger"}></HeaderTopImage>
-      <View
-        style={{
-          flex: 1,
-          width: "100%",
-          height: "100%"
-        }}
-      ></View>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("Food");
-        }}
-      >
-        <Text>L'alimention</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("Drinks");
-        }}
-      >
-        <Text>La Boisson de Guigui</Text>
-      </TouchableOpacity>
+      <BtnIcone
+        title={"L'alimentation"}
+        iconeBtn={require("../assets/general/icone-quotidien/assiette.png")}
+        page="Food"
+      ></BtnIcone>
+      <BtnIcone
+        title={"La boisson"}
+        iconeBtn={require("../assets/general/icone-quotidien/boisson.png")}
+        page="Drinks"
+      ></BtnIcone>
     </View>
   );
 }
