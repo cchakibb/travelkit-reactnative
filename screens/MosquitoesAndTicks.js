@@ -10,7 +10,7 @@ export default function MosquitoesAndTicks() {
       <HeaderTopImage title={"Moustiques et tiques"}></HeaderTopImage>
       <View>
         <Text style={{ fontSize: 18, textAlign: "center", marginTop: 10 }}>
-          Pour ce voyage, il y a un risque de :
+          Pour ce voyage, il y a un risque de CHAKIB :
         </Text>
       </View>
       <View style={{ backgroundColor: "yellow" }}>
