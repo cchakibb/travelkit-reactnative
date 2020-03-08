@@ -44,7 +44,7 @@ export default function Home() {
       <View style={styles.container}>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("Home");
+            navigation.navigate("Checklist");
           }}
           style={styles.iconeMenu}
         >

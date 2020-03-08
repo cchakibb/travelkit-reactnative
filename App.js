@@ -25,6 +25,8 @@ import Sun from "./screens/Sun";
 import Swimming from "./screens/Swimming";
 import Animals from "./screens/Animals";
 import Quizz from "./screens/Quizz";
+import Checklist from "./screens/Checklist";
+import Destination from "./screens/Destination";
 // MyHealthInformation TABS
 import Medicine from "./screens/Medicine";
 import FirstAidKit from "./screens/FirstAidKit";
@@ -90,11 +92,24 @@ export default function App() {
           {() => <FirstConnexion setToken={setToken} />}
         </Stack.Screen>
         <Stack.Screen
+          name="Destination"
+          options={{ header: () => null, animationEnabled: false }}
+        >
+          {() => <Destination setToken={setToken} />}
+        </Stack.Screen>
+        <Stack.Screen
           name="Home"
           options={{ header: () => null, animationEnabled: false }}
         >
           {() => <Home setToken={setToken} />}
         </Stack.Screen>
+        <Stack.Screen
+          name="Checklist"
+          options={{ header: () => null, animationEnabled: false }}
+        >
+          {() => <Checklist setToken={setToken} />}
+        </Stack.Screen>
+
         <Stack.Screen
           name="MyHealthProfile"
           options={{

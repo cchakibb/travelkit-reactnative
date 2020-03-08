@@ -1,22 +1,27 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, View, ScrollView, Image } from "react-native";
 import HeaderTopImage from "../components/HeaderTopImage";
+import BtnInfo from "../components/BtnInfo";
 
 export default function Sun() {
   const [getMoreInfo, setGetMoreInfo] = useState();
   const navigation = useNavigation();
   return (
-    <View>
-      <HeaderTopImage title={"Soleil"}></HeaderTopImage>
-    </View>
+    <ScrollView style={styles.container}>
+      <View>
+        <HeaderTopImage title={"Soleil"}></HeaderTopImage>
+
+        <BtnInfo title={"Quels sont les risques ? "}></BtnInfo>
+        <BtnInfo title={"Comment bien se protéger ?"}></BtnInfo>
+        <BtnInfo title={"Comment choisir sa crème scolaire ?"}></BtnInfo>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: "white"
   }
 });

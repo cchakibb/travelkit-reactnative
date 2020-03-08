@@ -36,8 +36,8 @@ function BtnIcone({ title, iconeBtn, page }) {
 
 const styles = StyleSheet.create({
   icone: {
-    width: 58,
-    height: 58,
+    width: 55,
+    height: 56,
     marginRight: 74
   },
   btn: {
