@@ -1,29 +1,26 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import HeaderTopImage from "../components/HeaderTopImage";
+import BtnInfo from "../components/BtnInfo";
+import { HitTestResultTypes } from "expo/build/AR";
 
 export default function GeneralInformation() {
   const [getMoreInfo, setGetMoreInfo] = useState();
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
-      <HeaderTopImage title={"Infos générales"}></HeaderTopImage>
-      <View
-        style={{
-          flex: 1,
-          width: "100%",
-          height: "100%"
-        }}
-      ></View>
-    </View>
+    <ScrollView style={styles.container}>
+      <View>
+        <HeaderTopImage title={"Infos générales"}></HeaderTopImage>
+        <BtnInfo title={"Dengue"}></BtnInfo>
+        <BtnInfo title={"Paludisme"}></BtnInfo>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: "white"
   }
 });

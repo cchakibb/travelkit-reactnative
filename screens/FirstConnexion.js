@@ -45,7 +45,7 @@ export default function FirstConnexion({ setToken }) {
           <TouchableOpacity
             style={styles.submitButton}
             onPress={() => {
-              navigation.navigate("Home");
+              navigation.navigate("Destination");
             }}
           >
             <Text style={styles.submitButtonText}> Nouveau Voyage </Text>
