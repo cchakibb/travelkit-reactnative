@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
-export default function Drinks() {
+export default function Drinks({ userToken }) {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>

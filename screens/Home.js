@@ -4,7 +4,7 @@ import { Text, View, ImageBackground, StyleSheet, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { FontAwesome } from "@expo/vector-icons";
 
-export default function Home() {
+export default function Home({ userToken }) {
   const navigation = useNavigation();
 
   return (
@@ -133,7 +133,6 @@ const styles = StyleSheet.create({
     width: 55,
     height: 55,
     marginLeft: 35,
-    borderStyle: "solid",
     borderWidth: 2,
     borderColor: "#3794B5",
     borderRadius: 50
@@ -142,7 +141,6 @@ const styles = StyleSheet.create({
     width: 55,
     height: 55,
     marginLeft: 95,
-    borderStyle: "solid",
     borderWidth: 2,
     borderColor: "#3794B5",
     borderRadius: 50

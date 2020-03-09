@@ -12,7 +12,7 @@ import {
 import axios from "axios";
 import { Ionicons } from "@expo/vector-icons";
 
-export default function Authentication({ setToken }) {
+export default function Authentication({ userToken }) {
   const navigation = useNavigation();
   const [email, setEmail] = useState("reacteur1@test.com");
   const [password, setPassword] = useState("abcde");
@@ -71,6 +71,7 @@ export default function Authentication({ setToken }) {
                 const userToken = response.data.token;
                 alert(userToken);
                 setToken(userToken);
+                console.log(userToken);
               } else {
                 alert("Token is missing");
               }

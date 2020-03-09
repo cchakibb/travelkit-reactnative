@@ -61,7 +61,7 @@ export default function App() {
       // This will switch to the App screen or Auth screen and this loading
       // screen will be unmounted and thrown away.
       setIsLoading(false);
-      setUserToken(userToken);
+      setUserToken(null);
     };
 
     bootstrapAsync();
@@ -100,19 +100,19 @@ export default function App() {
               title: ""
             }}
           >
-            {() => <FirstConnexion setToken={setToken} />}
+            {() => <FirstConnexion userToken={userToken} />}
           </Stack.Screen>
           <Stack.Screen
             name="Destination"
             options={{ header: () => null, animationEnabled: false }}
           >
-            {() => <Destination setToken={setToken} />}
+            {() => <Destination userToken={userToken} />}
           </Stack.Screen>
           <Stack.Screen
             name="Home"
             options={{ header: () => null, animationEnabled: false }}
           >
-            {() => <Home setToken={setToken} />}
+            {() => <Home userToken={userToken} />}
           </Stack.Screen>
           <Stack.Screen
             name="MyTravelerProfile"
@@ -122,13 +122,13 @@ export default function App() {
               title: ""
             }}
           >
-            {() => <MyTravelerProfile setToken={setToken} />}
+            {() => <MyTravelerProfile userToken={userToken} />}
           </Stack.Screen>
           <Stack.Screen
             name="Checklist"
             options={{ header: () => null, animationEnabled: false }}
           >
-            {() => <Checklist setToken={setToken} />}
+            {() => <Checklist userToken={userToken} />}
           </Stack.Screen>
 
           <Stack.Screen
@@ -137,9 +137,13 @@ export default function App() {
               headerShown: false
             }}
           >
-            {() => <MyHealthProfile setToken={setToken} />}
+            {() => <MyHealthProfile userToken={userToken} />}
           </Stack.Screen>
-          <Stack.Screen name="MyHealth" options={{ title: "" }}>
+          <Stack.Screen
+            userToken={userToken}
+            name="MyHealth"
+            options={{ title: "" }}
+          >
             {() => (
               <Tab.Navigator
                 // ici on peut gérer le design de notre bottomTabBar
@@ -154,19 +158,23 @@ export default function App() {
                   }
                 }}
               >
-                <Tab.Screen name="MyHealth">{() => <MyHealth />}</Tab.Screen>
-                <Tab.Screen name="MyVaccinationCard">
-                  {() => <MyVaccinationCard />}
+                <Tab.Screen name="MyHealth">
+                  {() => <MyHealth userToken={userToken} />}
                 </Tab.Screen>
-                <Tab.Screen name="Medicine">{() => <Medicine />}</Tab.Screen>
+                <Tab.Screen name="MyVaccinationCard">
+                  {() => <MyVaccinationCard userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Medicine">
+                  {() => <Medicine userToken={userToken} />}
+                </Tab.Screen>
                 <Tab.Screen name="FirstAidKit">
-                  {() => <FirstAidKit />}
+                  {() => <FirstAidKit userToken={userToken} />}
                 </Tab.Screen>
                 <Tab.Screen name="DoctorAppointment">
-                  {() => <DoctorAppointment />}
+                  {() => <DoctorAppointment userToken={userToken} />}
                 </Tab.Screen>
                 <Tab.Screen name="HealthInsurance">
-                  {() => <HealthInsurance />}
+                  {() => <HealthInsurance userToken={userToken} />}
                 </Tab.Screen>
               </Tab.Navigator>
             )}
@@ -187,18 +195,22 @@ export default function App() {
                 }}
               >
                 <Tab.Screen name="MyVaccinationCard">
-                  {() => <MyVaccinationCard />}
+                  {() => <MyVaccinationCard userToken={userToken} />}
                 </Tab.Screen>
-                <Tab.Screen name="MyHealth">{() => <MyHealth />}</Tab.Screen>
-                <Tab.Screen name="Medicine">{() => <Medicine />}</Tab.Screen>
+                <Tab.Screen name="MyHealth">
+                  {() => <MyHealth userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Medicine">
+                  {() => <Medicine userToken={userToken} />}
+                </Tab.Screen>
                 <Tab.Screen name="FirstAidKit">
-                  {() => <FirstAidKit />}
+                  {() => <FirstAidKit userToken={userToken} />}
                 </Tab.Screen>
                 <Tab.Screen name="DoctorAppointment">
-                  {() => <DoctorAppointment />}
+                  {() => <DoctorAppointment userToken={userToken} />}
                 </Tab.Screen>
                 <Tab.Screen name="HealthInsurance">
-                  {() => <HealthInsurance />}
+                  {() => <HealthInsurance userToken={userToken} />}
                 </Tab.Screen>
               </Tab.Navigator>
             )}
@@ -207,7 +219,7 @@ export default function App() {
             name="Daily"
             options={{ headerShown: false, title: "" }}
           >
-            {() => <Daily setToken={setToken} />}
+            {() => <Daily userToken={userToken} />}
           </Stack.Screen>
           <Stack.Screen
             name="GeneralInformation"
@@ -225,18 +237,26 @@ export default function App() {
                 }}
               >
                 <Tab.Screen name="GeneralInformation">
-                  {() => <GeneralInformation />}
+                  {() => <GeneralInformation userToken={userToken} />}
                 </Tab.Screen>
                 <Tab.Screen name="EatAndDrink">
-                  {() => <EatAndDrink />}
+                  {() => <EatAndDrink userToken={userToken} />}
                 </Tab.Screen>
                 <Tab.Screen name="MosquitoesAndTicks">
-                  {() => <MosquitoesAndTicks />}
+                  {() => <MosquitoesAndTicks userToken={userToken} />}
                 </Tab.Screen>
-                <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
-                <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
-                <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
-                <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
+                <Tab.Screen name="Sun">
+                  {() => <Sun userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Swimming">
+                  {() => <Swimming userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Animals">
+                  {() => <Animals userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Quizz">
+                  {() => <Quizz userToken={userToken} />}
+                </Tab.Screen>
               </Tab.Navigator>
             )}
           </Stack.Screen>
@@ -259,18 +279,26 @@ export default function App() {
                 }}
               >
                 <Tab.Screen name="EatAndDrink">
-                  {() => <EatAndDrink />}
+                  {() => <EatAndDrink userToken={userToken} />}
                 </Tab.Screen>
                 <Tab.Screen name="GeneralInformation">
-                  {() => <GeneralInformation />}
+                  {() => <GeneralInformation userToken={userToken} />}
                 </Tab.Screen>
                 <Tab.Screen name="MosquitoesAndTicks">
-                  {() => <MosquitoesAndTicks />}
+                  {() => <MosquitoesAndTicks userToken={userToken} />}
                 </Tab.Screen>
-                <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
-                <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
-                <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
-                <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
+                <Tab.Screen name="Sun">
+                  {() => <Sun userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Swimming">
+                  {() => <Swimming userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Animals">
+                  {() => <Animals userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Quizz">
+                  {() => <Quizz userToken={userToken} />}
+                </Tab.Screen>
               </Tab.Navigator>
             )}
           </Stack.Screen>
@@ -293,19 +321,27 @@ export default function App() {
                 }}
               >
                 <Tab.Screen name="MosquitoesAndTicks">
-                  {() => <MosquitoesAndTicks />}
+                  {() => <MosquitoesAndTicks userToken={userToken} />}
                 </Tab.Screen>
                 <Tab.Screen name="GeneralInformation">
-                  {() => <GeneralInformation />}
+                  {() => <GeneralInformation userToken={userToken} />}
                 </Tab.Screen>
                 <Tab.Screen name="EatAndDrink">
-                  {() => <EatAndDrink />}
+                  {() => <EatAndDrink userToken={userToken} />}
                 </Tab.Screen>
 
-                <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
-                <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
-                <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
-                <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
+                <Tab.Screen name="Sun">
+                  {() => <Sun userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Swimming">
+                  {() => <Swimming userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Animals">
+                  {() => <Animals userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Quizz">
+                  {() => <Quizz userToken={userToken} />}
+                </Tab.Screen>
               </Tab.Navigator>
             )}
           </Stack.Screen>
@@ -324,19 +360,27 @@ export default function App() {
                   }
                 }}
               >
-                <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
+                <Tab.Screen name="Sun">
+                  {() => <Sun userToken={userToken} />}
+                </Tab.Screen>
                 <Tab.Screen name="GeneralInformation">
-                  {() => <GeneralInformation />}
+                  {() => <GeneralInformation userToken={userToken} />}
                 </Tab.Screen>
                 <Tab.Screen name="MosquitoesAndTicks">
-                  {() => <MosquitoesAndTicks />}
+                  {() => <MosquitoesAndTicks userToken={userToken} />}
                 </Tab.Screen>
                 <Tab.Screen name="EatAndDrink">
-                  {() => <EatAndDrink />}
+                  {() => <EatAndDrink userToken={userToken} />}
                 </Tab.Screen>
-                <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
-                <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
-                <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
+                <Tab.Screen name="Swimming">
+                  {() => <Swimming userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Animals">
+                  {() => <Animals userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Quizz">
+                  {() => <Quizz userToken={userToken} />}
+                </Tab.Screen>
               </Tab.Navigator>
             )}
           </Stack.Screen>
@@ -358,20 +402,28 @@ export default function App() {
                   }
                 }}
               >
-                <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
-                <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
+                <Tab.Screen name="Swimming">
+                  {() => <Swimming userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Sun">
+                  {() => <Sun userToken={userToken} />}
+                </Tab.Screen>
                 <Tab.Screen name="GeneralInformation">
-                  {() => <GeneralInformation />}
+                  {() => <GeneralInformation userToken={userToken} />}
                 </Tab.Screen>
                 <Tab.Screen name="MosquitoesAndTicks">
-                  {() => <MosquitoesAndTicks />}
+                  {() => <MosquitoesAndTicks userToken={userToken} />}
                 </Tab.Screen>
                 <Tab.Screen name="EatAndDrink">
-                  {() => <EatAndDrink />}
+                  {() => <EatAndDrink userToken={userToken} />}
                 </Tab.Screen>
 
-                <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
-                <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
+                <Tab.Screen name="Animals">
+                  {() => <Animals userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Quizz">
+                  {() => <Quizz userToken={userToken} />}
+                </Tab.Screen>
               </Tab.Navigator>
             )}
           </Stack.Screen>
@@ -393,19 +445,27 @@ export default function App() {
                   }
                 }}
               >
-                <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
-                <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
-                <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
+                <Tab.Screen name="Animals">
+                  {() => <Animals userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Swimming">
+                  {() => <Swimming userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Sun">
+                  {() => <Sun userToken={userToken} />}
+                </Tab.Screen>
                 <Tab.Screen name="GeneralInformation">
-                  {() => <GeneralInformation />}
+                  {() => <GeneralInformation userToken={userToken} />}
                 </Tab.Screen>
                 <Tab.Screen name="MosquitoesAndTicks">
-                  {() => <MosquitoesAndTicks />}
+                  {() => <MosquitoesAndTicks userToken={userToken} />}
                 </Tab.Screen>
                 <Tab.Screen name="EatAndDrink">
-                  {() => <EatAndDrink />}
+                  {() => <EatAndDrink userToken={userToken} />}
                 </Tab.Screen>
-                <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
+                <Tab.Screen name="Quizz">
+                  {() => <Quizz userToken={userToken} />}
+                </Tab.Screen>
               </Tab.Navigator>
             )}
           </Stack.Screen>
@@ -427,18 +487,26 @@ export default function App() {
                   }
                 }}
               >
-                <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
-                <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
-                <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
-                <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
+                <Tab.Screen name="Quizz">
+                  {() => <Quizz userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Animals">
+                  {() => <Animals userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Swimming">
+                  {() => <Swimming userToken={userToken} />}
+                </Tab.Screen>
+                <Tab.Screen name="Sun">
+                  {() => <Sun userToken={userToken} />}
+                </Tab.Screen>
                 <Tab.Screen name="GeneralInformation">
-                  {() => <GeneralInformation />}
+                  {() => <GeneralInformation userToken={userToken} />}
                 </Tab.Screen>
                 <Tab.Screen name="MosquitoesAndTicks">
-                  {() => <MosquitoesAndTicks />}
+                  {() => <MosquitoesAndTicks userToken={userToken} />}
                 </Tab.Screen>
                 <Tab.Screen name="EatAndDrink">
-                  {() => <EatAndDrink />}
+                  {() => <EatAndDrink userToken={userToken} />}
                 </Tab.Screen>
               </Tab.Navigator>
             )}

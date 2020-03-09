@@ -10,7 +10,7 @@ import {
 import HeaderTopImage from "../components/HeaderTopImage";
 import BtnInfo from "../components/BtnInfo";
 
-export default function Quizz() {
+export default function Quizz({ userToken }) {
   const navigation = useNavigation();
   return (
     <ScrollView style={styles.container}>

@@ -11,7 +11,7 @@ import {
 import HeaderTopImage from "../components/HeaderTopImage";
 import BtnIcone from "../components/BtnIcone";
 
-export default function MyHealthProfile() {
+export default function MyHealthProfile({ userToken }) {
   const navigation = useNavigation();
   return (
     <ScrollView style={styles.container}>

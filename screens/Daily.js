@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import HeaderTopImage from "../components/HeaderTopImage";
 
-export default function Daily() {
+export default function Daily({ userToken }) {
   const navigation = useNavigation();
   return (
     <ScrollView>

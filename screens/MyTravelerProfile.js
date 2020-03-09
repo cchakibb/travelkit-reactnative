@@ -3,11 +3,31 @@ import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import HeaderTopImage from "../components/HeaderTopImage";
 import ChecklistTraveler from "../components/ChecklistTraveler";
 
-export default function MyTravelerProfile() {
+export default function MyTravelerProfile({ userToken }) {
   return (
     <ScrollView style={styles.container}>
       <View>
         <HeaderTopImage title={"Mon profil voyageur"}></HeaderTopImage>
+        <View
+          style={{
+            flexDirection: "row",
+            marginLeft: 26,
+            marginBottom: 5,
+            marginTop: 10
+          }}
+        >
+          <Image
+            source={require("../assets/general/logo/adult-attractive-beautiful-beauty-415829.jpg")}
+            style={{ width: 100, height: 100, borderRadius: 100 }}
+          ></Image>
+          <View style={{ justifyContent: "center", marginLeft: 20 }}>
+            <Text
+              style={{ fontSize: 20, color: "#3794B5", fontWeight: "bold" }}
+            >
+              Anna Martin
+            </Text>
+          </View>
+        </View>
         <Text style={styles.text}>Mes habitudes de voyages :</Text>
         <ChecklistTraveler
           title={"Je mange souvent au restaurant"}
@@ -34,6 +54,9 @@ export default function MyTravelerProfile() {
         <ChecklistTraveler title={"De faire du vtt "}></ChecklistTraveler>
         <ChecklistTraveler
           title={"D'aller au marché local"}
+        ></ChecklistTraveler>
+        <ChecklistTraveler
+          title={"De faire un chateau de sable"}
         ></ChecklistTraveler>
       </View>
     </ScrollView>

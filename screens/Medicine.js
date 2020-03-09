@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
-export default function Medicine() {
+export default function Medicine({ userToken }) {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
