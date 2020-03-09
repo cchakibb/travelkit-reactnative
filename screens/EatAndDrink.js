@@ -4,7 +4,7 @@ import HeaderTopImage from "../components/HeaderTopImage";
 import BtnIcone from "../components/BtnIcone";
 import { useNavigation } from "@react-navigation/native";
 
-export default function EatAndDrink() {
+export default function EatAndDrink({ userToken }) {
   return (
     <ScrollView style={styles.container}>
       <View>

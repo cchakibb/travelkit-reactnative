@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
-export default function Ticks() {
+export default function Ticks({ userToken }) {
   const [getMoreInfo, setGetMoreInfo] = useState();
   const navigation = useNavigation();
   return (

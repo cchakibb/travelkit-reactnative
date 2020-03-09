@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 
-export default function FirstConnexion({ setToken }) {
+export default function FirstConnexion({ userToken }) {
   const navigation = useNavigation();
   return (
     <ImageBackground

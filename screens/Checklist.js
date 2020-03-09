@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, ScrollView } from "react-native";
 import HeaderTopImage from "../components/HeaderTopImage";
 import BtnSwitch from "../components/BtnSwitch";
 
-export default function Checklist() {
+export default function Checklist({ userToken }) {
   return (
     <ScrollView>
       <View>

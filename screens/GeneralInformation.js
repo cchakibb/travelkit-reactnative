@@ -5,7 +5,7 @@ import HeaderTopImage from "../components/HeaderTopImage";
 import BtnInfo from "../components/BtnInfo";
 import { HitTestResultTypes } from "expo/build/AR";
 
-export default function GeneralInformation() {
+export default function GeneralInformation({ userToken }) {
   const [getMoreInfo, setGetMoreInfo] = useState();
   const navigation = useNavigation();
   return (

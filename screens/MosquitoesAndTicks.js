@@ -11,7 +11,7 @@ import {
 import HeaderTopImage from "../components/HeaderTopImage";
 import BtnIcone from "../components/BtnIcone";
 
-export default function MosquitoesAndTicks() {
+export default function MosquitoesAndTicks({ userToken }) {
   const navigation = useNavigation();
   return (
     <ScrollView style={styles.container}>

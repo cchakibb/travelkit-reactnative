@@ -4,7 +4,7 @@ import { StyleSheet, View, ScrollView, Text } from "react-native";
 import HeaderTopImage from "../components/HeaderTopImage";
 import BtnInfo from "../components/BtnInfo";
 
-export default function Swimming() {
+export default function Swimming({ userToken }) {
   const [getMoreInfo, setGetMoreInfo] = useState();
   const navigation = useNavigation();
   return (

@@ -12,7 +12,7 @@ import MedicalHistory from "../components/MedicalHistory";
 import Allergies from "../components/Allergies";
 import Medication from "../components/Medication";
 
-export default function MyHealth() {
+export default function MyHealth({ userToken }) {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -22,12 +22,11 @@ export default function MyHealth() {
         "https://c0d1syq1s6.execute-api.eu-central-1.amazonaws.com/dev/health/healthstatus",
         {
           headers: {
-            Authorization:
-              "Bearer " +
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTVkMmEwZGNkMmVlZTAwMDljYWRmZDEiLCJpYXQiOjE1ODM0OTg0NzEsImV4cCI6MTU4MzU4NDg3MX0.OHhLqpJSmOEmS4Ej3Vt_kieQUvrOkuiUcn4nm_8UATA"
+            Authorization: "Bearer " + userToken
           }
         }
       );
+
       setData(response.data);
 
       setIsLoading(false);

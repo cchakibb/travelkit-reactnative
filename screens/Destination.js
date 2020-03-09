@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, ScrollView } from "react-native";
 import HeaderTopImage from "../components/HeaderTopImage";
 import InputDestination from "../components/InputDestination";
 
-export default function Destination() {
+export default function Destination({ userToken }) {
   return (
     <ScrollView style={styles.container}>
       <View>

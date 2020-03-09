@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import HeaderTopImage from "../components/HeaderTopImage";
 import ChecklistTraveler from "../components/ChecklistTraveler";
 
-export default function MyTravelerProfile() {
+export default function MyTravelerProfile({ userToken }) {
   return (
     <ScrollView style={styles.container}>
       <View>
