@@ -17,6 +17,9 @@ export default function MosquitoesAndTicks() {
     <ScrollView style={styles.container}>
       <View>
         <HeaderTopImage title={"Moustiques et tiques"}></HeaderTopImage>
+        <View>
+          <Text style={styles.text}>Pour ce voyage, il y a un rique de :</Text>
+        </View>
         <BtnIcone
           title={"Moustiques"}
           iconeBtn={require("../assets/general/icone-quotidien/moustique.png")}
@@ -35,5 +38,12 @@ export default function MosquitoesAndTicks() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "white"
+  },
+  text: {
+    fontSize: 16,
+    height: 55,
+    marginTop: 15,
+    marginLeft: 25,
+    marginRight: 45
   }
 });

@@ -32,6 +32,7 @@ import Medicine from "./screens/Medicine";
 import FirstAidKit from "./screens/FirstAidKit";
 import DoctorAppointment from "./screens/DoctorAppointment";
 import HealthInsurance from "./screens/HealthInsurance";
+import MyTravelerProfile from "./screens/MyTravelerProfile";
 // MyHealthInformation TABS
 
 const Tab = createBottomTabNavigator();
@@ -102,6 +103,16 @@ export default function App() {
           options={{ header: () => null, animationEnabled: false }}
         >
           {() => <Home setToken={setToken} />}
+        </Stack.Screen>
+        <Stack.Screen
+          name="MyTravelerProfile"
+          options={{
+            header: () => null,
+            animationEnabled: false,
+            title: ""
+          }}
+        >
+          {() => <MyTravelerProfile setToken={setToken} />}
         </Stack.Screen>
         <Stack.Screen
           name="Checklist"
