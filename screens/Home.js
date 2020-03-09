@@ -133,7 +133,6 @@ const styles = StyleSheet.create({
     width: 55,
     height: 55,
     marginLeft: 35,
-    borderStyle: "solid",
     borderWidth: 2,
     borderColor: "#3794B5",
     borderRadius: 50
@@ -142,7 +141,6 @@ const styles = StyleSheet.create({
     width: 55,
     height: 55,
     marginLeft: 95,
-    borderStyle: "solid",
     borderWidth: 2,
     borderColor: "#3794B5",
     borderRadius: 50
