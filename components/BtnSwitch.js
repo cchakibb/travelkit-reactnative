@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import ToggleSwitch from "toggle-switch-react-native";
 
 export default function BtnSwitch({ title }) {
+  const [Switch, setSwitch] = useState(false);
   return (
     <View style={styles.btn}>
       <ToggleSwitch
