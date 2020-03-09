@@ -1,5 +1,5 @@
+import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/core";
-import React, { useState } from "react";
 import {
   ImageBackground,
   StyleSheet,
@@ -9,11 +9,13 @@ import {
   View,
   Image
 } from "react-native";
+import axios from "axios";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function Authentication({ setToken }) {
   const navigation = useNavigation();
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("reacteur1@test.com");
+  const [password, setPassword] = useState("abcde");
 
   return (
     <View>
@@ -38,20 +40,47 @@ export default function Authentication({ setToken }) {
         >
           <TextInput
             style={styles.input}
+            type="text"
             placeholder="Identifiant"
             color="black"
+            onChangeText={email => setEmail(email)}
+            value={email}
           ></TextInput>
 
           <TextInput
             style={styles.input}
+            type="password"
             placeholder="Mot de passe"
+            secureTextEntry={true}
             color="black"
+            onChangeText={password => setPassword(password)}
+            value={password}
           ></TextInput>
         </View>
         <TouchableOpacity
-          onPress={() => {
-            navigation.navigate("FirstConnexion");
+          onPress={async () => {
+            try {
+              const response = await axios.post(
+                "https://c0d1syq1s6.execute-api.eu-central-1.amazonaws.com/dev/user/login",
+                {
+                  email,
+                  password
+                }
+              );
+              if (response.data.token) {
+                const userToken = response.data.token;
+                alert(userToken);
+                setToken(userToken);
+              } else {
+                alert("Token is missing");
+              }
+            } catch (error) {
+              alert("Wrong information");
+            }
           }}
+          /* onPress={() => {
+            navigation.navigate("FirstConnexion");
+          }} */
         >
           <View
             style={{

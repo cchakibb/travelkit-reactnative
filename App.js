@@ -32,6 +32,7 @@ import Medicine from "./screens/Medicine";
 import FirstAidKit from "./screens/FirstAidKit";
 import DoctorAppointment from "./screens/DoctorAppointment";
 import HealthInsurance from "./screens/HealthInsurance";
+import MyTravelerProfile from "./screens/MyTravelerProfile";
 // MyHealthInformation TABS
 
 const Tab = createBottomTabNavigator();
@@ -68,355 +69,382 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Start"
-          options={{ header: () => null, animationEnabled: false }}
-        >
-          {() => <Start />}
-        </Stack.Screen>
-        <Stack.Screen
-          name="Authentication"
-          options={{ header: () => null, animationEnabled: false }}
-        >
-          {() => <Authentication setToken={setToken} />}
-        </Stack.Screen>
-        <Stack.Screen
-          name="FirstConnexion"
-          options={{
-            header: () => null,
-            animationEnabled: false,
-            title: ""
-          }}
-        >
-          {() => <FirstConnexion setToken={setToken} />}
-        </Stack.Screen>
-        <Stack.Screen
-          name="Destination"
-          options={{ header: () => null, animationEnabled: false }}
-        >
-          {() => <Destination setToken={setToken} />}
-        </Stack.Screen>
-        <Stack.Screen
-          name="Home"
-          options={{ header: () => null, animationEnabled: false }}
-        >
-          {() => <Home setToken={setToken} />}
-        </Stack.Screen>
-        <Stack.Screen
-          name="Checklist"
-          options={{ header: () => null, animationEnabled: false }}
-        >
-          {() => <Checklist setToken={setToken} />}
-        </Stack.Screen>
+      {isLoading ? null : userToken === null ? (
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Start"
+            options={{ header: () => null, animationEnabled: false }}
+          >
+            {() => <Start />}
+          </Stack.Screen>
+          <Stack.Screen
+            name="Authentication"
+            options={{ header: () => null, animationEnabled: false }}
+          >
+            {() => <Authentication setToken={setToken} />}
+          </Stack.Screen>
+        </Stack.Navigator>
+      ) : (
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Start"
+            options={{ header: () => null, animationEnabled: false }}
+          >
+            {() => <Start userToken={userToken} />}
+          </Stack.Screen>
+          <Stack.Screen
+            name="FirstConnexion"
+            options={{
+              header: () => null,
+              animationEnabled: false,
+              title: ""
+            }}
+          >
+            {() => <FirstConnexion setToken={setToken} />}
+          </Stack.Screen>
+          <Stack.Screen
+            name="Destination"
+            options={{ header: () => null, animationEnabled: false }}
+          >
+            {() => <Destination setToken={setToken} />}
+          </Stack.Screen>
+          <Stack.Screen
+            name="Home"
+            options={{ header: () => null, animationEnabled: false }}
+          >
+            {() => <Home setToken={setToken} />}
+          </Stack.Screen>
+          <Stack.Screen
+            name="MyTravelerProfile"
+            options={{
+              header: () => null,
+              animationEnabled: false,
+              title: ""
+            }}
+          >
+            {() => <MyTravelerProfile setToken={setToken} />}
+          </Stack.Screen>
+          <Stack.Screen
+            name="Checklist"
+            options={{ header: () => null, animationEnabled: false }}
+          >
+            {() => <Checklist setToken={setToken} />}
+          </Stack.Screen>
 
-        <Stack.Screen
-          name="MyHealthProfile"
-          options={{
-            headerShown: false
-          }}
-        >
-          {() => <MyHealthProfile setToken={setToken} />}
-        </Stack.Screen>
-        <Stack.Screen name="MyHealth" options={{ title: "" }}>
-          {() => (
-            <Tab.Navigator
-              // ici on peut gérer le design de notre bottomTabBar
-              tabBarOptions={{
-                activeTintColor: "violet",
-                inactiveTintColor: "gray",
-                inactiveBackgroundColor: "yellow",
-                activeBackgroundColor: "green",
-                style: {
-                  backgroundColor: "black",
-                  height: 100
-                }
-              }}
-            >
-              <Tab.Screen name="MyHealth">{() => <MyHealth />}</Tab.Screen>
-              <Tab.Screen name="MyVaccinationCard">
-                {() => <MyVaccinationCard />}
-              </Tab.Screen>
-              <Tab.Screen name="Medicine">{() => <Medicine />}</Tab.Screen>
-              <Tab.Screen name="FirstAidKit">
-                {() => <FirstAidKit />}
-              </Tab.Screen>
-              <Tab.Screen name="DoctorAppointment">
-                {() => <DoctorAppointment />}
-              </Tab.Screen>
-              <Tab.Screen name="HealthInsurance">
-                {() => <HealthInsurance />}
-              </Tab.Screen>
-            </Tab.Navigator>
-          )}
-        </Stack.Screen>
-        <Stack.Screen name="MyVaccinationCard" options={{ title: "" }}>
-          {() => (
-            <Tab.Navigator
-              // ici on peut gérer le design de notre bottomTabBar
-              tabBarOptions={{
-                activeTintColor: "violet",
-                inactiveTintColor: "gray",
-                inactiveBackgroundColor: "yellow",
-                activeBackgroundColor: "green",
-                style: {
-                  backgroundColor: "black",
-                  height: 100
-                }
-              }}
-            >
-              <Tab.Screen name="MyVaccinationCard">
-                {() => <MyVaccinationCard />}
-              </Tab.Screen>
-              <Tab.Screen name="MyHealth">{() => <MyHealth />}</Tab.Screen>
-              <Tab.Screen name="Medicine">{() => <Medicine />}</Tab.Screen>
-              <Tab.Screen name="FirstAidKit">
-                {() => <FirstAidKit />}
-              </Tab.Screen>
-              <Tab.Screen name="DoctorAppointment">
-                {() => <DoctorAppointment />}
-              </Tab.Screen>
-              <Tab.Screen name="HealthInsurance">
-                {() => <HealthInsurance />}
-              </Tab.Screen>
-            </Tab.Navigator>
-          )}
-        </Stack.Screen>
-        <Stack.Screen name="Daily" options={{ headerShown: false, title: "" }}>
-          {() => <Daily setToken={setToken} />}
-        </Stack.Screen>
-        <Stack.Screen
-          name="GeneralInformation"
-          options={{ headerShown: false, title: "" }}
-        >
-          {() => (
-            <Tab.Navigator
-              // ici on peut gérer le design de notre bottomTabBar
-              tabBarOptions={{
-                inactiveTintColor: "gray",
-                style: {
-                  backgroundColor: "white",
-                  height: 100
-                }
-              }}
-            >
-              <Tab.Screen name="GeneralInformation">
-                {() => <GeneralInformation />}
-              </Tab.Screen>
-              <Tab.Screen name="EatAndDrink">
-                {() => <EatAndDrink />}
-              </Tab.Screen>
-              <Tab.Screen name="MosquitoesAndTicks">
-                {() => <MosquitoesAndTicks />}
-              </Tab.Screen>
-              <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
-              <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
-              <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
-              <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
-            </Tab.Navigator>
-          )}
-        </Stack.Screen>
-        <Stack.Screen
-          name="EatAndDrink"
-          options={{ headerShown: false, title: "" }}
-        >
-          {() => (
-            <Tab.Navigator
-              // ici on peut gérer le design de notre bottomTabBar
-              tabBarOptions={{
-                activeTintColor: "violet",
-                inactiveTintColor: "gray",
-                inactiveBackgroundColor: "yellow",
-                activeBackgroundColor: "green",
-                style: {
-                  backgroundColor: "black",
-                  height: 100
-                }
-              }}
-            >
-              <Tab.Screen name="EatAndDrink">
-                {() => <EatAndDrink />}
-              </Tab.Screen>
-              <Tab.Screen name="GeneralInformation">
-                {() => <GeneralInformation />}
-              </Tab.Screen>
-              <Tab.Screen name="MosquitoesAndTicks">
-                {() => <MosquitoesAndTicks />}
-              </Tab.Screen>
-              <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
-              <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
-              <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
-              <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
-            </Tab.Navigator>
-          )}
-        </Stack.Screen>
-        <Stack.Screen
-          name="MosquitoesAndTicks"
-          options={{ headerShown: false, title: "" }}
-        >
-          {() => (
-            <Tab.Navigator
-              // ici on peut gérer le design de notre bottomTabBar
-              tabBarOptions={{
-                activeTintColor: "violet",
-                inactiveTintColor: "gray",
-                inactiveBackgroundColor: "yellow",
-                activeBackgroundColor: "green",
-                style: {
-                  backgroundColor: "black",
-                  height: 100
-                }
-              }}
-            >
-              <Tab.Screen name="MosquitoesAndTicks">
-                {() => <MosquitoesAndTicks />}
-              </Tab.Screen>
-              <Tab.Screen name="GeneralInformation">
-                {() => <GeneralInformation />}
-              </Tab.Screen>
-              <Tab.Screen name="EatAndDrink">
-                {() => <EatAndDrink />}
-              </Tab.Screen>
+          <Stack.Screen
+            name="MyHealthProfile"
+            options={{
+              headerShown: false
+            }}
+          >
+            {() => <MyHealthProfile setToken={setToken} />}
+          </Stack.Screen>
+          <Stack.Screen name="MyHealth" options={{ title: "" }}>
+            {() => (
+              <Tab.Navigator
+                // ici on peut gérer le design de notre bottomTabBar
+                tabBarOptions={{
+                  activeTintColor: "violet",
+                  inactiveTintColor: "gray",
+                  inactiveBackgroundColor: "yellow",
+                  activeBackgroundColor: "green",
+                  style: {
+                    backgroundColor: "black",
+                    height: 100
+                  }
+                }}
+              >
+                <Tab.Screen name="MyHealth">{() => <MyHealth />}</Tab.Screen>
+                <Tab.Screen name="MyVaccinationCard">
+                  {() => <MyVaccinationCard />}
+                </Tab.Screen>
+                <Tab.Screen name="Medicine">{() => <Medicine />}</Tab.Screen>
+                <Tab.Screen name="FirstAidKit">
+                  {() => <FirstAidKit />}
+                </Tab.Screen>
+                <Tab.Screen name="DoctorAppointment">
+                  {() => <DoctorAppointment />}
+                </Tab.Screen>
+                <Tab.Screen name="HealthInsurance">
+                  {() => <HealthInsurance />}
+                </Tab.Screen>
+              </Tab.Navigator>
+            )}
+          </Stack.Screen>
+          <Stack.Screen name="MyVaccinationCard" options={{ title: "" }}>
+            {() => (
+              <Tab.Navigator
+                // ici on peut gérer le design de notre bottomTabBar
+                tabBarOptions={{
+                  activeTintColor: "violet",
+                  inactiveTintColor: "gray",
+                  inactiveBackgroundColor: "yellow",
+                  activeBackgroundColor: "green",
+                  style: {
+                    backgroundColor: "black",
+                    height: 100
+                  }
+                }}
+              >
+                <Tab.Screen name="MyVaccinationCard">
+                  {() => <MyVaccinationCard />}
+                </Tab.Screen>
+                <Tab.Screen name="MyHealth">{() => <MyHealth />}</Tab.Screen>
+                <Tab.Screen name="Medicine">{() => <Medicine />}</Tab.Screen>
+                <Tab.Screen name="FirstAidKit">
+                  {() => <FirstAidKit />}
+                </Tab.Screen>
+                <Tab.Screen name="DoctorAppointment">
+                  {() => <DoctorAppointment />}
+                </Tab.Screen>
+                <Tab.Screen name="HealthInsurance">
+                  {() => <HealthInsurance />}
+                </Tab.Screen>
+              </Tab.Navigator>
+            )}
+          </Stack.Screen>
+          <Stack.Screen
+            name="Daily"
+            options={{ headerShown: false, title: "" }}
+          >
+            {() => <Daily setToken={setToken} />}
+          </Stack.Screen>
+          <Stack.Screen
+            name="GeneralInformation"
+            options={{ headerShown: false, title: "" }}
+          >
+            {() => (
+              <Tab.Navigator
+                // ici on peut gérer le design de notre bottomTabBar
+                tabBarOptions={{
+                  inactiveTintColor: "gray",
+                  style: {
+                    backgroundColor: "white",
+                    height: 100
+                  }
+                }}
+              >
+                <Tab.Screen name="GeneralInformation">
+                  {() => <GeneralInformation />}
+                </Tab.Screen>
+                <Tab.Screen name="EatAndDrink">
+                  {() => <EatAndDrink />}
+                </Tab.Screen>
+                <Tab.Screen name="MosquitoesAndTicks">
+                  {() => <MosquitoesAndTicks />}
+                </Tab.Screen>
+                <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
+                <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
+                <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
+                <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
+              </Tab.Navigator>
+            )}
+          </Stack.Screen>
+          <Stack.Screen
+            name="EatAndDrink"
+            options={{ headerShown: false, title: "" }}
+          >
+            {() => (
+              <Tab.Navigator
+                // ici on peut gérer le design de notre bottomTabBar
+                tabBarOptions={{
+                  activeTintColor: "violet",
+                  inactiveTintColor: "gray",
+                  inactiveBackgroundColor: "yellow",
+                  activeBackgroundColor: "green",
+                  style: {
+                    backgroundColor: "black",
+                    height: 100
+                  }
+                }}
+              >
+                <Tab.Screen name="EatAndDrink">
+                  {() => <EatAndDrink />}
+                </Tab.Screen>
+                <Tab.Screen name="GeneralInformation">
+                  {() => <GeneralInformation />}
+                </Tab.Screen>
+                <Tab.Screen name="MosquitoesAndTicks">
+                  {() => <MosquitoesAndTicks />}
+                </Tab.Screen>
+                <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
+                <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
+                <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
+                <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
+              </Tab.Navigator>
+            )}
+          </Stack.Screen>
+          <Stack.Screen
+            name="MosquitoesAndTicks"
+            options={{ headerShown: false, title: "" }}
+          >
+            {() => (
+              <Tab.Navigator
+                // ici on peut gérer le design de notre bottomTabBar
+                tabBarOptions={{
+                  activeTintColor: "violet",
+                  inactiveTintColor: "gray",
+                  inactiveBackgroundColor: "yellow",
+                  activeBackgroundColor: "green",
+                  style: {
+                    backgroundColor: "black",
+                    height: 100
+                  }
+                }}
+              >
+                <Tab.Screen name="MosquitoesAndTicks">
+                  {() => <MosquitoesAndTicks />}
+                </Tab.Screen>
+                <Tab.Screen name="GeneralInformation">
+                  {() => <GeneralInformation />}
+                </Tab.Screen>
+                <Tab.Screen name="EatAndDrink">
+                  {() => <EatAndDrink />}
+                </Tab.Screen>
 
-              <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
-              <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
-              <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
-              <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
-            </Tab.Navigator>
-          )}
-        </Stack.Screen>
-        <Stack.Screen name="Sun" options={{ headerShown: false, title: "" }}>
-          {() => (
-            <Tab.Navigator
-              // ici on peut gérer le design de notre bottomTabBar
-              tabBarOptions={{
-                activeTintColor: "violet",
-                inactiveTintColor: "gray",
-                inactiveBackgroundColor: "yellow",
-                activeBackgroundColor: "green",
-                style: {
-                  backgroundColor: "black",
-                  height: 100
-                }
-              }}
-            >
-              <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
-              <Tab.Screen name="GeneralInformation">
-                {() => <GeneralInformation />}
-              </Tab.Screen>
-              <Tab.Screen name="MosquitoesAndTicks">
-                {() => <MosquitoesAndTicks />}
-              </Tab.Screen>
-              <Tab.Screen name="EatAndDrink">
-                {() => <EatAndDrink />}
-              </Tab.Screen>
-              <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
-              <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
-              <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
-            </Tab.Navigator>
-          )}
-        </Stack.Screen>
-        <Stack.Screen
-          name="Swimming"
-          options={{ headerShown: false, title: "" }}
-        >
-          {() => (
-            <Tab.Navigator
-              // ici on peut gérer le design de notre bottomTabBar
-              tabBarOptions={{
-                activeTintColor: "violet",
-                inactiveTintColor: "gray",
-                inactiveBackgroundColor: "yellow",
-                activeBackgroundColor: "green",
-                style: {
-                  backgroundColor: "black",
-                  height: 100
-                }
-              }}
-            >
-              <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
-              <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
-              <Tab.Screen name="GeneralInformation">
-                {() => <GeneralInformation />}
-              </Tab.Screen>
-              <Tab.Screen name="MosquitoesAndTicks">
-                {() => <MosquitoesAndTicks />}
-              </Tab.Screen>
-              <Tab.Screen name="EatAndDrink">
-                {() => <EatAndDrink />}
-              </Tab.Screen>
+                <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
+                <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
+                <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
+                <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
+              </Tab.Navigator>
+            )}
+          </Stack.Screen>
+          <Stack.Screen name="Sun" options={{ headerShown: false, title: "" }}>
+            {() => (
+              <Tab.Navigator
+                // ici on peut gérer le design de notre bottomTabBar
+                tabBarOptions={{
+                  activeTintColor: "violet",
+                  inactiveTintColor: "gray",
+                  inactiveBackgroundColor: "yellow",
+                  activeBackgroundColor: "green",
+                  style: {
+                    backgroundColor: "black",
+                    height: 100
+                  }
+                }}
+              >
+                <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
+                <Tab.Screen name="GeneralInformation">
+                  {() => <GeneralInformation />}
+                </Tab.Screen>
+                <Tab.Screen name="MosquitoesAndTicks">
+                  {() => <MosquitoesAndTicks />}
+                </Tab.Screen>
+                <Tab.Screen name="EatAndDrink">
+                  {() => <EatAndDrink />}
+                </Tab.Screen>
+                <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
+                <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
+                <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
+              </Tab.Navigator>
+            )}
+          </Stack.Screen>
+          <Stack.Screen
+            name="Swimming"
+            options={{ headerShown: false, title: "" }}
+          >
+            {() => (
+              <Tab.Navigator
+                // ici on peut gérer le design de notre bottomTabBar
+                tabBarOptions={{
+                  activeTintColor: "violet",
+                  inactiveTintColor: "gray",
+                  inactiveBackgroundColor: "yellow",
+                  activeBackgroundColor: "green",
+                  style: {
+                    backgroundColor: "black",
+                    height: 100
+                  }
+                }}
+              >
+                <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
+                <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
+                <Tab.Screen name="GeneralInformation">
+                  {() => <GeneralInformation />}
+                </Tab.Screen>
+                <Tab.Screen name="MosquitoesAndTicks">
+                  {() => <MosquitoesAndTicks />}
+                </Tab.Screen>
+                <Tab.Screen name="EatAndDrink">
+                  {() => <EatAndDrink />}
+                </Tab.Screen>
 
-              <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
-              <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
-            </Tab.Navigator>
-          )}
-        </Stack.Screen>
-        <Stack.Screen
-          name="Animals"
-          options={{ headerShown: false, title: "" }}
-        >
-          {() => (
-            <Tab.Navigator
-              // ici on peut gérer le design de notre bottomTabBar
-              tabBarOptions={{
-                activeTintColor: "violet",
-                inactiveTintColor: "gray",
-                inactiveBackgroundColor: "yellow",
-                activeBackgroundColor: "green",
-                style: {
-                  backgroundColor: "black",
-                  height: 100
-                }
-              }}
-            >
-              <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
-              <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
-              <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
-              <Tab.Screen name="GeneralInformation">
-                {() => <GeneralInformation />}
-              </Tab.Screen>
-              <Tab.Screen name="MosquitoesAndTicks">
-                {() => <MosquitoesAndTicks />}
-              </Tab.Screen>
-              <Tab.Screen name="EatAndDrink">
-                {() => <EatAndDrink />}
-              </Tab.Screen>
-              <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
-            </Tab.Navigator>
-          )}
-        </Stack.Screen>
-        <Stack.Screen name="Quizz" options={{ headerShown: false, title: "" }}>
-          {() => (
-            <Tab.Navigator
-              // ici on peut gérer le design de notre bottomTabBar
-              tabBarOptions={{
-                activeTintColor: "violet",
-                inactiveTintColor: "gray",
-                inactiveBackgroundColor: "yellow",
-                activeBackgroundColor: "green",
-                style: {
-                  backgroundColor: "black",
-                  height: 100
-                }
-              }}
-            >
-              <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
-              <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
-              <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
-              <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
-              <Tab.Screen name="GeneralInformation">
-                {() => <GeneralInformation />}
-              </Tab.Screen>
-              <Tab.Screen name="MosquitoesAndTicks">
-                {() => <MosquitoesAndTicks />}
-              </Tab.Screen>
-              <Tab.Screen name="EatAndDrink">
-                {() => <EatAndDrink />}
-              </Tab.Screen>
-            </Tab.Navigator>
-          )}
-        </Stack.Screen>
-      </Stack.Navigator>
+                <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
+                <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
+              </Tab.Navigator>
+            )}
+          </Stack.Screen>
+          <Stack.Screen
+            name="Animals"
+            options={{ headerShown: false, title: "" }}
+          >
+            {() => (
+              <Tab.Navigator
+                // ici on peut gérer le design de notre bottomTabBar
+                tabBarOptions={{
+                  activeTintColor: "violet",
+                  inactiveTintColor: "gray",
+                  inactiveBackgroundColor: "yellow",
+                  activeBackgroundColor: "green",
+                  style: {
+                    backgroundColor: "black",
+                    height: 100
+                  }
+                }}
+              >
+                <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
+                <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
+                <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
+                <Tab.Screen name="GeneralInformation">
+                  {() => <GeneralInformation />}
+                </Tab.Screen>
+                <Tab.Screen name="MosquitoesAndTicks">
+                  {() => <MosquitoesAndTicks />}
+                </Tab.Screen>
+                <Tab.Screen name="EatAndDrink">
+                  {() => <EatAndDrink />}
+                </Tab.Screen>
+                <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
+              </Tab.Navigator>
+            )}
+          </Stack.Screen>
+          <Stack.Screen
+            name="Quizz"
+            options={{ headerShown: false, title: "" }}
+          >
+            {() => (
+              <Tab.Navigator
+                // ici on peut gérer le design de notre bottomTabBar
+                tabBarOptions={{
+                  activeTintColor: "violet",
+                  inactiveTintColor: "gray",
+                  inactiveBackgroundColor: "yellow",
+                  activeBackgroundColor: "green",
+                  style: {
+                    backgroundColor: "black",
+                    height: 100
+                  }
+                }}
+              >
+                <Tab.Screen name="Quizz">{() => <Quizz />}</Tab.Screen>
+                <Tab.Screen name="Animals">{() => <Animals />}</Tab.Screen>
+                <Tab.Screen name="Swimming">{() => <Swimming />}</Tab.Screen>
+                <Tab.Screen name="Sun">{() => <Sun />}</Tab.Screen>
+                <Tab.Screen name="GeneralInformation">
+                  {() => <GeneralInformation />}
+                </Tab.Screen>
+                <Tab.Screen name="MosquitoesAndTicks">
+                  {() => <MosquitoesAndTicks />}
+                </Tab.Screen>
+                <Tab.Screen name="EatAndDrink">
+                  {() => <EatAndDrink />}
+                </Tab.Screen>
+              </Tab.Navigator>
+            )}
+          </Stack.Screen>
+        </Stack.Navigator>
+      )}
     </NavigationContainer>
   );
 }
