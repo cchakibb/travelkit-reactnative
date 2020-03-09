@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import HeaderTopImage from "../components/HeaderTopImage";
 
-export default function Animals() {
+export default function Animals({ userToken }) {
   const navigation = useNavigation();
   return (
     <ScrollView style={styles.container}>

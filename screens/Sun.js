@@ -4,7 +4,7 @@ import { StyleSheet, View, ScrollView, Image } from "react-native";
 import HeaderTopImage from "../components/HeaderTopImage";
 import BtnInfo from "../components/BtnInfo";
 
-export default function Sun() {
+export default function Sun({ userToken }) {
   const [getMoreInfo, setGetMoreInfo] = useState();
   const navigation = useNavigation();
   return (

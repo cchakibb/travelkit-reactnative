@@ -14,7 +14,7 @@ import ContraindicatedVaccine from "../components/ContraindicatedVaccine";
 import { ScrollView } from "react-native-gesture-handler";
 require("moment/locale/fr");
 
-export default function MyVaccinationCard() {
+export default function MyVaccinationCard({ userToken }) {
   const [userVaccineData, setUserVaccineData] = useState();
   const [recommendedvaccines, setRecommendedvaccines] = useState(null);
   const [mandatoryOrRecommended, setMandatoryOrRecommended] = useState(null);
@@ -27,14 +27,11 @@ export default function MyVaccinationCard() {
         "https://c0d1syq1s6.execute-api.eu-central-1.amazonaws.com/dev/health/vaccinationrecord",
         {
           headers: {
-            Authorization:
-              "Bearer " +
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTVkMmEwZGNkMmVlZTAwMDljYWRmZDEiLCJpYXQiOjE1ODM0OTg0NzEsImV4cCI6MTU4MzU4NDg3MX0.OHhLqpJSmOEmS4Ej3Vt_kieQUvrOkuiUcn4nm_8UATA"
+            Authorization: "Bearer " + userToken
           }
         }
       );
       setUserVaccineData(response.data);
-      /* console.log(response.data); */
       setIsLoading(false);
     } catch (error) {
       alert("MyVaccinationCard: Something went wrong");
@@ -47,9 +44,7 @@ export default function MyVaccinationCard() {
         "https://c0d1syq1s6.execute-api.eu-central-1.amazonaws.com/dev//health/vaccinationrecord/info/recommendedvaccines",
         {
           headers: {
-            Authorization:
-              "Bearer " +
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTVkMmEwZGNkMmVlZTAwMDljYWRmZDEiLCJpYXQiOjE1ODM0OTUxODksImV4cCI6MTU4MzU4MTU4OX0.vaA3Ug0Fs6f0mRhencdB3WyFW3wO8172Fw3DqqZeqZk"
+            Authorization: "Bearer " + userToken
           }
         }
       );
@@ -65,9 +60,7 @@ export default function MyVaccinationCard() {
         "https://c0d1syq1s6.execute-api.eu-central-1.amazonaws.com/dev//health/vaccinationrecord/info/mandatoryorrecommended",
         {
           headers: {
-            Authorization:
-              "Bearer " +
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTVkMmEwZGNkMmVlZTAwMDljYWRmZDEiLCJpYXQiOjE1ODM0OTUxODksImV4cCI6MTU4MzU4MTU4OX0.vaA3Ug0Fs6f0mRhencdB3WyFW3wO8172Fw3DqqZeqZk"
+            Authorization: "Bearer " + userToken
           }
         }
       );
@@ -83,9 +76,7 @@ export default function MyVaccinationCard() {
         "https://c0d1syq1s6.execute-api.eu-central-1.amazonaws.com/dev/health/vaccinationrecord/info/contraindications",
         {
           headers: {
-            Authorization:
-              "Bearer " +
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTVkMmEwZGNkMmVlZTAwMDljYWRmZDEiLCJpYXQiOjE1ODM0OTUxODksImV4cCI6MTU4MzU4MTU4OX0.vaA3Ug0Fs6f0mRhencdB3WyFW3wO8172Fw3DqqZeqZk"
+            Authorization: "Bearer " + userToken
           }
         }
       );
