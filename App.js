@@ -69,7 +69,6 @@ export default function App() {
 
   return (
     <NavigationContainer>
-<<<<<<< HEAD
       {isLoading ? null : userToken === null ? (
         <Stack.Navigator>
           <Stack.Screen
@@ -131,59 +130,6 @@ export default function App() {
           >
             {() => <Checklist setToken={setToken} />}
           </Stack.Screen>
-=======
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Start"
-          options={{ header: () => null, animationEnabled: false }}
-        >
-          {() => <Start />}
-        </Stack.Screen>
-        <Stack.Screen
-          name="Authentication"
-          options={{ header: () => null, animationEnabled: false }}
-        >
-          {() => <Authentication setToken={setToken} />}
-        </Stack.Screen>
-        <Stack.Screen
-          name="FirstConnexion"
-          options={{
-            header: () => null,
-            animationEnabled: false,
-            title: ""
-          }}
-        >
-          {() => <FirstConnexion setToken={setToken} />}
-        </Stack.Screen>
-        <Stack.Screen
-          name="Destination"
-          options={{ header: () => null, animationEnabled: false }}
-        >
-          {() => <Destination setToken={setToken} />}
-        </Stack.Screen>
-        <Stack.Screen
-          name="Home"
-          options={{ header: () => null, animationEnabled: false }}
-        >
-          {() => <Home setToken={setToken} />}
-        </Stack.Screen>
-        <Stack.Screen
-          name="MyTravelerProfile"
-          options={{
-            header: () => null,
-            animationEnabled: false,
-            title: ""
-          }}
-        >
-          {() => <MyTravelerProfile setToken={setToken} />}
-        </Stack.Screen>
-        <Stack.Screen
-          name="Checklist"
-          options={{ header: () => null, animationEnabled: false }}
-        >
-          {() => <Checklist setToken={setToken} />}
-        </Stack.Screen>
->>>>>>> 1a160d5aa3cb5f7370f5b7e3e4764d9a2d8502ca
 
           <Stack.Screen
             name="MyHealthProfile"
