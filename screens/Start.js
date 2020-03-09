@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-export default function Start() {
+export default function Start({ userToken }) {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
@@ -13,7 +13,11 @@ export default function Start() {
 
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("Authentication");
+          if (userToken) {
+            navigation.navigate("FirstConnexion");
+          } else {
+            navigation.navigate("Authentication");
+          }
         }}
       >
         <View>
