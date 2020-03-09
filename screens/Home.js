@@ -21,7 +21,13 @@ export default function Home() {
           source={require("../assets/general/logo/logo.png")}
           style={{ width: 60, height: 60 }}
         />
-        <FontAwesome name="bars" size={55} color="#3794B5" />
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("MyTravelerProfile");
+          }}
+        >
+          <FontAwesome name="bars" size={55} color="#3794B5" />
+        </TouchableOpacity>
       </View>
       <View
         style={{
