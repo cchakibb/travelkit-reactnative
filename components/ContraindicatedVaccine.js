@@ -3,8 +3,6 @@ import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function ContraindicatedVaccine({ contraindicated }) {
-  console.log(contraindicated);
-
   const results = [];
 
   /* if (contraindicated.name) {

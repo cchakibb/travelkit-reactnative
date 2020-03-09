@@ -81,17 +81,11 @@ export default function App() {
             name="Authentication"
             options={{ header: () => null, animationEnabled: false }}
           >
-            {() => <Authentication setToken={setToken} />}
+            {() => <Authentication userToken={userToken} setToken={setToken} />}
           </Stack.Screen>
         </Stack.Navigator>
       ) : (
         <Stack.Navigator>
-          <Stack.Screen
-            name="Start"
-            options={{ header: () => null, animationEnabled: false }}
-          >
-            {() => <Start userToken={userToken} />}
-          </Stack.Screen>
           <Stack.Screen
             name="FirstConnexion"
             options={{
