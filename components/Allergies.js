@@ -20,8 +20,9 @@ export default function MedicalHistory({ allergies }) {
   }
 
   return (
-    <View>
-      <Text>Allergies: {results}</Text>
+    <View style={{ flexDirection: "row", marginTop: 3 }}>
+      <Text style={{ fontSize: 16, fontWeight: "bold" }}>Allergies :</Text>
+      <Text style={{ fontSize: 16 }}> {results}</Text>
     </View>
   );
 }
