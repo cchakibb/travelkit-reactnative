@@ -142,7 +142,9 @@ export default function App() {
           <Stack.Screen
             userToken={userToken}
             name="MyHealth"
-            options={{ title: "" }}
+            options={{
+              headerShown: false
+            }}
           >
             {() => (
               <Tab.Navigator
@@ -179,7 +181,12 @@ export default function App() {
               </Tab.Navigator>
             )}
           </Stack.Screen>
-          <Stack.Screen name="MyVaccinationCard" options={{ title: "" }}>
+          <Stack.Screen
+            name="MyVaccinationCard"
+            options={{
+              headerShown: false
+            }}
+          >
             {() => (
               <Tab.Navigator
                 // ici on peut gérer le design de notre bottomTabBar

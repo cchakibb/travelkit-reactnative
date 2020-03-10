@@ -55,7 +55,7 @@ function HeaderTopImage({ title }) {
 const styles = StyleSheet.create({
   profil: {
     textAlign: "center",
-    marginTop: 25,
+    marginTop: 22,
     color: "#3794B5",
     fontSize: 40,
     fontWeight: "bold"
