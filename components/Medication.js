@@ -20,8 +20,11 @@ export default function Medication({ medication }) {
   }
 
   return (
-    <View>
-      <Text>Traitements habituels: {results}</Text>
+    <View style={{ flexDirection: "row", marginTop: 3 }}>
+      <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+        Traitements habituels :
+      </Text>
+      <Text style={{ fontSize: 16 }}> {results}</Text>
     </View>
   );
 }
