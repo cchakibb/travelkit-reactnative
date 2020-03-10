@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigation } from "@react-navigation/core";
+import { useNavigation, useRoute } from "@react-navigation/core";
 import {
   StyleSheet,
   Text,
@@ -9,15 +9,26 @@ import {
   Image
 } from "react-native";
 import HeaderTopImage from "../components/HeaderTopImage";
+import moment from "moment";
+require("moment/locale/fr");
 
 export default function Daily({ userToken }) {
   const navigation = useNavigation();
+  const { params } = useRoute();
+  if (params) {
+    console.log("PARAMS =", params);
+  }
+
   return (
     <ScrollView>
       <View style={styles.container}>
         <HeaderTopImage title={"Mon quotidien"}></HeaderTopImage>
         <View>
-          <Text style={styles.textPerou}>Pérou: 14/06/2019 - 16/07/2019</Text>
+          <Text style={styles.textPerou}>
+            {params.travelDestination} - Du{" "}
+            {moment(params.travelDeparture).format("L")} au{" "}
+            {moment(params.travelReturn).format("L")}
+          </Text>
         </View>
         <View style={styles.iconeMenu}>
           <TouchableOpacity

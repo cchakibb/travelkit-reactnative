@@ -26,13 +26,13 @@ import Swimming from "./screens/Swimming";
 import Animals from "./screens/Animals";
 import Quizz from "./screens/Quizz";
 import Checklist from "./screens/Checklist";
-import Destination from "./screens/Destination";
+
 // MyHealthInformation TABS
 import Medicine from "./screens/Medicine";
 import FirstAidKit from "./screens/FirstAidKit";
 import DoctorAppointment from "./screens/DoctorAppointment";
 import HealthInsurance from "./screens/HealthInsurance";
-import MyTravelerProfile from "./screens/MyTravelerProfile";
+import UserProfile from "./screens/UserProfile";
 // MyHealthInformation TABS
 
 const Tab = createBottomTabNavigator();
@@ -102,12 +102,7 @@ export default function App() {
           >
             {() => <PickTravel userToken={userToken} />}
           </Stack.Screen>
-          <Stack.Screen
-            name="Destination"
-            options={{ header: () => null, animationEnabled: false }}
-          >
-            {() => <Destination userToken={userToken} />}
-          </Stack.Screen>
+
           <Stack.Screen
             name="Home"
             options={{ header: () => null, animationEnabled: false }}
@@ -115,14 +110,14 @@ export default function App() {
             {() => <Home userToken={userToken} />}
           </Stack.Screen>
           <Stack.Screen
-            name="MyTravelerProfile"
+            name="UserProfile"
             options={{
               header: () => null,
               animationEnabled: false,
               title: ""
             }}
           >
-            {() => <MyTravelerProfile userToken={userToken} />}
+            {() => <UserProfile userToken={userToken} />}
           </Stack.Screen>
           <Stack.Screen
             name="Checklist"

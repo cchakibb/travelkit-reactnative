@@ -1,11 +1,12 @@
 import React from "react";
-import { useNavigation } from "@react-navigation/core";
+import { useNavigation, useRoute } from "@react-navigation/core";
 import { Text, View, ImageBackground, StyleSheet, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { FontAwesome } from "@expo/vector-icons";
 
-export default function Home({ userToken }) {
+export default function Home({ route, userToken }) {
   const navigation = useNavigation();
+  const { params } = useRoute();
 
   return (
     <ImageBackground
@@ -23,7 +24,7 @@ export default function Home({ userToken }) {
         />
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("MyTravelerProfile");
+            navigation.navigate("UserProfile");
           }}
         >
           <FontAwesome name="bars" size={55} color="#3794B5" />
@@ -76,7 +77,11 @@ export default function Home({ userToken }) {
 
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("Daily");
+            navigation.navigate("Daily", {
+              travelDestination: params.travelDestination,
+              travelDeparture: params.travelDeparture,
+              travelReturn: params.travelReturn
+            });
           }}
           style={styles.iconeMenu}
         >
@@ -98,6 +103,7 @@ export default function Home({ userToken }) {
           ></Image>
           <Text style={styles.text}> Mes documents</Text>
         </TouchableOpacity>
+        {/* <Text>itemId: {JSON.stringify(travelDestination)}</Text> */}
       </View>
     </ImageBackground>
   );

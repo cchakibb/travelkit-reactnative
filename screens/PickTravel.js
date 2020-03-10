@@ -11,6 +11,8 @@ import {
   ActivityIndicator
 } from "react-native";
 import axios from "axios";
+import moment from "moment";
+require("moment/locale/fr");
 import { useNavigation } from "@react-navigation/core";
 /* import { FlatList } from "react-native-gesture-handler"; */
 
@@ -77,11 +79,27 @@ export default function PickTravel({ userToken }) {
                 keyExtractor={item => {
                   return item._id;
                 }}
-                renderItem={({ item }) => <Text>{item.destination}</Text>}
+                renderItem={({ item }) => (
+                  <TouchableOpacity
+                    onPress={() => {
+                      navigation.navigate("Home", {
+                        travelDestination: item.destination,
+                        travelDeparture: item.dates.departure,
+                        travelReturn: item.dates.return
+                      });
+                    }}
+                  >
+                    <Text>
+                      {item.destination} - Du{" "}
+                      {moment(item.dates.departure).format("L")} au{" "}
+                      {moment(item.dates.return).format("L")}
+                    </Text>
+                  </TouchableOpacity>
+                )}
               />
             </View>
 
-            <View style={styles.travel}>
+            {/* <View style={styles.travel}>
               <TouchableOpacity
                 style={styles.submitButton}
                 onPress={() => {
@@ -90,7 +108,7 @@ export default function PickTravel({ userToken }) {
               >
                 <Text style={styles.submitButtonText}> Nouveau Voyage </Text>
               </TouchableOpacity>
-            </View>
+            </View> */}
           </View>
         </ImageBackground>
       )}
