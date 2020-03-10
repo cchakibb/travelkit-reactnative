@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  ActivityIndicator
-} from "react-native";
+import { StyleSheet, Text, View, ActivityIndicator } from "react-native";
 import axios from "axios";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import MedicalHistory from "../components/MedicalHistory";
 import Allergies from "../components/Allergies";
 import Medication from "../components/Medication";
+import HeaderTopImage from "../components/HeaderTopImage";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default function MyHealth({ userToken }) {
   const [data, setData] = useState();
@@ -39,36 +34,61 @@ export default function MyHealth({ userToken }) {
   }, []);
 
   return (
-    <View style={styles.container}>
-      {isLoading === true ? (
-        <ActivityIndicator />
-      ) : (
-        <View>
-          <Text style={{ color: "blue", fontSize: 40 }}>Ma santé</Text>
-          <Text>Age: {data.age} ans</Text>
-          <Text>Poids: {data.weight} kg</Text>
+    <ScrollView style={styles.container}>
+      <View>
+        <HeaderTopImage title={"Ma santé"}></HeaderTopImage>
+        {isLoading === true ? (
+          <ActivityIndicator />
+        ) : (
+          <View>
+            <View
+              style={{
+                height: 55,
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+            >
+              <Text style={styles.textTitle}>Ma santé</Text>
+            </View>
+            <View
+              style={{
+                height: 250,
+                width: 440,
+                marginTop: 20,
+                marginLeft: 12
+              }}
+            >
+              <View style={{ flexDirection: "row" }}>
+                <Text style={{ fontSize: 16, fontWeight: "bold" }}>Age :</Text>
+                <Text style={{ fontSize: 16 }}> {data.age} ans</Text>
+              </View>
+              <View style={{ flexDirection: "row" }}>
+                <Text
+                  style={{ fontSize: 16, fontWeight: "bold", marginTop: 3 }}
+                >
+                  Poids :
+                </Text>
+                <Text style={{ fontSize: 16 }}> {data.weight} kg</Text>
+              </View>
 
-          <MedicalHistory medicalHistory={data.medicalHistory} />
-          <Allergies allergies={data.allergies} />
-          <Medication medication={data.medication} />
-          <Text>POSOLOGIE ??? (introuvable dans json)</Text>
-          <TouchableOpacity>
-            <MaterialCommunityIcons
-              name="pencil-circle"
-              size={32}
-              color={"#3D9DBF"}
-            />
-          </TouchableOpacity>
-        </View>
-      )}
-    </View>
+              <MedicalHistory medicalHistory={data.medicalHistory} />
+
+              <Allergies allergies={data.allergies} />
+              <Medication medication={data.medication} />
+            </View>
+          </View>
+        )}
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: "white"
+  },
+  textTitle: {
+    color: "#3794B5",
+    fontSize: 20
   }
 });
