@@ -19,7 +19,7 @@ export default function ContraindicatedVaccine({ contraindicated }) {
 
   return (
     <View style={{ height: 70, width: 390, marginLeft: 12 }}>
-      <Text style={{ marginTop: 10, fontSize: 16 }}>
+      <Text style={{ marginTop: 10, fontSize: 16, fontWeight: "bold" }}>
         Contre-indiqué d'après mon état de santé : {results}
       </Text>
     </View>
