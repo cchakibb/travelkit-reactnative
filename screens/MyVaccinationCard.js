@@ -8,8 +8,6 @@ import {
   FlatList
 } from "react-native";
 import axios from "axios";
-import HeaderTopImage from "../components/HeaderTopImage";
-import BtnInfo from "../components/BtnInfo";
 import ViewPager from "@react-native-community/viewpager";
 import moment from "moment";
 import ContraindicatedVaccine from "../components/ContraindicatedVaccine";
@@ -94,43 +92,24 @@ export default function MyVaccinationCard({ userToken }) {
   }, []);
 
   return (
-    <View style={{ backgroundColor: "white", flex: 1 }}>
-      <HeaderTopImage title={"Carnet de vaccination"}></HeaderTopImage>
+    <View style={{ flex: 1 }}>
       {isLoading === true ? (
         <ActivityIndicator />
       ) : (
         <ScrollView>
           <ViewPager style={styles.viewPager} initialPage={0}>
-            <View style={{ alignItems: "center" }} key="1">
-              <View>
-                <Text style={{ fontSize: 20, marginTop: 10, color: "#3794B5" }}>
-                  Mes vaccins à jour :
-                </Text>
-              </View>
-
+            <View style={styles.page} key="1">
+              <Text>Mes vaccins à jour:</Text>
               {userVaccineData.vaccinationRecord.previous_vaccines[0].name &&
               userVaccineData.vaccinationRecord.previous_vaccines[0].date ? (
-                <View
-                  style={{
-                    flexDirection: "row",
-                    width: 300,
-                    alignItems: "center",
-                    justifyContent: "space-between"
-                  }}
-                >
-                  <Text
-                    style={{
-                      marginLeft: 9,
-                      marginTop: 24,
-                      fontSize: 16
-                    }}
-                  >
+                <View>
+                  <Text>
                     {
                       userVaccineData.vaccinationRecord.previous_vaccines[0]
                         .name
                     }
                   </Text>
-                  <Text style={{ marginTop: 24, marginRight: 5 }}>
+                  <Text>
                     {moment(
                       userVaccineData.vaccinationRecord.previous_vaccines[0]
                         .date
@@ -141,34 +120,20 @@ export default function MyVaccinationCard({ userToken }) {
                 <Text>Aucun</Text>
               )}
             </View>
-            <View style={{ alignItems: "center" }} key="2">
-              <Text style={{ fontSize: 20, marginTop: 10, color: "#3794B5" }}>
-                Mes vaccins obligatoires :
-              </Text>
+            <View style={styles.page} key="2">
+              <Text>Mes vaccins obligatoires:</Text>
               {userVaccineData.vaccinationRecord.mandatory[0].name ? (
-                <Text
-                  style={{
-                    marginTop: 24,
-                    fontSize: 16
-                  }}
-                >
+                <Text>
                   {userVaccineData.vaccinationRecord.mandatory[0].name}
                 </Text>
               ) : (
                 <Text>Aucun</Text>
               )}
             </View>
-            <View style={{ alignItems: "center" }} key="3">
-              <Text style={{ fontSize: 20, marginTop: 10, color: "#3794B5" }}>
-                Mes vaccins recommandés :
-              </Text>
+            <View style={styles.page} key="3">
+              <Text>Mes vaccins recommandés:</Text>
               {userVaccineData.vaccinationRecord.recommended[0].name ? (
-                <Text
-                  style={{
-                    marginTop: 24,
-                    fontSize: 16
-                  }}
-                >
+                <Text>
                   {userVaccineData.vaccinationRecord.recommended[0].name}
                 </Text>
               ) : (
@@ -229,13 +194,15 @@ export default function MyVaccinationCard({ userToken }) {
 
 const styles = StyleSheet.create({
   viewPager: {
-    marginTop: 15,
-    marginLeft: 55,
+    marginLeft: 30,
     borderStyle: "solid",
     borderWidth: 1,
-    borderColor: "#3794B5",
-    borderRadius: 25,
+    borderColor: "blue",
     width: 300,
     height: 300
+  },
+  page: {
+    justifyContent: "center",
+    alignItems: "center"
   }
 });
