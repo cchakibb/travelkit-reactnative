@@ -1,16 +1,18 @@
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {
+  ActivityIndicator,
   StyleSheet,
   Text,
-  View,
   TouchableOpacity,
-  ActivityIndicator
+  View,
+  ScrollView
 } from "react-native";
-import axios from "axios";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import MedicalHistory from "../components/MedicalHistory";
 import Allergies from "../components/Allergies";
+import MedicalHistory from "../components/MedicalHistory";
 import Medication from "../components/Medication";
+import HeaderTopImage from "../components/HeaderTopImage";
 
 export default function MyHealth({ userToken }) {
   const [data, setData] = useState();
@@ -39,36 +41,51 @@ export default function MyHealth({ userToken }) {
   }, []);
 
   return (
-    <View style={styles.container}>
-      {isLoading === true ? (
-        <ActivityIndicator />
-      ) : (
-        <View>
-          <Text style={{ color: "blue", fontSize: 40 }}>Ma santé</Text>
-          <Text>Age: {data.age} ans</Text>
-          <Text>Poids: {data.weight} kg</Text>
+    <ScrollView style={styles.container}>
+      <HeaderTopImage title={"Ma santé"}></HeaderTopImage>
+      <View>
+        {isLoading === true ? (
+          <ActivityIndicator />
+        ) : (
+          <View>
+            <View>
+              <Text
+                style={{
+                  color: "#3794B5",
+                  fontSize: 20,
 
-          <MedicalHistory medicalHistory={data.medicalHistory} />
-          <Allergies allergies={data.allergies} />
-          <Medication medication={data.medication} />
-          <Text>POSOLOGIE ??? (introuvable dans json)</Text>
-          <TouchableOpacity>
-            <MaterialCommunityIcons
-              name="pencil-circle"
-              size={32}
-              color={"#3D9DBF"}
-            />
-          </TouchableOpacity>
-        </View>
-      )}
-    </View>
+                  height: 50,
+                  textAlign: "center",
+                  marginTop: 10
+                }}
+              >
+                Ma santé
+              </Text>
+            </View>
+            <View>
+              <View style={{ flexDirection: "row" }}>
+                <Text style={{ fontSize: 16, fontWeight: "bold" }}>Age :</Text>
+                <Text style={{ fontSize: 16 }}>{data.age} ans</Text>
+              </View>
+              <View style={{ flexDirection: "row" }}>
+                <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+                  Poids :
+                </Text>
+                <Text> {data.weight} kg</Text>
+              </View>
+            </View>
+            <MedicalHistory medicalHistory={data.medicalHistory} />
+            <Allergies allergies={data.allergies} />
+            <Medication medication={data.medication} />
+          </View>
+        )}
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: "white"
   }
 });
