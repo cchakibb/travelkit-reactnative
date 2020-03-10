@@ -32,6 +32,7 @@ export default function MyVaccinationCard({ userToken }) {
         }
       );
       setUserVaccineData(response.data);
+
       setIsLoading(false);
     } catch (error) {
       alert("MyVaccinationCard: Something went wrong");
