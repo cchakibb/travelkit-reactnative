@@ -12,7 +12,9 @@ import {
 import axios from "axios";
 import { Ionicons } from "@expo/vector-icons";
 
+
 export default function Authentication({ setToken }) {
+
   const navigation = useNavigation();
   const [email, setEmail] = useState("reacteur1@test.com");
   const [password, setPassword] = useState("abcde");
