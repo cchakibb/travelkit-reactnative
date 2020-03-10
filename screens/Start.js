@@ -14,7 +14,7 @@ export default function Start({ userToken }) {
       <TouchableOpacity
         onPress={() => {
           if (userToken) {
-            navigation.navigate("FirstConnexion");
+            navigation.navigate("PickTravel");
           } else {
             navigation.navigate("Authentication");
           }

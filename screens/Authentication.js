@@ -12,7 +12,9 @@ import {
 import axios from "axios";
 import { Ionicons } from "@expo/vector-icons";
 
-export default function Authentication({ userToken, setToken }) {
+
+export default function Authentication({ setToken }) {
+
   const navigation = useNavigation();
   const [email, setEmail] = useState("reacteur1@test.com");
   const [password, setPassword] = useState("abcde");
@@ -69,6 +71,7 @@ export default function Authentication({ userToken, setToken }) {
               );
               if (response.data.token) {
                 const userToken = response.data.token;
+
                 setToken(userToken);
               } else {
                 alert("Token is missing");
@@ -78,7 +81,7 @@ export default function Authentication({ userToken, setToken }) {
             }
           }}
           /* onPress={() => {
-            navigation.navigate("FirstConnexion");
+            navigation.navigate("PickTravel");
           }} */
         >
           <View

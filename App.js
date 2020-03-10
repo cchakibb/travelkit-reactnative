@@ -9,7 +9,7 @@ import Home from "./screens/Home";
 import Settings from "./screens/Settings";
 import Start from "./screens/Start";
 import Authentication from "./screens/Authentication";
-import FirstConnexion from "./screens/FirstConnexion";
+import PickTravel from "./screens/PickTravel";
 import MyHealthProfile from "./screens/MyHealthProfile";
 import Daily from "./screens/Daily";
 import MyHealth from "./screens/MyHealth";
@@ -61,7 +61,7 @@ export default function App() {
       // This will switch to the App screen or Auth screen and this loading
       // screen will be unmounted and thrown away.
       setIsLoading(false);
-      setUserToken(null);
+      setUserToken(null); // TODO replace null by userToken
     };
 
     bootstrapAsync();
@@ -86,15 +86,21 @@ export default function App() {
         </Stack.Navigator>
       ) : (
         <Stack.Navigator>
+          {/* <Stack.Screen
+            name="Start"
+            options={{ header: () => null, animationEnabled: false }}
+          >
+            {() => <Start userToken={userToken} />}
+          </Stack.Screen> */}
           <Stack.Screen
-            name="FirstConnexion"
+            name="PickTravel"
             options={{
               header: () => null,
               animationEnabled: false,
               title: ""
             }}
           >
-            {() => <FirstConnexion userToken={userToken} />}
+            {() => <PickTravel userToken={userToken} />}
           </Stack.Screen>
           <Stack.Screen
             name="Destination"
