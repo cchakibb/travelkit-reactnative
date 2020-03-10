@@ -20,8 +20,9 @@ export default function MedicalHistory({ medicalHistory }) {
   }
 
   return (
-    <View>
-      <Text>Antécédents: {results}</Text>
+    <View style={{ flexDirection: "row", marginTop: 3 }}>
+      <Text style={{ fontSize: 16, fontWeight: "bold" }}>Antécédents :</Text>
+      <Text style={{ fontSize: 16 }}> {results}</Text>
     </View>
   );
 }
