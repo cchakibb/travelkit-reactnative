@@ -227,7 +227,7 @@ export default function App() {
             name="GeneralInformation"
             options={{ headerShown: false, title: "" }}
           >
-            {() => (
+            {props => (
               <Tab.Navigator
                 // ici on peut gérer le design de notre bottomTabBar
                 tabBarOptions={{
@@ -238,26 +238,30 @@ export default function App() {
                   }
                 }}
               >
-                <Tab.Screen name="GeneralInformation">
-                  {() => <GeneralInformation userToken={userToken} />}
+                <Tab.Screen name="TabGeneralInformation">
+                  {() => (
+                    <GeneralInformation userToken={userToken} {...props} />
+                  )}
                 </Tab.Screen>
-                <Tab.Screen name="EatAndDrink">
-                  {() => <EatAndDrink userToken={userToken} />}
+                <Tab.Screen name="TabEatAndDrink">
+                  {() => <EatAndDrink userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="MosquitoesAndTicks">
-                  {() => <MosquitoesAndTicks userToken={userToken} />}
+                <Tab.Screen name="TabMosquitoesAndTicks">
+                  {() => (
+                    <MosquitoesAndTicks userToken={userToken} {...props} />
+                  )}
                 </Tab.Screen>
-                <Tab.Screen name="Sun">
-                  {() => <Sun userToken={userToken} />}
+                <Tab.Screen name="TabSun">
+                  {() => <Sun userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Swimming">
-                  {() => <Swimming userToken={userToken} />}
+                <Tab.Screen name="TabSwimming">
+                  {() => <Swimming userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Animals">
-                  {() => <Animals userToken={userToken} />}
+                <Tab.Screen name="TabAnimals">
+                  {() => <Animals userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Quizz">
-                  {() => <Quizz userToken={userToken} />}
+                <Tab.Screen name="TabQuizz">
+                  {() => <Quizz userToken={userToken} {...props} />}
                 </Tab.Screen>
               </Tab.Navigator>
             )}
@@ -266,7 +270,7 @@ export default function App() {
             name="EatAndDrink"
             options={{ headerShown: false, title: "" }}
           >
-            {() => (
+            {props => (
               <Tab.Navigator
                 // ici on peut gérer le design de notre bottomTabBar
                 tabBarOptions={{
@@ -280,26 +284,30 @@ export default function App() {
                   }
                 }}
               >
-                <Tab.Screen name="EatAndDrink">
-                  {() => <EatAndDrink userToken={userToken} />}
+                <Tab.Screen name="TabEatAndDrink">
+                  {() => <EatAndDrink userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="GeneralInformation">
-                  {() => <GeneralInformation userToken={userToken} />}
+                <Tab.Screen name="TabGeneralInformation">
+                  {() => (
+                    <GeneralInformation userToken={userToken} {...props} />
+                  )}
                 </Tab.Screen>
-                <Tab.Screen name="MosquitoesAndTicks">
-                  {() => <MosquitoesAndTicks userToken={userToken} />}
+                <Tab.Screen name="TabMosquitoesAndTicks">
+                  {() => (
+                    <MosquitoesAndTicks userToken={userToken} {...props} />
+                  )}
                 </Tab.Screen>
-                <Tab.Screen name="Sun">
-                  {() => <Sun userToken={userToken} />}
+                <Tab.Screen name="TabSun">
+                  {() => <Sun userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Swimming">
-                  {() => <Swimming userToken={userToken} />}
+                <Tab.Screen name="TabSwimming">
+                  {() => <Swimming userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Animals">
-                  {() => <Animals userToken={userToken} />}
+                <Tab.Screen name="TabAnimals">
+                  {() => <Animals userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Quizz">
-                  {() => <Quizz userToken={userToken} />}
+                <Tab.Screen name="TabQuizz">
+                  {() => <Quizz userToken={userToken} {...props} />}
                 </Tab.Screen>
               </Tab.Navigator>
             )}
@@ -308,7 +316,7 @@ export default function App() {
             name="MosquitoesAndTicks"
             options={{ headerShown: false, title: "" }}
           >
-            {() => (
+            {props => (
               <Tab.Navigator
                 // ici on peut gérer le design de notre bottomTabBar
                 tabBarOptions={{
@@ -322,33 +330,37 @@ export default function App() {
                   }
                 }}
               >
-                <Tab.Screen name="MosquitoesAndTicks">
-                  {() => <MosquitoesAndTicks userToken={userToken} />}
+                <Tab.Screen name="TabMosquitoesAndTicks">
+                  {() => (
+                    <MosquitoesAndTicks userToken={userToken} {...props} />
+                  )}
                 </Tab.Screen>
-                <Tab.Screen name="GeneralInformation">
-                  {() => <GeneralInformation userToken={userToken} />}
+                <Tab.Screen name="TabGeneralInformation">
+                  {() => (
+                    <GeneralInformation userToken={userToken} {...props} />
+                  )}
                 </Tab.Screen>
-                <Tab.Screen name="EatAndDrink">
-                  {() => <EatAndDrink userToken={userToken} />}
+                <Tab.Screen name="TabEatAndDrink">
+                  {() => <EatAndDrink userToken={userToken} {...props} />}
                 </Tab.Screen>
 
-                <Tab.Screen name="Sun">
-                  {() => <Sun userToken={userToken} />}
+                <Tab.Screen name="TabSun">
+                  {() => <Sun userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Swimming">
-                  {() => <Swimming userToken={userToken} />}
+                <Tab.Screen name="TabSwimming">
+                  {() => <Swimming userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Animals">
-                  {() => <Animals userToken={userToken} />}
+                <Tab.Screen name="TabAnimals">
+                  {() => <Animals userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Quizz">
-                  {() => <Quizz userToken={userToken} />}
+                <Tab.Screen name="TabQuizz">
+                  {() => <Quizz userToken={userToken} {...props} />}
                 </Tab.Screen>
               </Tab.Navigator>
             )}
           </Stack.Screen>
           <Stack.Screen name="Sun" options={{ headerShown: false, title: "" }}>
-            {() => (
+            {props => (
               <Tab.Navigator
                 // ici on peut gérer le design de notre bottomTabBar
                 tabBarOptions={{
@@ -362,26 +374,30 @@ export default function App() {
                   }
                 }}
               >
-                <Tab.Screen name="Sun">
-                  {() => <Sun userToken={userToken} />}
+                <Tab.Screen name="TabSun">
+                  {() => <Sun userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="GeneralInformation">
-                  {() => <GeneralInformation userToken={userToken} />}
+                <Tab.Screen name="TabGeneralInformation">
+                  {() => (
+                    <GeneralInformation userToken={userToken} {...props} />
+                  )}
                 </Tab.Screen>
-                <Tab.Screen name="MosquitoesAndTicks">
-                  {() => <MosquitoesAndTicks userToken={userToken} />}
+                <Tab.Screen name="TabMosquitoesAndTicks">
+                  {() => (
+                    <MosquitoesAndTicks userToken={userToken} {...props} />
+                  )}
                 </Tab.Screen>
-                <Tab.Screen name="EatAndDrink">
-                  {() => <EatAndDrink userToken={userToken} />}
+                <Tab.Screen name="TabEatAndDrink">
+                  {() => <EatAndDrink userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Swimming">
-                  {() => <Swimming userToken={userToken} />}
+                <Tab.Screen name="TabSwimming">
+                  {() => <Swimming userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Animals">
-                  {() => <Animals userToken={userToken} />}
+                <Tab.Screen name="TabAnimals">
+                  {() => <Animals userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Quizz">
-                  {() => <Quizz userToken={userToken} />}
+                <Tab.Screen name="TabQuizz">
+                  {() => <Quizz userToken={userToken} {...props} />}
                 </Tab.Screen>
               </Tab.Navigator>
             )}
@@ -390,7 +406,7 @@ export default function App() {
             name="Swimming"
             options={{ headerShown: false, title: "" }}
           >
-            {() => (
+            {props => (
               <Tab.Navigator
                 // ici on peut gérer le design de notre bottomTabBar
                 tabBarOptions={{
@@ -404,27 +420,31 @@ export default function App() {
                   }
                 }}
               >
-                <Tab.Screen name="Swimming">
-                  {() => <Swimming userToken={userToken} />}
+                <Tab.Screen name="TabSwimming">
+                  {() => <Swimming userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Sun">
-                  {() => <Sun userToken={userToken} />}
+                <Tab.Screen name="TabSun">
+                  {() => <Sun userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="GeneralInformation">
-                  {() => <GeneralInformation userToken={userToken} />}
+                <Tab.Screen name="TabGeneralInformation">
+                  {() => (
+                    <GeneralInformation userToken={userToken} {...props} />
+                  )}
                 </Tab.Screen>
-                <Tab.Screen name="MosquitoesAndTicks">
-                  {() => <MosquitoesAndTicks userToken={userToken} />}
+                <Tab.Screen name="TabMosquitoesAndTicks">
+                  {() => (
+                    <MosquitoesAndTicks userToken={userToken} {...props} />
+                  )}
                 </Tab.Screen>
-                <Tab.Screen name="EatAndDrink">
-                  {() => <EatAndDrink userToken={userToken} />}
+                <Tab.Screen name="TabEatAndDrink">
+                  {() => <EatAndDrink userToken={userToken} {...props} />}
                 </Tab.Screen>
 
-                <Tab.Screen name="Animals">
-                  {() => <Animals userToken={userToken} />}
+                <Tab.Screen name="TabAnimals">
+                  {() => <Animals userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Quizz">
-                  {() => <Quizz userToken={userToken} />}
+                <Tab.Screen name="TabQuizz">
+                  {() => <Quizz userToken={userToken} {...props} />}
                 </Tab.Screen>
               </Tab.Navigator>
             )}
@@ -433,7 +453,7 @@ export default function App() {
             name="Animals"
             options={{ headerShown: false, title: "" }}
           >
-            {() => (
+            {props => (
               <Tab.Navigator
                 // ici on peut gérer le design de notre bottomTabBar
                 tabBarOptions={{
@@ -447,26 +467,30 @@ export default function App() {
                   }
                 }}
               >
-                <Tab.Screen name="Animals">
-                  {() => <Animals userToken={userToken} />}
+                <Tab.Screen name="TabAnimals">
+                  {() => <Animals userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Swimming">
-                  {() => <Swimming userToken={userToken} />}
+                <Tab.Screen name="TabSwimming">
+                  {() => <Swimming userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Sun">
-                  {() => <Sun userToken={userToken} />}
+                <Tab.Screen name="TabSun">
+                  {() => <Sun userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="GeneralInformation">
-                  {() => <GeneralInformation userToken={userToken} />}
+                <Tab.Screen name="TabGeneralInformation">
+                  {() => (
+                    <GeneralInformation userToken={userToken} {...props} />
+                  )}
                 </Tab.Screen>
-                <Tab.Screen name="MosquitoesAndTicks">
-                  {() => <MosquitoesAndTicks userToken={userToken} />}
+                <Tab.Screen name="TabMosquitoesAndTicks">
+                  {() => (
+                    <MosquitoesAndTicks userToken={userToken} {...props} />
+                  )}
                 </Tab.Screen>
-                <Tab.Screen name="EatAndDrink">
-                  {() => <EatAndDrink userToken={userToken} />}
+                <Tab.Screen name="TabEatAndDrink">
+                  {() => <EatAndDrink userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Quizz">
-                  {() => <Quizz userToken={userToken} />}
+                <Tab.Screen name="TabQuizz">
+                  {() => <Quizz userToken={userToken} {...props} />}
                 </Tab.Screen>
               </Tab.Navigator>
             )}
@@ -475,7 +499,7 @@ export default function App() {
             name="Quizz"
             options={{ headerShown: false, title: "" }}
           >
-            {() => (
+            {props => (
               <Tab.Navigator
                 // ici on peut gérer le design de notre bottomTabBar
                 tabBarOptions={{
@@ -489,26 +513,30 @@ export default function App() {
                   }
                 }}
               >
-                <Tab.Screen name="Quizz">
-                  {() => <Quizz userToken={userToken} />}
+                <Tab.Screen name="TabQuizz">
+                  {() => <Quizz userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Animals">
-                  {() => <Animals userToken={userToken} />}
+                <Tab.Screen name="TabAnimals">
+                  {() => <Animals userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Swimming">
-                  {() => <Swimming userToken={userToken} />}
+                <Tab.Screen name="TabSwimming">
+                  {() => <Swimming userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="Sun">
-                  {() => <Sun userToken={userToken} />}
+                <Tab.Screen name="TabSun">
+                  {() => <Sun userToken={userToken} {...props} />}
                 </Tab.Screen>
-                <Tab.Screen name="GeneralInformation">
-                  {() => <GeneralInformation userToken={userToken} />}
+                <Tab.Screen name="TabGeneralInformation">
+                  {() => (
+                    <GeneralInformation userToken={userToken} {...props} />
+                  )}
                 </Tab.Screen>
-                <Tab.Screen name="MosquitoesAndTicks">
-                  {() => <MosquitoesAndTicks userToken={userToken} />}
+                <Tab.Screen name="TabMosquitoesAndTicks">
+                  {() => (
+                    <MosquitoesAndTicks userToken={userToken} {...props} />
+                  )}
                 </Tab.Screen>
-                <Tab.Screen name="EatAndDrink">
-                  {() => <EatAndDrink userToken={userToken} />}
+                <Tab.Screen name="TabEatAndDrink">
+                  {() => <EatAndDrink userToken={userToken} {...props} />}
                 </Tab.Screen>
               </Tab.Navigator>
             )}

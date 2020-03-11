@@ -4,7 +4,7 @@ import { Text, View, ImageBackground, StyleSheet, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { FontAwesome } from "@expo/vector-icons";
 
-export default function Home({ route, userToken }) {
+export default function Home({ userToken }) {
   const navigation = useNavigation();
   const { params } = useRoute();
 
@@ -80,7 +80,8 @@ export default function Home({ route, userToken }) {
             navigation.navigate("Daily", {
               travelDestination: params.travelDestination,
               travelDeparture: params.travelDeparture,
-              travelReturn: params.travelReturn
+              travelReturn: params.travelReturn,
+              travelId: params.travelId
             });
           }}
           style={styles.iconeMenu}

@@ -32,7 +32,7 @@ export default function PickTravel({ userToken }) {
         }
       );
       setTravel(response.data);
-      console.log(response.data);
+
       setIsLoading(false);
     } catch (error) {
       alert(error.message);
@@ -85,7 +85,8 @@ export default function PickTravel({ userToken }) {
                       navigation.navigate("Home", {
                         travelDestination: item.destination,
                         travelDeparture: item.dates.departure,
-                        travelReturn: item.dates.return
+                        travelReturn: item.dates.return,
+                        travelId: item._id
                       });
                     }}
                   >
