@@ -9,6 +9,8 @@ import {
 } from "react-native";
 import axios from "axios";
 import HeaderTopImage from "../components/HeaderTopImage";
+import BtnInfo from "../components/BtnInfo";
+
 import ViewPager from "@react-native-community/viewpager";
 import moment from "moment";
 import ContraindicatedVaccine from "../components/ContraindicatedVaccine";
@@ -146,10 +148,13 @@ export default function MyVaccinationCard({ userToken }) {
           <ContraindicatedVaccine
             contraindicated={userVaccineData.vaccinationRecord.contraindicated}
           />
-          <TouchableOpacity onPress={() => fetchRecommendedVaccinesInfo()}>
-            <Text style={{ color: "blue" }}>
-              Informations sur les vaccins recommandés
-            </Text>
+          <TouchableOpacity
+            onPress={() => fetchRecommendedVaccinesInfo()}
+            style={{ marginTop: 16 }}
+          >
+            <BtnInfo
+              title={"Informations sur les vaccins recommandés"}
+            ></BtnInfo>
           </TouchableOpacity>
           {recommendedvaccines !== null ? (
             <FlatList
@@ -161,9 +166,11 @@ export default function MyVaccinationCard({ userToken }) {
             />
           ) : null}
           <TouchableOpacity onPress={() => fetchMandatoryOrRecommended()}>
-            <Text style={{ color: "blue" }}>
-              Vaccination obligatoire ou recommandée : quelle différence ?
-            </Text>
+            <BtnInfo
+              title={
+                "Vaccination obligatoire ou recommandée : quelle différence ?"
+              }
+            ></BtnInfo>
           </TouchableOpacity>
           {mandatoryOrRecommended !== null ? (
             <FlatList
@@ -175,9 +182,7 @@ export default function MyVaccinationCard({ userToken }) {
             />
           ) : null}
           <TouchableOpacity onPress={() => fetchVaccineContraindicated()}>
-            <Text style={{ color: "blue" }}>
-              Contre-indications aux vaccins
-            </Text>
+            <BtnInfo title={"Contre-indications aux vaccins"}></BtnInfo>
           </TouchableOpacity>
           {contraindicated !== null ? (
             <FlatList
@@ -200,8 +205,8 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderWidth: 1,
     borderColor: "#3794B5",
-    width: 300,
-    height: 300,
+    width: 280,
+    height: 280,
     borderRadius: 25
   },
   page: {

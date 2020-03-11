@@ -5,11 +5,9 @@ function BtnInfo({ title }) {
   return (
     <View>
       <View style={{ height: 65 }}>
-        <TouchableOpacity style={styles.btn}>
-          <View>
-            <Text style={styles.text}>{title}</Text>
-          </View>
-        </TouchableOpacity>
+        <View style={styles.btn}>
+          <Text style={styles.text}>{title}</Text>
+        </View>
       </View>
     </View>
   );
