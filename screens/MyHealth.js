@@ -42,7 +42,10 @@ export default function MyHealth({ userToken }) {
 
   return (
     <ScrollView style={styles.container}>
-      <HeaderTopImage title={"Ma santé"}></HeaderTopImage>
+      <HeaderTopImage
+        title={"Ma santé"}
+        page="MyHealthProfile"
+      ></HeaderTopImage>
       <View>
         {isLoading === true ? (
           <ActivityIndicator />

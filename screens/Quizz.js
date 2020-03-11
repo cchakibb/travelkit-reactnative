@@ -23,7 +23,7 @@ export default function Quizz({ userToken }) {
           </Text>
         </View>
         <View style={{ marginTop: 27 }}>
-          <BtnInfo title={"Let's go"}></BtnInfo>
+          <BtnInfo title={"Let's go"} page="Daily"></BtnInfo>
         </View>
       </View>
     </ScrollView>

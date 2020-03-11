@@ -10,7 +10,7 @@ import {
 import { FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-function HeaderTopImage({ title }) {
+function HeaderTopImage({ title, page }) {
   const navigation = useNavigation();
   return (
     <ImageBackground
@@ -35,7 +35,7 @@ function HeaderTopImage({ title }) {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("Home");
+            navigation.navigate(page);
           }}
         >
           <FontAwesome

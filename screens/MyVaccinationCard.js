@@ -96,7 +96,10 @@ export default function MyVaccinationCard({ userToken }) {
 
   return (
     <View style={{ backgroundColor: "white", flex: 1 }}>
-      <HeaderTopImage title={"Carnet de vaccination"}></HeaderTopImage>
+      <HeaderTopImage
+        title={"Carnet de vaccination"}
+        page="MyHealthProfile"
+      ></HeaderTopImage>
       {isLoading === true ? (
         <ActivityIndicator />
       ) : (

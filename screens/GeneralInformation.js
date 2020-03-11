@@ -30,7 +30,7 @@ export default function GeneralInformation({ userToken, route }) {
     // TODO remember isLoading ?
     <ScrollView style={styles.container}>
       <View>
-        <HeaderTopImage title={"Infos générales"}></HeaderTopImage>
+        <HeaderTopImage title={"Infos générales"} page="Daily"></HeaderTopImage>
         <BtnInfo title={"Dengue"}></BtnInfo>
         <BtnInfo title={"Paludisme"}></BtnInfo>
       </View>

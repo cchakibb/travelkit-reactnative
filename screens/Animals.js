@@ -14,7 +14,7 @@ export default function Animals({ userToken }) {
   return (
     <ScrollView style={styles.container}>
       <View>
-        <HeaderTopImage title={"Animaux"}></HeaderTopImage>
+        <HeaderTopImage title={"Animaux"} page="Daily"></HeaderTopImage>
         <View
           style={{
             flex: 1,
