@@ -51,65 +51,91 @@ export default function PickTravel({ userToken }) {
           source={require("../assets/general/background/accueil.png")}
           style={{ width: "100%", height: "100%", opacity: "1" }}
         >
-          <View>
-            <View style={styles.logo}>
-              <Image
-                source={require("../assets/general/logo/logo.png")}
-                style={{ width: 60, height: 60 }}
-              />
-            </View>
-            <View
+          <View style={styles.logo}>
+            <Image
+              source={require("../assets/general/logo/logo.png")}
+              style={{ width: 60, height: 60 }}
+            />
+          </View>
+          <View
+            style={{
+              height: 165,
+              alignItems: "center",
+              justifyContent: "center"
+            }}
+          >
+            <Text
               style={{
-                height: 200,
-                justifyContent: "flex-end",
-                alignItems: "center"
+                color: "white",
+                fontWeight: "bold",
+                fontSize: 60
               }}
             >
-              <Text
-                style={{
-                  color: "white",
-                  fontWeight: "bold",
-                  fontSize: 60
-                }}
-              >
-                Travel kit
-              </Text>
-              <FlatList
-                data={travel.travels}
-                keyExtractor={item => {
-                  return item._id;
-                }}
-                renderItem={({ item }) => (
-                  <TouchableOpacity
-                    onPress={() => {
-                      navigation.navigate("Home", {
-                        travelDestination: item.destination,
-                        travelDeparture: item.dates.departure,
-                        travelReturn: item.dates.return,
-                        travelId: item._id
-                      });
+              Travel kit
+            </Text>
+          </View>
+          <View
+            style={{
+              height: 30
+            }}
+          >
+            <Text
+              style={{
+                color: "white",
+                fontSize: 20,
+                fontWeight: "bold",
+                marginLeft: 20
+              }}
+            >
+              Voyages prévus :
+            </Text>
+          </View>
+          <View
+            style={{
+              height: 500,
+              alignItems: "center"
+            }}
+          >
+            <FlatList
+              data={travel.travels}
+              keyExtractor={item => {
+                return item._id;
+              }}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  style={{
+                    width: 350,
+                    borderRadius: 50,
+                    borderWidth: 1,
+                    borderStyle: "solid",
+                    borderColor: "grey",
+                    backgroundColor: "white",
+                    padding: 25,
+                    alignItems: "center",
+                    marginTop: 25
+                  }}
+                  onPress={() => {
+                    navigation.navigate("Home", {
+                      travelDestination: item.destination,
+                      travelDeparture: item.dates.departure,
+                      travelReturn: item.dates.return,
+                      travelId: item._id
+                    });
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: "#3794B5",
+                      fontSize: 16
                     }}
                   >
-                    <Text>
-                      {item.destination} - Du{" "}
-                      {moment(item.dates.departure).format("L")} au{" "}
-                      {moment(item.dates.return).format("L")}
-                    </Text>
-                  </TouchableOpacity>
-                )}
-              />
-            </View>
-
-            {/* <View style={styles.travel}>
-              <TouchableOpacity
-                style={styles.submitButton}
-                onPress={() => {
-                  navigation.navigate("Destination");
-                }}
-              >
-                <Text style={styles.submitButtonText}> Nouveau Voyage </Text>
-              </TouchableOpacity>
-            </View> */}
+                    {item.destination} - Du{" "}
+                    {moment(item.dates.departure).format("L")} au{" "}
+                    {moment(item.dates.return).format("L")}
+                  </Text>
+                </TouchableOpacity>
+              )}
+            />
           </View>
         </ImageBackground>
       )}
@@ -118,36 +144,8 @@ export default function PickTravel({ userToken }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  },
   logo: {
     padding: 15,
     marginTop: 25
-  },
-  travel: {
-    height: 650,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  submitButton: {
-    justifyContent: "center",
-    backgroundColor: "white",
-    marginBottom: 500,
-    width: 330,
-    margin: 15,
-    height: 70,
-    borderRadius: 30,
-    borderStyle: "solid",
-    borderWidth: 2,
-    borderColor: "grey"
-  },
-  submitButtonText: {
-    textAlign: "center",
-    fontSize: 25,
-    fontWeight: "bold",
-    color: "#3794B5"
   }
 });
