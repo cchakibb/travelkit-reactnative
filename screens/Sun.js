@@ -44,10 +44,6 @@ export default function Sun({ userToken, route }) {
     fetchData();
   }, []);
 
-  /* const showDetails = () => {
-    return ()
-  } */
-
   return (
     <ScrollView style={styles.container}>
       <View>
