@@ -145,32 +145,89 @@ export default function App() {
               <Tab.Navigator
                 // ici on peut gérer le design de notre bottomTabBar
                 tabBarOptions={{
-                  activeTintColor: "violet",
                   inactiveTintColor: "gray",
-                  inactiveBackgroundColor: "yellow",
-                  activeBackgroundColor: "green",
                   style: {
-                    backgroundColor: "black",
                     height: 100
-                  }
+                  },
+                  showLabel: false
                 }}
               >
-                <Tab.Screen name="MyHealth">
+                <Tab.Screen
+                  name="MyHealth"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-sante/etat_de_sante.png")}
+                      />
+                    )
+                  }}
+                >
                   {() => <MyHealth userToken={userToken} />}
                 </Tab.Screen>
-                <Tab.Screen name="MyVaccinationCard">
+                <Tab.Screen
+                  name="MyVaccinationCard"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-sante/vaccin.png")}
+                      />
+                    )
+                  }}
+                >
                   {() => <MyVaccinationCard userToken={userToken} />}
                 </Tab.Screen>
-                <Tab.Screen name="Medicine">
+                <Tab.Screen
+                  name="Medicine"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-sante/medicament.png")}
+                      />
+                    )
+                  }}
+                >
                   {() => <Medicine userToken={userToken} />}
                 </Tab.Screen>
-                <Tab.Screen name="FirstAidKit">
+                <Tab.Screen
+                  name="FirstAidKit"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-sante/trousse_de_secours.png")}
+                      />
+                    )
+                  }}
+                >
                   {() => <FirstAidKit userToken={userToken} />}
                 </Tab.Screen>
-                <Tab.Screen name="DoctorAppointment">
+                <Tab.Screen
+                  name="DoctorAppointment"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-sante/consultation.png")}
+                      />
+                    )
+                  }}
+                >
                   {() => <DoctorAppointment userToken={userToken} />}
                 </Tab.Screen>
-                <Tab.Screen name="HealthInsurance">
+                <Tab.Screen
+                  name="HealthInsurance"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-sante/couverture_sante.png")}
+                      />
+                    )
+                  }}
+                >
                   {() => <HealthInsurance userToken={userToken} />}
                 </Tab.Screen>
               </Tab.Navigator>
@@ -186,32 +243,89 @@ export default function App() {
               <Tab.Navigator
                 // ici on peut gérer le design de notre bottomTabBar
                 tabBarOptions={{
-                  activeTintColor: "violet",
                   inactiveTintColor: "gray",
-                  inactiveBackgroundColor: "yellow",
-                  activeBackgroundColor: "green",
                   style: {
-                    backgroundColor: "black",
                     height: 100
-                  }
+                  },
+                  showLabel: false
                 }}
               >
-                <Tab.Screen name="MyVaccinationCard">
+                <Tab.Screen
+                  name="MyVaccinationCard"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-sante/vaccin.png")}
+                      />
+                    )
+                  }}
+                >
                   {() => <MyVaccinationCard userToken={userToken} />}
                 </Tab.Screen>
-                <Tab.Screen name="MyHealth">
+                <Tab.Screen
+                  name="MyHealth"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-sante/etat_de_sante.png")}
+                      />
+                    )
+                  }}
+                >
                   {() => <MyHealth userToken={userToken} />}
                 </Tab.Screen>
-                <Tab.Screen name="Medicine">
+                <Tab.Screen
+                  name="Medicine"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-sante/medicament.png")}
+                      />
+                    )
+                  }}
+                >
                   {() => <Medicine userToken={userToken} />}
                 </Tab.Screen>
-                <Tab.Screen name="FirstAidKit">
+                <Tab.Screen
+                  name="FirstAidKit"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-sante/trousse_de_secours.png")}
+                      />
+                    )
+                  }}
+                >
                   {() => <FirstAidKit userToken={userToken} />}
                 </Tab.Screen>
-                <Tab.Screen name="DoctorAppointment">
+                <Tab.Screen
+                  name="DoctorAppointment"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-sante/consultation.png")}
+                      />
+                    )
+                  }}
+                >
                   {() => <DoctorAppointment userToken={userToken} />}
                 </Tab.Screen>
-                <Tab.Screen name="HealthInsurance">
+                <Tab.Screen
+                  name="HealthInsurance"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-sante/couverture_sante.png")}
+                      />
+                    )
+                  }}
+                >
                   {() => <HealthInsurance userToken={userToken} />}
                 </Tab.Screen>
               </Tab.Navigator>

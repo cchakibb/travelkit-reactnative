@@ -16,7 +16,7 @@ export default function MyHealthProfile({ userToken }) {
   return (
     <ScrollView style={styles.container}>
       <View>
-        <HeaderTopImage title={"Mon profil santé"}></HeaderTopImage>
+        <HeaderTopImage title={"Mon profil santé"} page="Home"></HeaderTopImage>
         <View style={{ marginTop: 32 }}>
           <BtnIcone
             title={"Ma santé"}

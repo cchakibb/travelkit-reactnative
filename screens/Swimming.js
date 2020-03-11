@@ -46,6 +46,7 @@ export default function Swimming({ userToken, route }) {
   return (
     <ScrollView style={styles.container}>
       <View>
+
         <HeaderTopImage title={"Baignade"}></HeaderTopImage>
         {isLoading === true ? (
           <ActivityIndicator />
@@ -66,6 +67,7 @@ export default function Swimming({ userToken, route }) {
             {showInfo3 ? <Text>{getInfo.sections[2].subsections}</Text> : null}
           </View>
         )}
+
       </View>
     </ScrollView>
   );

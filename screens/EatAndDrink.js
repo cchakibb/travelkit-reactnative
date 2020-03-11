@@ -8,7 +8,7 @@ export default function EatAndDrink({ userToken }) {
   return (
     <ScrollView style={styles.container}>
       <View>
-        <HeaderTopImage title={"Boire et manger"}></HeaderTopImage>
+        <HeaderTopImage title={"Boire et manger"} page="Daily"></HeaderTopImage>
         <View>
           <Text style={styles.text}>
             Pour ce voyage, il y a un rique d'infection à cause de :

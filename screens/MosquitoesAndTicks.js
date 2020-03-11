@@ -16,7 +16,10 @@ export default function MosquitoesAndTicks({ userToken }) {
   return (
     <ScrollView style={styles.container}>
       <View>
-        <HeaderTopImage title={"Moustiques et tiques"}></HeaderTopImage>
+        <HeaderTopImage
+          title={"Moustiques et tiques"}
+          page="Daily"
+        ></HeaderTopImage>
         <View>
           <Text style={styles.text}>Pour ce voyage, il y a un rique de :</Text>
         </View>
