@@ -51,7 +51,7 @@ export default function Sun({ userToken, route }) {
   return (
     <ScrollView style={styles.container}>
       <View>
-        <HeaderTopImage title={"Soleil"}></HeaderTopImage>
+        <HeaderTopImage title={"Soleil"} page="Daily"></HeaderTopImage>
         {isLoading === true ? (
           <ActivityIndicator />
         ) : (

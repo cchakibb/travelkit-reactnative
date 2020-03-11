@@ -10,7 +10,7 @@ export default function Swimming({ userToken }) {
   return (
     <ScrollView style={styles.container}>
       <View>
-        <HeaderTopImage title={"Baignade"}></HeaderTopImage>
+        <HeaderTopImage title={"Baignade"} page="Daily"></HeaderTopImage>
         <View>
           <Text style={styles.text}>
             En résumé : je me renseigne localement, je respecte strictement les
