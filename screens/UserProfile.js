@@ -1,20 +1,20 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { Text, View, ScroolView } from "react-native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default function UserProfile() {
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
-      <Text>This is the UserProfile component</Text>
+    <View style={{ backgroundColor: "red" }}>
+      <Text
+        style={{
+          color: "white"
+        }}
+      >
+        This is the UserProfile component
+      </Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});

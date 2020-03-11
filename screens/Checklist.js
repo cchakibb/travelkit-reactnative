@@ -7,7 +7,7 @@ export default function Checklist({ userToken }) {
   return (
     <ScrollView>
       <View>
-        <HeaderTopImage title={"Ma Checklist"}></HeaderTopImage>
+        <HeaderTopImage title={"Ma Checklist"} page="Home"></HeaderTopImage>
         <View style={{ marginTop: 27 }}>
           <BtnSwitch title={"Rendez-vous chez le médecin"}></BtnSwitch>
           <BtnSwitch title={"Passeport"}></BtnSwitch>
