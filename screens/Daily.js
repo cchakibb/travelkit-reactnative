@@ -15,9 +15,6 @@ require("moment/locale/fr");
 export default function Daily({ userToken }) {
   const navigation = useNavigation();
   const { params } = useRoute();
-  if (params) {
-    console.log("PARAMS =", params);
-  }
 
   return (
     <ScrollView>
@@ -33,7 +30,10 @@ export default function Daily({ userToken }) {
         <View style={styles.iconeMenu}>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("GeneralInformation");
+              navigation.navigate("GeneralInformation", {
+                screen: "TabGeneralInformation",
+                travelId: params.travelId
+              });
             }}
           >
             <Image
@@ -44,7 +44,10 @@ export default function Daily({ userToken }) {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("EatAndDrink");
+              navigation.navigate("EatAndDrink", {
+                screen: "TabEatAndDrink",
+                travelId: params.travelId
+              });
             }}
           >
             <Image
@@ -57,7 +60,10 @@ export default function Daily({ userToken }) {
         <View style={styles.iconeMenu}>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("MosquitoesAndTicks");
+              navigation.navigate("MosquitoesAndTicks", {
+                screen: "TabMosquitoesAndTicks",
+                travelId: params.travelId
+              });
             }}
           >
             <Image
@@ -69,7 +75,10 @@ export default function Daily({ userToken }) {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("Sun");
+              navigation.navigate("Sun", {
+                screen: "TabSun",
+                travelId: params.travelId
+              });
             }}
           >
             <Image
@@ -82,7 +91,10 @@ export default function Daily({ userToken }) {
         <View style={styles.iconeMenu}>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("Swimming");
+              navigation.navigate("Swimming", {
+                screen: "TabSwimming",
+                travelId: params.travelId
+              });
             }}
           >
             <Image
@@ -94,7 +106,10 @@ export default function Daily({ userToken }) {
 
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("Animals");
+              navigation.navigate("Animals", {
+                screen: "TabAnimals",
+                travelId: params.travelId
+              });
             }}
           >
             <Image
@@ -107,7 +122,10 @@ export default function Daily({ userToken }) {
         <View style={styles.iconeMenu}>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("Quizz");
+              navigation.navigate("Quizz", {
+                screen: "TabQuizz",
+                travelId: params.travelId
+              });
             }}
           >
             <Image
