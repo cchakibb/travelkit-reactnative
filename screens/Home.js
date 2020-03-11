@@ -1,12 +1,21 @@
 import React from "react";
 import { useNavigation, useRoute } from "@react-navigation/core";
-import { Text, View, ImageBackground, StyleSheet, Image } from "react-native";
+import {
+  Text,
+  View,
+  ImageBackground,
+  StyleSheet,
+  Image,
+  Drawer
+} from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { FontAwesome } from "@expo/vector-icons";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
 export default function Home({ userToken }) {
   const navigation = useNavigation();
   const { params } = useRoute();
+  const drawer = createDrawerNavigator();
 
   return (
     <ImageBackground
@@ -22,6 +31,7 @@ export default function Home({ userToken }) {
           source={require("../assets/general/logo/logo.png")}
           style={{ width: 60, height: 60 }}
         />
+
         <TouchableOpacity
           onPress={() => {
             navigation.navigate("UserProfile");
@@ -30,6 +40,7 @@ export default function Home({ userToken }) {
           <FontAwesome name="bars" size={55} color="#3794B5" />
         </TouchableOpacity>
       </View>
+
       <View
         style={{
           height: 150,
