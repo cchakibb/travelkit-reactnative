@@ -87,12 +87,6 @@ export default function App() {
         </Stack.Navigator>
       ) : (
         <Stack.Navigator>
-          {/* <Stack.Screen
-            name="Start"
-            options={{ header: () => null, animationEnabled: false }}
-          >
-            {() => <Start userToken={userToken} />}
-          </Stack.Screen> */}
           <Stack.Screen
             name="PickTravel"
             options={{
@@ -571,6 +565,198 @@ export default function App() {
               </Tab.Navigator>
             )}
           </Stack.Screen>
+
+          <Stack.Screen name="Food" options={{ headerShown: false, title: "" }}>
+            {props => (
+              <Tab.Navigator
+                tabBarOptions={{
+                  style: {
+                    height: 100
+                  },
+                  showLabel: false
+                }}
+              >
+                <Tab.Screen
+                  name="TabFood"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <Food userToken={userToken} {...props} />}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabGeneralInformation"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => (
+                    <GeneralInformation userToken={userToken} {...props} />
+                  )}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabMosquitoesAndTicks"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <MosquitoesAndTick userToken={userToken} {...props} />}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabSun"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <Sun userToken={userToken} {...props} />}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabSwimming"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <Swimming userToken={userToken} {...props} />}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabAnimals"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <Animals userToken={userToken} {...props} />}
+                </Tab.Screen>
+              </Tab.Navigator>
+            )}
+          </Stack.Screen>
+
+          <Stack.Screen
+            name="Drinks"
+            options={{ headerShown: false, title: "" }}
+          >
+            {props => (
+              <Tab.Navigator
+                tabBarOptions={{
+                  style: {
+                    height: 100
+                  },
+                  showLabel: false
+                }}
+              >
+                <Tab.Screen
+                  name="TabDrinks"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <Drinks userToken={userToken} {...props} />}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabGeneralInformation"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => (
+                    <GeneralInformation userToken={userToken} {...props} />
+                  )}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabMosquitoesAndTicks"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <MosquitoesAndTick userToken={userToken} {...props} />}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabSun"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <Sun userToken={userToken} {...props} />}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabSwimming"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <Swimming userToken={userToken} {...props} />}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabAnimals"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <Animals userToken={userToken} {...props} />}
+                </Tab.Screen>
+              </Tab.Navigator>
+            )}
+          </Stack.Screen>
+
           <Stack.Screen
             name="MosquitoesAndTicks"
             options={{ headerShown: false, title: "" }}
@@ -684,6 +870,231 @@ export default function App() {
               </Tab.Navigator>
             )}
           </Stack.Screen>
+
+          <Stack.Screen
+            name="Mosquitoes"
+            options={{ headerShown: false, title: "" }}
+          >
+            {props => (
+              <Tab.Navigator
+                // ici on peut gérer le design de notre bottomTabBar
+                tabBarOptions={{
+                  style: {
+                    height: 100
+                  },
+                  showLabel: false
+                }}
+              >
+                <Tab.Screen
+                  name="TabMosquitoes"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <Mosquitoes userToken={userToken} {...props} />}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabGeneralInformation"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/infos.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => (
+                    <GeneralInformation userToken={userToken} {...props} />
+                  )}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabEatAndDrink"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/repas.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <EatAndDrink userToken={userToken} {...props} />}
+                </Tab.Screen>
+
+                <Tab.Screen
+                  name="TabSun"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/soleil.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <Sun userToken={userToken} {...props} />}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabSwimming"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/baignade.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <Swimming userToken={userToken} {...props} />}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabAnimals"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/animaux.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <Animals userToken={userToken} {...props} />}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabQuizz"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/quizz.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <Quizz userToken={userToken} {...props} />}
+                </Tab.Screen>
+              </Tab.Navigator>
+            )}
+          </Stack.Screen>
+
+          <Stack.Screen
+            name="Ticks"
+            options={{ headerShown: false, title: "" }}
+          >
+            {props => (
+              <Tab.Navigator
+                // ici on peut gérer le design de notre bottomTabBar
+                tabBarOptions={{
+                  style: {
+                    height: 100
+                  },
+                  showLabel: false
+                }}
+              >
+                <Tab.Screen
+                  name="TabTicks"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <Ticks userToken={userToken} {...props} />}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabGeneralInformation"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/infos.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => (
+                    <GeneralInformation userToken={userToken} {...props} />
+                  )}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabEatAndDrink"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/repas.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <EatAndDrink userToken={userToken} {...props} />}
+                </Tab.Screen>
+
+                <Tab.Screen
+                  name="TabSun"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/soleil.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <Sun userToken={userToken} {...props} />}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabSwimming"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/baignade.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <Swimming userToken={userToken} {...props} />}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabAnimals"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/animaux.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <Animals userToken={userToken} {...props} />}
+                </Tab.Screen>
+                <Tab.Screen
+                  name="TabQuizz"
+                  options={{
+                    tabBarIcon: ({ color, size }) => (
+                      <Image
+                        style={{ width: 50, height: 50 }}
+                        source={require("./assets/general/icone-quotidien/quizz.png")}
+                      />
+                    )
+                  }}
+                >
+                  {() => <Quizz userToken={userToken} {...props} />}
+                </Tab.Screen>
+              </Tab.Navigator>
+            )}
+          </Stack.Screen>
+
           <Stack.Screen name="Sun" options={{ headerShown: false, title: "" }}>
             {props => (
               <Tab.Navigator

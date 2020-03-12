@@ -23,7 +23,7 @@ export default function GeneralInformation({ userToken, route }) {
   const [isLoading, setIsloading] = useState(true);
   const navigation = useNavigation();
   const { params } = useRoute();
-  /* console.log("Params GENERALINFORMATION ", route); */
+
   const id = route.params.travelId;
   // route.params.travelId
 

@@ -7,7 +7,7 @@ export default function Food({ userToken }) {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Text>L'alimentation....</Text>
+      <Text>Si ton Kebab n'est pas bien passé, appel le 15 !</Text>
     </View>
   );
 }
