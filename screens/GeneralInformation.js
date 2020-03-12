@@ -15,11 +15,11 @@ import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 
 export default function GeneralInformation({ userToken, route }) {
   const [getInfo, setGetInfo] = useState();
-  const [showInfo1, setShowInfo1] = useState(false);
-  const [showInfo2, setShowInfo2] = useState(false);
+  const [showInfo, setShowInfo] = useState([]);
+  /*   const [showInfo2, setShowInfo2] = useState(false);
   const [showInfo3, setShowInfo3] = useState(false);
   const [showInfo4, setShowInfo4] = useState(false);
-  const [showInfo5, setShowInfo5] = useState(false);
+  const [showInfo5, setShowInfo5] = useState(false); */
   const [isLoading, setIsloading] = useState(true);
   const navigation = useNavigation();
   const { params } = useRoute();
@@ -37,6 +37,8 @@ export default function GeneralInformation({ userToken, route }) {
           }
         }
       );
+
+      setShowInfo(response.data.sections);
       setGetInfo(response.data);
       setIsloading(false);
     } catch (error) {
@@ -47,8 +49,18 @@ export default function GeneralInformation({ userToken, route }) {
     fetchData();
   }, []);
 
+  const displayText = item => {
+    const copy = [...showInfo];
+    for (let i = 0; i < showInfo.length; i++) {
+      if (showInfo[i].title === item.title) {
+        showInfo[i].visible = !showInfo[i].visible;
+      }
+    }
+
+    setShowInfo(copy);
+  };
+
   return (
-    // TODO remember isLoading ?
     <ScrollView style={styles.container}>
       <View>
         <HeaderTopImage title={"Infos générales"} page="Daily" />
@@ -56,14 +68,41 @@ export default function GeneralInformation({ userToken, route }) {
           <ActivityIndicator />
         ) : (
           <View>
-            <FlatList
-              data={getInfo.destinationInfo}
-              keyExtractor={item => {
-                return String(item.index);
-              }}
-              renderItem={({ item }) => <Text>{item}</Text>}
-            />
-            <TouchableOpacity onPress={() => setShowInfo1(!showInfo1)}>
+            <View>
+              {getInfo.destinationInfo ? (
+                <FlatList
+                  data={getInfo.destinationInfo}
+                  keyExtractor={item => {
+                    return String(item.index);
+                  }}
+                  renderItem={({ item }) => <Text>{item}</Text>}
+                />
+              ) : null}
+            </View>
+            <View>
+              {getInfo.sections[0].title ? (
+                <FlatList
+                  data={showInfo}
+                  keyExtractor={item => {
+                    return String(item.title);
+                  }}
+                  renderItem={({ item }) => (
+                    <View>
+                      <TouchableOpacity
+                        onPress={() => {
+                          displayText(item);
+                        }}
+                      >
+                        <BtnInfo title={item.title} />
+                      </TouchableOpacity>
+                      {item.visible === true && <Text>{item.subsections}</Text>}
+                    </View>
+                  )}
+                />
+              ) : null}
+            </View>
+
+            {/* <TouchableOpacity onPress={() => setShowInfo1(!showInfo1)}>
               <BtnInfo title={getInfo.sections[0].title} />
             </TouchableOpacity>
             {showInfo1 ? <Text>{getInfo.sections[0].subsections}</Text> : null}
@@ -86,7 +125,7 @@ export default function GeneralInformation({ userToken, route }) {
             <TouchableOpacity onPress={() => setShowInfo5(!showInfo5)}>
               <BtnInfo title={getInfo.sections[4].title} />
             </TouchableOpacity>
-            {showInfo5 ? <Text>{getInfo.sections[4].subsections}</Text> : null}
+            {showInfo5 ? <Text>{getInfo.sections[4].subsections}</Text> : null} */}
           </View>
         )}
       </View>
