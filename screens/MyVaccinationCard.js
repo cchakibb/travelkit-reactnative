@@ -10,6 +10,7 @@ import {
 import axios from "axios";
 import HeaderTopImage from "../components/HeaderTopImage";
 import BtnInfo from "../components/BtnInfo";
+import BtnSwitch from "../components/BtnSwitch";
 
 import ViewPager from "@react-native-community/viewpager";
 import moment from "moment";
@@ -106,17 +107,23 @@ export default function MyVaccinationCard({ userToken }) {
         <ScrollView>
           <ViewPager style={styles.viewPager} initialPage={0}>
             <View style={{ alignItems: "center" }} key="1">
-              <Text style={styles.page}>Mes vaccins à jour:</Text>
+              <Text style={styles.page}>Mes vaccins à jour :</Text>
               {userVaccineData.vaccinationRecord.previous_vaccines[0].name &&
               userVaccineData.vaccinationRecord.previous_vaccines[0].date ? (
-                <View>
-                  <Text>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    height: 400,
+                    width: 260
+                  }}
+                >
+                  <Text style={{ marginTop: 23, fontSize: 15 }}>
                     {
                       userVaccineData.vaccinationRecord.previous_vaccines[0]
                         .name
                     }
                   </Text>
-                  <Text>
+                  <Text style={{ fontSize: 15, marginTop: 23, marginLeft: 22 }}>
                     {moment(
                       userVaccineData.vaccinationRecord.previous_vaccines[0]
                         .date
@@ -128,21 +135,25 @@ export default function MyVaccinationCard({ userToken }) {
               )}
             </View>
             <View style={{ alignItems: "center" }} key="2">
-              <Text style={styles.page}>Mes vaccins obligatoires:</Text>
+              <Text style={styles.page}>Mes vaccins obligatoires :</Text>
               {userVaccineData.vaccinationRecord.mandatory[0].name ? (
-                <Text>
-                  {userVaccineData.vaccinationRecord.mandatory[0].name}
-                </Text>
+                <View style={{ height: 400, width: 260 }}>
+                  <Text style={{ marginTop: 23, fontSize: 15 }}>
+                    {userVaccineData.vaccinationRecord.mandatory[0].name}
+                  </Text>
+                </View>
               ) : (
                 <Text>Aucun</Text>
               )}
             </View>
             <View style={{ alignItems: "center" }} key="3">
-              <Text style={styles.page}>Mes vaccins recommandés:</Text>
+              <Text style={styles.page}>Mes vaccins recommandés :</Text>
               {userVaccineData.vaccinationRecord.recommended[0].name ? (
-                <Text>
-                  {userVaccineData.vaccinationRecord.recommended[0].name}
-                </Text>
+                <View style={{ height: 400, width: 260, flexDirection: "row" }}>
+                  <Text style={{ marginTop: 23, fontSize: 15 }}>
+                    {userVaccineData.vaccinationRecord.recommended[0].name}
+                  </Text>
+                </View>
               ) : (
                 <Text>Aucun</Text>
               )}
@@ -204,7 +215,7 @@ export default function MyVaccinationCard({ userToken }) {
 
 const styles = StyleSheet.create({
   viewPager: {
-    marginLeft: 30,
+    marginLeft: 74,
     borderStyle: "solid",
     borderWidth: 1,
     borderColor: "#3794B5",
