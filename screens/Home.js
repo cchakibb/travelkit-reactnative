@@ -1,21 +1,12 @@
 import React from "react";
 import { useNavigation, useRoute } from "@react-navigation/core";
-import {
-  Text,
-  View,
-  ImageBackground,
-  StyleSheet,
-  Image,
-  Drawer
-} from "react-native";
+import { Text, View, ImageBackground, StyleSheet, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { FontAwesome } from "@expo/vector-icons";
-import { createDrawerNavigator } from "@react-navigation/drawer";
 
 export default function Home({ userToken }) {
   const navigation = useNavigation();
   const { params } = useRoute();
-  const drawer = createDrawerNavigator();
 
   return (
     <ImageBackground

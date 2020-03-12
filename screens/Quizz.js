@@ -15,7 +15,7 @@ export default function Quizz({ userToken }) {
   return (
     <ScrollView style={styles.container}>
       <View>
-        <HeaderTopImage title={"Quizz"}></HeaderTopImage>
+        <HeaderTopImage title={"Quizz"} page="Daily"></HeaderTopImage>
         <View style={{ marginTop: 27 }}>
           <Text style={styles.text}>
             Quelques questions sur mon voyage afin de m'assurer de partir bien
