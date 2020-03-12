@@ -25,7 +25,12 @@ export default function Home({ userToken }) {
 
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("UserProfile");
+            navigation.navigate("UserProfile", {
+              travelDestination: params.travelDestination,
+              travelDeparture: params.travelDeparture,
+              travelReturn: params.travelReturn,
+              travelId: params.travelId
+            });
           }}
         >
           <FontAwesome name="bars" size={55} color="#3794B5" />

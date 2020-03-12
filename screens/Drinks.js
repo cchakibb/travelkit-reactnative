@@ -6,7 +6,7 @@ export default function Drinks({ userToken }) {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Text>This is the Drinks component</Text>
+      <Text>Vasy molo sur la boisson</Text>
     </View>
   );
 }
