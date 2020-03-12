@@ -19,7 +19,7 @@ export default function Daily({ userToken }) {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <HeaderTopImage title={"Mon quotidien"}></HeaderTopImage>
+        <HeaderTopImage title={"Mon quotidien"} page="Home"></HeaderTopImage>
         <View>
           <Text style={styles.textPerou}>
             {params.travelDestination} - Du{" "}

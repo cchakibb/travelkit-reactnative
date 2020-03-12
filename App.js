@@ -26,6 +26,7 @@ import Swimming from "./screens/Swimming";
 import Animals from "./screens/Animals";
 import Quizz from "./screens/Quizz";
 import Checklist from "./screens/Checklist";
+import MyTravelerProfile from "./screens/MyTravelerProfile";
 
 // MyHealthInformation TABS
 import Medicine from "./screens/Medicine";
@@ -108,6 +109,14 @@ export default function App() {
             options={{ header: () => null, animationEnabled: false }}
           >
             {() => <Home userToken={userToken} />}
+          </Stack.Screen>
+          <Stack.Screen
+            name="MyTravelerProfile"
+            options={{ header: () => null, animationEnabled: false }}
+          >
+            {() => (
+              <MyTravelerProfile userToken={userToken} setToken={setToken} />
+            )}
           </Stack.Screen>
           <Stack.Screen
             name="UserProfile"

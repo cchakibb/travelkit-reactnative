@@ -7,7 +7,10 @@ export default function MyTravelerProfile({ userToken }) {
   return (
     <ScrollView style={styles.container}>
       <View>
-        <HeaderTopImage title={"Mon profil voyageur"}></HeaderTopImage>
+        <HeaderTopImage
+          title={"Mon profil voyageur"}
+          page="UserProfile"
+        ></HeaderTopImage>
         <View
           style={{
             flexDirection: "row",
