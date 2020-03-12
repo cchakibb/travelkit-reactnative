@@ -4,7 +4,7 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity,
+  Image,
   ScrollView,
   ActivityIndicator
 } from "react-native";
@@ -47,9 +47,15 @@ export default function Animals({ userToken, route }) {
         {isLoading === true ? (
           <ActivityIndicator />
         ) : (
-          <View>
-            <Text>{getInfo.introduction}</Text>
-            <Text>{getInfo.subsections}</Text>
+          <View style={{ alignItems: "center", padding: 10 }}>
+            <View style={{ marginBottom: 10 }}>
+              <Image
+                source={require("../assets/quotidien/animaux/chien.png")}
+                style={{ width: 50, height: 50 }}
+              ></Image>
+            </View>
+            <Text style={{ lineHeight: 19 }}>{getInfo.introduction}</Text>
+            <Text style={{ lineHeight: 19 }}>{getInfo.subsections}</Text>
           </View>
         )}
       </View>

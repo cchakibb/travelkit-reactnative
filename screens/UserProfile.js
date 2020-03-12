@@ -92,31 +92,31 @@ export default function UserProfile({ userToken }) {
               </View>
             </TouchableOpacity>
           </View>
-          <FlatList
-            data={travel.travels}
-            keyExtractor={item => {
-              return item.destination;
-            }}
-            renderItem={({ item }) => (
-              <Text style={{ color: "white" }}>{item.destination}</Text>
-            )}
-          />
-          <View
-            style={{
-              flex: 1,
-              backgroundColor: "black",
-              alignItems: "center"
-            }}
-          >
-            <Text
-              style={{
-                color: "white",
-                fontSize: 20
-              }}
-            >
-              Mes voyages prévus :
+          <View style={{ alignItems: "center" }}>
+            <Text style={{ color: "white", fontSize: 20 }}>
+              Mes voyages prévus :{" "}
             </Text>
           </View>
+          <View
+            style={{
+              height: 330,
+              alignItems: "center",
+              marginTop: 5
+            }}
+          >
+            <FlatList
+              data={travel.travels}
+              keyExtractor={item => {
+                return item.destination;
+              }}
+              renderItem={({ item }) => (
+                <Text style={{ color: "white", fontSize: 18, padding: 5 }}>
+                  {item.destination}
+                </Text>
+              )}
+            />
+          </View>
+
           <View style={{ height: 70, backgroundColor: "black" }}>
             <Text
               style={{
