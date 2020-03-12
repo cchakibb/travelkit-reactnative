@@ -5,7 +5,6 @@ import {
   ActivityIndicator,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
   ScrollView
 } from "react-native";
@@ -67,19 +66,27 @@ export default function MyHealth({ userToken }) {
             </View>
             <View>
               <View style={{ flexDirection: "row" }}>
-                <Text style={{ fontSize: 16, fontWeight: "bold" }}>Age :</Text>
+                <Text
+                  style={{ fontSize: 16, fontWeight: "bold", marginLeft: 15 }}
+                >
+                  Age :
+                </Text>
                 <Text style={{ fontSize: 16 }}>{data.age} ans</Text>
               </View>
               <View style={{ flexDirection: "row" }}>
-                <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+                <Text
+                  style={{ fontSize: 16, fontWeight: "bold", marginLeft: 15 }}
+                >
                   Poids :
                 </Text>
                 <Text> {data.weight} kg</Text>
               </View>
             </View>
-            <MedicalHistory medicalHistory={data.medicalHistory} />
-            <Allergies allergies={data.allergies} />
-            <Medication medication={data.medication} />
+            <View style={{ marginLeft: 15 }}>
+              <MedicalHistory medicalHistory={data.medicalHistory} />
+              <Allergies allergies={data.allergies} />
+              <Medication medication={data.medication} />
+            </View>
           </View>
         )}
       </View>

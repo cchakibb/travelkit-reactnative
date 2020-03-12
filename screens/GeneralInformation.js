@@ -4,7 +4,8 @@ import {
   View,
   ScrollView,
   ActivityIndicator,
-  Text
+  Text,
+  Image
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/core";
 import HeaderTopImage from "../components/HeaderTopImage";
@@ -68,20 +69,55 @@ export default function GeneralInformation({ userToken, route }) {
           <ActivityIndicator />
         ) : (
           <View>
-            <View>
+            <View style={{ height: 170 }}>
               {getInfo.destinationInfo ? (
                 <FlatList
+                  style={{ padding: 5, marginLeft: 10 }}
                   data={getInfo.destinationInfo}
                   keyExtractor={item => {
                     return String(item.index);
                   }}
-                  renderItem={({ item }) => <Text>{item}</Text>}
+                  renderItem={({ item }) => (
+                    <Text style={{ fontSize: 16 }}>{item}</Text>
+                  )}
                 />
               ) : null}
             </View>
+            <View
+              style={{
+                height: 85,
+                flexDirection: "row",
+                justifyContent: "space-around",
+                alignItems: "center"
+              }}
+            >
+              <Image
+                source={require("../assets/quotidien/Infos-generales/typea.png")}
+                style={{
+                  width: 65,
+                  height: 65
+                }}
+              ></Image>
+              <Image
+                source={require("../assets/quotidien/Infos-generales/typeb.png")}
+                style={{
+                  width: 65,
+                  height: 65
+                }}
+              ></Image>
+              <Image
+                source={require("../assets/quotidien/Infos-generales/typec.png")}
+                style={{
+                  width: 65,
+                  height: 65
+                }}
+              ></Image>
+            </View>
+
             <View>
               {getInfo.sections[0].title ? (
                 <FlatList
+                  style={{ padding: 5, marginLeft: 10, marginRight: 10 }}
                   data={showInfo}
                   keyExtractor={item => {
                     return String(item.title);
