@@ -23,6 +23,7 @@ export default function MyVaccinationCard({ userToken }) {
   const [recommendedvaccines, setRecommendedvaccines] = useState(null);
   const [mandatoryOrRecommended, setMandatoryOrRecommended] = useState(null);
   const [contraindicated, setContraindicated] = useState(null);
+  const [showInfo, setShowInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchVaccineData = async () => {
@@ -53,6 +54,7 @@ export default function MyVaccinationCard({ userToken }) {
           }
         }
       );
+      setShowInfo(response.data.subsections);
       setRecommendedvaccines(response.data);
     } catch (error) {
       alert("Something went wrong");
@@ -69,6 +71,7 @@ export default function MyVaccinationCard({ userToken }) {
           }
         }
       );
+      setShowInfo(response.data.subsections);
       setMandatoryOrRecommended(response.data);
     } catch (error) {
       alert("Something went wrong");
@@ -85,6 +88,7 @@ export default function MyVaccinationCard({ userToken }) {
           }
         }
       );
+      setShowInfo(response.data.subsections);
       setContraindicated(response.data);
     } catch (error) {
       alert("Something went wrong");
@@ -94,6 +98,17 @@ export default function MyVaccinationCard({ userToken }) {
   useEffect(() => {
     fetchVaccineData();
   }, []);
+
+  const displayText = item => {
+    const copy = [...showInfo];
+    for (let i = 0; i < showInfo.length; i++) {
+      if (showInfo[i].title === item.title) {
+        showInfo[i].visible = !showInfo[i].visible;
+      }
+    }
+
+    setShowInfo(copy);
+  };
 
   return (
     <View style={{ backgroundColor: "white", flex: 1 }}>
