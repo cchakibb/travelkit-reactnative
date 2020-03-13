@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   ScrollView,
   ActivityIndicator,
-  FlatList
+  FlatList,
+  Image
 } from "react-native";
 import axios from "axios";
 import HeaderTopImage from "../components/HeaderTopImage";
@@ -62,7 +63,7 @@ export default function Drinks({ userToken, route }) {
       {isLoading === true ? (
         <ActivityIndicator />
       ) : (
-        <View>
+        <View style={{ padding: 5, marginLeft: 10, marginRight: 10 }}>
           <FlatList
             data={getInfo.introduction}
             keyExtractor={item => {
@@ -70,12 +71,14 @@ export default function Drinks({ userToken, route }) {
             }}
             renderItem={({ item }) => (
               <View>
-                <Text>{item}</Text>
+                <Text style={{ fontSize: 16, marginBottom: 15 }}>{item}</Text>
               </View>
             )}
           />
           {getInfo.subsections.comment ? (
-            <Text>{getInfo.subsections.comment}</Text>
+            <Text style={{ fontSize: 16, marginBottom: 15 }}>
+              {getInfo.subsections.comment}
+            </Text>
           ) : null}
           <FlatList
             data={getInfo.subsections.risks}
@@ -84,13 +87,15 @@ export default function Drinks({ userToken, route }) {
             }}
             renderItem={({ item }) => (
               <View>
-                <Text>{item}</Text>
+                <Text style={{ fontSize: 16, marginBottom: 15 }}>{item}</Text>
               </View>
             )}
           />
 
           {getInfo.subsections.bullet_points_list.introduction ? (
-            <Text>{getInfo.subsections.bullet_points_list.introduction}</Text>
+            <Text style={{ fontSize: 16, marginBottom: 15 }}>
+              {getInfo.subsections.bullet_points_list.introduction}
+            </Text>
           ) : null}
 
           <FlatList
@@ -100,7 +105,7 @@ export default function Drinks({ userToken, route }) {
             }}
             renderItem={({ item }) => (
               <View>
-                <Text>{item}</Text>
+                <Text style={{ fontSize: 16, marginBottom: 15 }}>{item}</Text>
               </View>
             )}
           />
@@ -111,12 +116,18 @@ export default function Drinks({ userToken, route }) {
             }}
             renderItem={({ item }) => (
               <View>
-                <Text>{item}</Text>
+                <Text style={{ fontSize: 16, marginBottom: 15 }}>{item}</Text>
               </View>
             )}
           />
         </View>
       )}
+      <View style={{ alignItems: "center", height: 450, width: 400 }}>
+        <Image
+          source={require("../assets/quotidien/boire-et-manger/boire/boisson.jpg")}
+          style={{ width: "80%", height: "40%", borderRadius: 15 }}
+        ></Image>
+      </View>
     </ScrollView>
   );
 }
