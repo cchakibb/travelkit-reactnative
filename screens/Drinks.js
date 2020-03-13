@@ -1,27 +1,122 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
 import { useNavigation, useRoute } from "@react-navigation/core";
 import {
   StyleSheet,
   Text,
   View,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  ActivityIndicator,
+  FlatList
 } from "react-native";
+import axios from "axios";
 import HeaderTopImage from "../components/HeaderTopImage";
 
-
 export default function Drinks({ userToken, route }) {
+  const [getInfo, setGetInfo] = useState();
+  const [showInfo, setShowInfo] = useState([]);
+  const [isLoading, setIsloading] = useState(true);
+  const navigation = useNavigation();
   const { params } = useRoute();
+
+  const id = route.params.passParams;
+
   console.log("Drinks = ", route.params);
 
-  const navigation = useNavigation();
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        `https://c0d1syq1s6.execute-api.eu-central-1.amazonaws.com/dev/travel/${id}/advice/drinks`,
+        {
+          headers: {
+            Authorization: "Bearer " + userToken
+          }
+        }
+      );
+
+      setShowInfo(response.data.sections);
+      setGetInfo(response.data);
+
+      setIsloading(false);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  /*   const displayText = item => {
+    const copy = [...showInfo];
+    for (let i = 0; i < showInfo.length; i++) {
+      if (showInfo[i].title === item.title) {
+        showInfo[i].visible = !showInfo[i].visible;
+      }
+    }
+    setShowInfo(copy);
+  }; */
+
   return (
     <ScrollView style={styles.container}>
       <HeaderTopImage title={"Boisson"} page="EatAndDrink"></HeaderTopImage>
-      <View style={styles.container}>
-        <Text>Vasy molo sur la boisson</Text>
-      </View>
+      {isLoading === true ? (
+        <ActivityIndicator />
+      ) : (
+        <View>
+          <FlatList
+            data={getInfo.introduction}
+            keyExtractor={item => {
+              return String(item.index);
+            }}
+            renderItem={({ item }) => (
+              <View>
+                <Text>{item}</Text>
+              </View>
+            )}
+          />
+          {getInfo.subsections.comment ? (
+            <Text>{getInfo.subsections.comment}</Text>
+          ) : null}
+          <FlatList
+            data={getInfo.subsections.risks}
+            keyExtractor={item => {
+              return String(item.index);
+            }}
+            renderItem={({ item }) => (
+              <View>
+                <Text>{item}</Text>
+              </View>
+            )}
+          />
+
+          {getInfo.subsections.bullet_points_list.introduction ? (
+            <Text>{getInfo.subsections.bullet_points_list.introduction}</Text>
+          ) : null}
+
+          <FlatList
+            data={getInfo.subsections.bullet_points_list.bullet_points}
+            keyExtractor={item => {
+              return String(item.index);
+            }}
+            renderItem={({ item }) => (
+              <View>
+                <Text>{item}</Text>
+              </View>
+            )}
+          />
+          <FlatList
+            data={getInfo.subsections.subsections}
+            keyExtractor={item => {
+              return String(item.index);
+            }}
+            renderItem={({ item }) => (
+              <View>
+                <Text>{item}</Text>
+              </View>
+            )}
+          />
+        </View>
+      )}
     </ScrollView>
   );
 }

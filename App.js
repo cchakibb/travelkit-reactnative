@@ -62,7 +62,7 @@ export default function App() {
       // This will switch to the App screen or Auth screen and this loading
       // screen will be unmounted and thrown away.
       setIsLoading(false);
-      setUserToken(null); // TODO replace null by userToken
+      setUserToken(userToken); // TODO replace null by userToken
     };
 
     bootstrapAsync();
