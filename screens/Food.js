@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { useNavigation, useRoute } from "@react-navigation/core";
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  ScrollView
+} from "react-native";
+import HeaderTopImage from "../components/HeaderTopImage";
 
-
-export default function Food({ userToken, route }) {
+export default function Drinks({ userToken, route }) {
   const { params } = useRoute();
-  console.log("Food = ", route.params);
+  console.log("Drinks = ", route.params);
 
-  const [getMoreInfo, setGetMoreInfo] = useState();
   const navigation = useNavigation();
   return (
     <ScrollView style={styles.container}>
@@ -16,8 +21,8 @@ export default function Food({ userToken, route }) {
         title={"Alimentation"}
         page="EatAndDrink"
       ></HeaderTopImage>
-      <View style={{ flex: 1 }}>
-        <Text>Si ton Kebab n'est pas bien passé, appel le 15 !</Text>
+      <View style={styles.container}>
+        <Text>jfdjh</Text>
       </View>
     </ScrollView>
   );
