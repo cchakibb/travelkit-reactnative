@@ -110,9 +110,9 @@ export default function PickTravel({ userToken }) {
                     borderStyle: "solid",
                     borderColor: "grey",
                     backgroundColor: "white",
-                    padding: 25,
+                    padding: 20,
                     alignItems: "center",
-                    marginTop: 25
+                    marginTop: 35
                   }}
                   onPress={() => {
                     navigation.navigate("Home", {

@@ -67,22 +67,36 @@ export default function MyHealth({ userToken }) {
             <View>
               <View style={{ flexDirection: "row" }}>
                 <Text
-                  style={{ fontSize: 16, fontWeight: "bold", marginLeft: 15 }}
+                  style={{ fontSize: 17, fontWeight: "bold", marginLeft: 15 }}
                 >
                   Age :
                 </Text>
-                <Text style={{ fontSize: 16 }}>{data.age} ans</Text>
+                <Text style={{ fontSize: 17 }}> {data.age} ans</Text>
               </View>
               <View style={{ flexDirection: "row" }}>
                 <Text
-                  style={{ fontSize: 16, fontWeight: "bold", marginLeft: 15 }}
+                  style={{
+                    fontSize: 17,
+                    fontWeight: "bold",
+                    marginLeft: 15,
+                    marginTop: 5
+                  }}
                 >
                   Poids :
                 </Text>
-                <Text> {data.weight} kg</Text>
+                <Text style={{ fontSize: 17, marginTop: 5 }}>
+                  {" "}
+                  {data.weight} kg
+                </Text>
               </View>
             </View>
-            <View style={{ marginLeft: 15 }}>
+            <View
+              style={{
+                marginLeft: 15,
+                marginTop: 3,
+                width: 257
+              }}
+            >
               <MedicalHistory medicalHistory={data.medicalHistory} />
               <Allergies allergies={data.allergies} />
               <Medication medication={data.medication} />

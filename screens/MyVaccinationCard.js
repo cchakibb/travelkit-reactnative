@@ -10,7 +10,7 @@ import {
 import axios from "axios";
 import HeaderTopImage from "../components/HeaderTopImage";
 import BtnInfo from "../components/BtnInfo";
-import BtnSwitch from "../components/BtnSwitch";
+import BtnInfo2 from "../components/BtnInfo2";
 
 import ViewPager from "@react-native-community/viewpager";
 import moment from "moment";
@@ -164,11 +164,11 @@ export default function MyVaccinationCard({ userToken }) {
           />
           <TouchableOpacity
             onPress={() => fetchRecommendedVaccinesInfo()}
-            style={{ marginTop: 16 }}
+            style={{ marginTop: 5 }}
           >
-            <BtnInfo
+            <BtnInfo2
               title={"Informations sur les vaccins recommandés"}
-            ></BtnInfo>
+            ></BtnInfo2>
           </TouchableOpacity>
           {recommendedvaccines !== null ? (
             <FlatList
@@ -180,11 +180,11 @@ export default function MyVaccinationCard({ userToken }) {
             />
           ) : null}
           <TouchableOpacity onPress={() => fetchMandatoryOrRecommended()}>
-            <BtnInfo
+            <BtnInfo2
               title={
                 "Vaccination obligatoire ou recommandée : quelle différence ?"
               }
-            ></BtnInfo>
+            ></BtnInfo2>
           </TouchableOpacity>
           {mandatoryOrRecommended !== null ? (
             <FlatList
