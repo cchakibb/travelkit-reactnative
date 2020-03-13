@@ -126,7 +126,11 @@ export default function GeneralInformation({ userToken, route }) {
                       >
                         <BtnInfo title={item.title} />
                       </TouchableOpacity>
-                      {item.visible === true && <Text>{item.subsections}</Text>}
+                      {item.visible === true && (
+                        <Text style={{ fontSize: 16, marginBottom: 15 }}>
+                          {item.subsections}
+                        </Text>
+                      )}
                     </View>
                   )}
                 />

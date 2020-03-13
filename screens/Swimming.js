@@ -7,7 +7,8 @@ import {
   Text,
   ActivityIndicator,
   FlatList,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from "react-native";
 import HeaderTopImage from "../components/HeaderTopImage";
 import BtnInfo from "../components/BtnInfo";
@@ -57,13 +58,30 @@ export default function Swimming({ userToken, route }) {
     <ScrollView style={styles.container}>
       <View>
         <HeaderTopImage title={"Baignade"} page="Daily"></HeaderTopImage>
+        <View>
+          <Text style={styles.text}>
+            En résumé : Je me renseigne localement, je respecte strictement les
+            consignes de sécurité et les panneaux d'information
+          </Text>
+        </View>
+        <View style={{ alignItems: "center", height: 130 }}>
+          <Image
+            source={require("../assets/quotidien/baignade/accordeon-ensavoirplus/plage-meduse.jpeg")}
+            style={{ width: "60%", height: "100%", borderRadius: 15 }}
+          ></Image>
+        </View>
         {isLoading === true ? (
           <ActivityIndicator />
         ) : (
           <View>
             {getInfo.sections[0].title ? (
               <FlatList
-                style={{ padding: 5, marginLeft: 10, marginRight: 10 }}
+                style={{
+                  padding: 5,
+                  marginLeft: 10,
+                  marginRight: 10,
+                  marginTop: 20
+                }}
                 data={showInfo}
                 keyExtractor={item => {
                   return String(item.title);
@@ -77,7 +95,11 @@ export default function Swimming({ userToken, route }) {
                     >
                       <BtnInfo title={item.title} />
                     </TouchableOpacity>
-                    {item.visible === true && <Text>{item.subsections}</Text>}
+                    {item.visible === true && (
+                      <Text style={{ fontSize: 16, marginBottom: 15 }}>
+                        {item.subsections}
+                      </Text>
+                    )}
                   </View>
                 )}
               />
