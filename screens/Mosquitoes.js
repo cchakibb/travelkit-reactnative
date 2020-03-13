@@ -5,11 +5,13 @@ import {
   Text,
   View,
   TouchableOpacity,
-  ActivityIndicator
+  ActivityIndicator,
+  Image
 } from "react-native";
 import axios from "axios";
-import { FlatList } from "react-native-gesture-handler";
-import BtnInfo from "../components/BtnInfo";
+import { FlatList, ScrollView } from "react-native-gesture-handler";
+import BtnInfo2 from "../components/BtnInfo2";
+import HeaderTopImage from "../components/HeaderTopImage";
 
 export default function Mosquitoes({ userToken, route }) {
   const [getInfo, setGetInfo] = useState();
@@ -53,63 +55,88 @@ export default function Mosquitoes({ userToken, route }) {
   };
 
   return (
-    <View style={styles.container}>
-      {isLoading === true ? (
-        <ActivityIndicator />
-      ) : (
-        <View>
-          <FlatList
-            data={getInfo.introduction}
-            keyExtractor={item => {
-              return String(item.index);
-            }}
-            renderItem={({ item }) => <Text>{item.subsections}</Text>}
-          />
-          <FlatList
-            data={getInfo.introduction}
-            keyExtractor={item => {
-              return String(item.index);
-            }}
-            renderItem={({ item }) => <Text>{item.introduction}</Text>}
-          />
-          <FlatList
-            data={getInfo.introduction}
-            keyExtractor={item => {
-              return String(item.index);
-            }}
-            renderItem={({ item }) => <Text>{item.bullet_points}</Text>}
-          />
-          {getInfo.sections[0].title ? (
+    <ScrollView style={styles.container}>
+      <HeaderTopImage
+        title={"Moustiques"}
+        page="MosquitoesAndTicks"
+      ></HeaderTopImage>
+      <View>
+        {isLoading === true ? (
+          <ActivityIndicator />
+        ) : (
+          <View>
             <FlatList
-              style={{ padding: 5, marginLeft: 10, marginRight: 10 }}
-              data={showInfo}
+              data={getInfo.introduction}
               keyExtractor={item => {
-                return String(item.title);
+                return String(item.index);
               }}
               renderItem={({ item }) => (
-                <View>
-                  <TouchableOpacity
-                    onPress={() => {
-                      displayText(item);
-                    }}
-                  >
-                    <BtnInfo title={item.title} />
-                  </TouchableOpacity>
-                  {item.visible === true && <Text>{item.subsections}</Text>}
-                </View>
+                <Text style={{ padding: 5, marginLeft: 10, fontSize: 16 }}>
+                  {item.subsections}
+                </Text>
               )}
             />
-          ) : null}
-        </View>
-      )}
-    </View>
+            <FlatList
+              data={getInfo.introduction}
+              keyExtractor={item => {
+                return String(item.index);
+              }}
+              renderItem={({ item }) => (
+                <Text style={{ fontSize: 16, marginLeft: 10 }}>
+                  {item.introduction}
+                </Text>
+              )}
+            />
+            <FlatList
+              style={{
+                padding: 5,
+                marginLeft: 10,
+                marginRight: 10
+              }}
+              data={getInfo.introduction}
+              keyExtractor={item => {
+                return String(item.index);
+              }}
+              renderItem={({ item }) => (
+                <Text style={{ fontSize: 16, marginBottom: 15 }}>
+                  {item.bullet_points}
+                </Text>
+              )}
+            />
+            {getInfo.sections[0].title ? (
+              <FlatList
+                style={{ marginLeft: 10, marginRight: 10 }}
+                data={showInfo}
+                keyExtractor={item => {
+                  return String(item.title);
+                }}
+                renderItem={({ item }) => (
+                  <View style={{ marginTop: 4 }}>
+                    <TouchableOpacity
+                      onPress={() => {
+                        displayText(item);
+                      }}
+                    >
+                      <BtnInfo2 title={item.title} />
+                    </TouchableOpacity>
+                    {item.visible === true && (
+                      <Text style={{ fontSize: 16, marginBottom: 15 }}>
+                        {item.subsections}
+                      </Text>
+                    )}
+                  </View>
+                )}
+              />
+            ) : null}
+          </View>
+        )}
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: "white"
   }
 });

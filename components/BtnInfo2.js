@@ -15,7 +15,7 @@ function BtnInfo({ title }) {
 
 const styles = StyleSheet.create({
   btn: {
-    height: 62,
+    height: 58,
     backgroundColor: "#3794B5",
     marginHorizontal: 22,
     borderColor: "#3794B5",

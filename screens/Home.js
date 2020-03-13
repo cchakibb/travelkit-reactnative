@@ -3,6 +3,7 @@ import { useNavigation, useRoute } from "@react-navigation/core";
 import { Text, View, ImageBackground, StyleSheet, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { FontAwesome } from "@expo/vector-icons";
+import { HeaderToImage } from "../components/HeaderTopImage";
 
 export default function Home({ userToken }) {
   const navigation = useNavigation();
