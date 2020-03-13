@@ -62,18 +62,29 @@ export default function Sun({ userToken, route }) {
         {isLoading === true ? (
           <ActivityIndicator />
         ) : (
-          <View>
-            <Text>{getInfo.introduction.introduction}</Text>
+          <View style={{ padding: 5, marginLeft: 10 }}>
+            <Text style={{ fontSize: 16, marginBottom: 15 }}>
+              {getInfo.introduction.introduction}
+            </Text>
             <FlatList
               data={getInfo.introduction.bullet_points}
               keyExtractor={item => {
                 return item.index;
               }}
-              renderItem={({ item }) => <Text>{item}</Text>}
+              renderItem={({ item }) => (
+                <Text style={{ fontSize: 16, marginBottom: 15 }}>{item}</Text>
+              )}
             />
+            <View style={{ alignItems: "center", padding: 10 }}>
+              <Image
+                source={require("../assets/quotidien/soleil/protection_soleil.png")}
+                style={{ width: 100, height: 100 }}
+              ></Image>
+            </View>
             <View>
               {getInfo.sections[0].title ? (
                 <FlatList
+                  style={{ padding: 5, marginLeft: 10, marginRight: 10 }}
                   data={showInfo}
                   keyExtractor={item => {
                     return item.title;
@@ -87,7 +98,11 @@ export default function Sun({ userToken, route }) {
                       >
                         <BtnInfo title={item.title} />
                       </TouchableOpacity>
-                      {item.visible === true && <Text>{item.subsections}</Text>}
+                      {item.visible === true && (
+                        <Text style={{ fontSize: 16, marginBottom: 15 }}>
+                          {item.subsections}
+                        </Text>
+                      )}
                     </View>
                   )}
                 />
