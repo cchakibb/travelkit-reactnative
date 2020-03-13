@@ -12,7 +12,7 @@ import {
 import axios from "axios";
 import moment from "moment";
 require("moment/locale/fr");
-import { FontAwesome } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 
 export default function UserProfile({ userToken }) {
   const [travel, setTravel] = useState();
@@ -56,7 +56,7 @@ export default function UserProfile({ userToken }) {
                 navigation.navigate("Home");
               }}
             >
-              <FontAwesome name="bars" size={55} color="#3794B5" />
+              <AntDesign name="close" size={55} color="white" />
             </TouchableOpacity>
           </View>
           <View
