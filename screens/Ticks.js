@@ -1,31 +1,27 @@
-import React from "react";
-import { useNavigation } from "@react-navigation/native";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  ScrollView
-} from "react-native";
-import HeaderTopImage from "../components/HeaderTopImage";
+import React, { useState } from "react";
+import { useNavigation, useRoute } from "@react-navigation/core";
 
-export default function Drinks({ userToken }) {
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+
+export default function Ticks({ userToken, route }) {
+  const [getMoreInfo, setGetMoreInfo] = useState();
   const navigation = useNavigation();
+  const { params } = useRoute();
+  console.log("Ticks =", route.params.passParams);
   return (
-    <ScrollView style={styles.container}>
-      <HeaderTopImage
-        title={"Tiques"}
-        page="MosquitoesAndTicks"
-      ></HeaderTopImage>
-      <View style={styles.container}>
-        <Text>Tiques</Text>
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      <TouchableOpacity>
+        <Text>En savoir plus</Text>
+      </TouchableOpacity>
+      <Text>Attention aux Tiques</Text>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white"
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
   }
 });

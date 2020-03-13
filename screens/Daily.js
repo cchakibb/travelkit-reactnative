@@ -63,7 +63,7 @@ export default function Daily({ userToken }) {
           <TouchableOpacity
             onPress={() => {
               navigation.navigate("MosquitoesAndTicks", {
-                screen: "TabMosquitoesAndTicks",
+                screen: "MosquitoesAndTicks",
                 travelId: params.travelId
               });
             }}

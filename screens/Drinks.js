@@ -1,5 +1,6 @@
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
+
+import { useNavigation, useRoute } from "@react-navigation/core";
 import {
   StyleSheet,
   Text,
@@ -9,7 +10,11 @@ import {
 } from "react-native";
 import HeaderTopImage from "../components/HeaderTopImage";
 
-export default function Drinks({ userToken }) {
+
+export default function Drinks({ userToken, route }) {
+  const { params } = useRoute();
+  console.log("Drinks = ", route.params);
+
   const navigation = useNavigation();
   return (
     <ScrollView style={styles.container}>

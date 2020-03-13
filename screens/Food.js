@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { useNavigation } from "@react-navigation/native";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
-import HeaderTopImage from "../components/HeaderTopImage";
 
-export default function Food({ userToken }) {
+import { useNavigation, useRoute } from "@react-navigation/core";
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from "react-native";
+
+
+export default function Food({ userToken, route }) {
+  const { params } = useRoute();
+  console.log("Food = ", route.params);
+
   const [getMoreInfo, setGetMoreInfo] = useState();
   const navigation = useNavigation();
   return (
