@@ -51,6 +51,7 @@ export default function Mosquitoes({ userToken, route }) {
         showInfo[i].visible = !showInfo[i].visible;
       }
     }
+
     setShowInfo(copy);
   };
 
@@ -119,11 +120,41 @@ export default function Mosquitoes({ userToken, route }) {
                     >
                       <BtnInfo2 title={item.title} />
                     </TouchableOpacity>
-                    {item.visible === true && (
-                      <Text style={{ fontSize: 16, marginBottom: 15 }}>
-                        {item.subsections}
-                      </Text>
-                    )}
+                    {item.visible === true &&
+                      item.subsections.map(element => {
+                        if (typeof element === "string") {
+                          return (
+                            <Text style={{ fontSize: 16, marginBottom: 15 }}>
+                              {element}
+                            </Text>
+                          );
+                        } else if (Array.isArray(element)) {
+                          element.map(subelement => {
+                            return (
+                              <Text style={{ fontSize: 16, marginBottom: 15 }}>
+                                {subelement}
+                              </Text>
+                            );
+                          });
+                        } else if (element.bullet_points) {
+                          return (
+                            <View>
+                              <Text>{element.introduction}</Text>
+                              <View>
+                                {element.bullet_points.map(subelement => {
+                                  return (
+                                    <Text
+                                      style={{ fontSize: 16, marginBottom: 15 }}
+                                    >
+                                      {subelement}
+                                    </Text>
+                                  );
+                                })}
+                              </View>
+                            </View>
+                          );
+                        }
+                      })}
                   </View>
                 )}
               />
