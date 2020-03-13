@@ -15,6 +15,8 @@ require("moment/locale/fr");
 export default function Daily({ userToken }) {
   const navigation = useNavigation();
   const { params } = useRoute();
+  /*   console.log(params); */
+  console.log(params.travelId);
 
   return (
     <ScrollView>
@@ -45,7 +47,7 @@ export default function Daily({ userToken }) {
           <TouchableOpacity
             onPress={() => {
               navigation.navigate("EatAndDrink", {
-                screen: "TabEatAndDrink",
+                screen: "EatAndDrink",
                 travelId: params.travelId
               });
             }}

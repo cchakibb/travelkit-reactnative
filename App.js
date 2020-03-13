@@ -383,6 +383,7 @@ export default function App() {
                 >
                   {() => <EatAndDrink userToken={userToken} {...props} />}
                 </Tab.Screen>
+
                 <Tab.Screen
                   name="TabMosquitoesAndTicks"
                   options={{
@@ -398,6 +399,7 @@ export default function App() {
                     <MosquitoesAndTicks userToken={userToken} {...props} />
                   )}
                 </Tab.Screen>
+
                 <Tab.Screen
                   name="TabSun"
                   options={{
@@ -582,7 +584,7 @@ export default function App() {
                     tabBarIcon: ({ color, size }) => (
                       <Image
                         style={{ width: 50, height: 50 }}
-                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                        source={require("./assets/general/icone-quotidien/repas.png")}
                       />
                     )
                   }}
@@ -595,7 +597,7 @@ export default function App() {
                     tabBarIcon: ({ color, size }) => (
                       <Image
                         style={{ width: 50, height: 50 }}
-                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                        source={require("./assets/general/icone-quotidien/infos.png")}
                       />
                     )
                   }}
@@ -623,7 +625,7 @@ export default function App() {
                     tabBarIcon: ({ color, size }) => (
                       <Image
                         style={{ width: 50, height: 50 }}
-                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                        source={require("./assets/general/icone-quotidien/soleil.png")}
                       />
                     )
                   }}
@@ -636,7 +638,7 @@ export default function App() {
                     tabBarIcon: ({ color, size }) => (
                       <Image
                         style={{ width: 50, height: 50 }}
-                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                        source={require("./assets/general/icone-quotidien/baignade.png")}
                       />
                     )
                   }}
@@ -649,7 +651,7 @@ export default function App() {
                     tabBarIcon: ({ color, size }) => (
                       <Image
                         style={{ width: 50, height: 50 }}
-                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                        source={require("./assets/general/icone-quotidien/animaux.png")}
                       />
                     )
                   }}
@@ -679,7 +681,7 @@ export default function App() {
                     tabBarIcon: ({ color, size }) => (
                       <Image
                         style={{ width: 50, height: 50 }}
-                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                        source={require("./assets/general/icone-quotidien/repas.png")}
                       />
                     )
                   }}
@@ -692,7 +694,7 @@ export default function App() {
                     tabBarIcon: ({ color, size }) => (
                       <Image
                         style={{ width: 50, height: 50 }}
-                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                        source={require("./assets/general/icone-quotidien/infos.png")}
                       />
                     )
                   }}
@@ -720,7 +722,7 @@ export default function App() {
                     tabBarIcon: ({ color, size }) => (
                       <Image
                         style={{ width: 50, height: 50 }}
-                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                        source={require("./assets/general/icone-quotidien/soleil.png")}
                       />
                     )
                   }}
@@ -733,7 +735,7 @@ export default function App() {
                     tabBarIcon: ({ color, size }) => (
                       <Image
                         style={{ width: 50, height: 50 }}
-                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                        source={require("./assets/general/icone-quotidien/baignade.png")}
                       />
                     )
                   }}
@@ -746,7 +748,7 @@ export default function App() {
                     tabBarIcon: ({ color, size }) => (
                       <Image
                         style={{ width: 50, height: 50 }}
-                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                        source={require("./assets/general/icone-quotidien/animaux.png")}
                       />
                     )
                   }}
@@ -777,7 +779,7 @@ export default function App() {
                     tabBarIcon: ({ color, size }) => (
                       <Image
                         style={{ width: 50, height: 50 }}
-                        source={require("./assets/general/icone-quotidien/moustique.png")}
+                        source={require("./assets/general/icone-quotidien/repas.png")}
                       />
                     )
                   }}
@@ -807,14 +809,13 @@ export default function App() {
                     tabBarIcon: ({ color, size }) => (
                       <Image
                         style={{ width: 50, height: 50 }}
-                        source={require("./assets/general/icone-quotidien/repas.png")}
+                        source={require("./assets/general/icone-quotidien/moustique.png")}
                       />
                     )
                   }}
                 >
                   {() => <EatAndDrink userToken={userToken} {...props} />}
                 </Tab.Screen>
-
                 <Tab.Screen
                   name="TabSun"
                   options={{

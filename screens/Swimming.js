@@ -15,9 +15,7 @@ import axios from "axios";
 
 export default function Swimming({ userToken, route }) {
   const [getInfo, setGetInfo] = useState();
-  const [showInfo1, setShowInfo1] = useState(false);
-  const [showInfo2, setShowInfo2] = useState(false);
-  const [showInfo3, setShowInfo3] = useState(false);
+  const [showInfo, setShowInfo] = useState([]);
   const [isLoading, setIsloading] = useState(true);
   const navigation = useNavigation();
   const id = route.params.travelId;
@@ -32,6 +30,7 @@ export default function Swimming({ userToken, route }) {
           }
         }
       );
+      setShowInfo(response.data.sections);
       setGetInfo(response.data);
 
       setIsloading(false);
@@ -43,6 +42,17 @@ export default function Swimming({ userToken, route }) {
     fetchData();
   }, []);
 
+  const displayText = item => {
+    const copy = [...showInfo];
+    for (let i = 0; i < showInfo.length; i++) {
+      if (showInfo[i].title === item.title) {
+        showInfo[i].visible = !showInfo[i].visible;
+      }
+    }
+
+    setShowInfo(copy);
+  };
+
   return (
     <ScrollView style={styles.container}>
       <View>
@@ -51,19 +61,27 @@ export default function Swimming({ userToken, route }) {
           <ActivityIndicator />
         ) : (
           <View>
-            <Text>{getInfo.introduction}</Text>
-            <TouchableOpacity onPress={() => setShowInfo1(!showInfo1)}>
-              <BtnInfo title={getInfo.sections[0].title} />
-            </TouchableOpacity>
-            {showInfo1 ? <Text>{getInfo.sections[0].subsections}</Text> : null}
-            <TouchableOpacity onPress={() => setShowInfo2(!showInfo2)}>
-              <BtnInfo title={getInfo.sections[1].title} />
-            </TouchableOpacity>
-            {showInfo2 ? <Text>{getInfo.sections[1].subsections}</Text> : null}
-            <TouchableOpacity onPress={() => setShowInfo3(!showInfo3)}>
-              <BtnInfo title={getInfo.sections[2].title} />
-            </TouchableOpacity>
-            {showInfo3 ? <Text>{getInfo.sections[2].subsections}</Text> : null}
+            {getInfo.sections[0].title ? (
+              <FlatList
+                style={{ padding: 5, marginLeft: 10, marginRight: 10 }}
+                data={showInfo}
+                keyExtractor={item => {
+                  return String(item.title);
+                }}
+                renderItem={({ item }) => (
+                  <View>
+                    <TouchableOpacity
+                      onPress={() => {
+                        displayText(item);
+                      }}
+                    >
+                      <BtnInfo title={item.title} />
+                    </TouchableOpacity>
+                    {item.visible === true && <Text>{item.subsections}</Text>}
+                  </View>
+                )}
+              />
+            ) : null}
           </View>
         )}
       </View>

@@ -13,9 +13,7 @@ import axios from "axios";
 
 export default function Animals({ userToken, route }) {
   const [getInfo, setGetInfo] = useState();
-  const [showInfo1, setShowInfo1] = useState(false);
-  const [showInfo2, setShowInfo2] = useState(false);
-  const [showInfo3, setShowInfo3] = useState(false);
+
   const [isLoading, setIsloading] = useState(true);
   const navigation = useNavigation();
   const id = route.params.travelId;

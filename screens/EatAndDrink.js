@@ -2,9 +2,11 @@ import React from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import HeaderTopImage from "../components/HeaderTopImage";
 import BtnIcone from "../components/BtnIcone";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/core";
 
 export default function EatAndDrink({ userToken }) {
+  const { params } = useRoute();
+
   return (
     <ScrollView style={styles.container}>
       <View>
