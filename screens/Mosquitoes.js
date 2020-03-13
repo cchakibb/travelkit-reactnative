@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/core";
 import {
   StyleSheet,
   Text,
@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import axios from "axios";
 import { FlatList } from "react-native-gesture-handler";
+import BtnInfo from "../components/BtnInfo";
 
 export default function Mosquitoes({ userToken, route }) {
   const [getInfo, setGetInfo] = useState();
@@ -16,8 +17,8 @@ export default function Mosquitoes({ userToken, route }) {
   const [isLoading, setIsloading] = useState(true);
   const navigation = useNavigation();
   const { params } = useRoute();
-
-  const id = route.params.travelId;
+  console.log("Mosquitoes =", route.params.passParams);
+  const id = route.params.passParams;
 
   const fetchData = async () => {
     try {
@@ -62,8 +63,43 @@ export default function Mosquitoes({ userToken, route }) {
             keyExtractor={item => {
               return String(item.index);
             }}
-            renderItem={({ item }) => <Text>{item}</Text>}
+            renderItem={({ item }) => <Text>{item.subsections}</Text>}
           />
+          <FlatList
+            data={getInfo.introduction}
+            keyExtractor={item => {
+              return String(item.index);
+            }}
+            renderItem={({ item }) => <Text>{item.introduction}</Text>}
+          />
+          <FlatList
+            data={getInfo.introduction}
+            keyExtractor={item => {
+              return String(item.index);
+            }}
+            renderItem={({ item }) => <Text>{item.bullet_points}</Text>}
+          />
+          {getInfo.sections[0].title ? (
+            <FlatList
+              style={{ padding: 5, marginLeft: 10, marginRight: 10 }}
+              data={showInfo}
+              keyExtractor={item => {
+                return String(item.title);
+              }}
+              renderItem={({ item }) => (
+                <View>
+                  <TouchableOpacity
+                    onPress={() => {
+                      displayText(item);
+                    }}
+                  >
+                    <BtnInfo title={item.title} />
+                  </TouchableOpacity>
+                  {item.visible === true && <Text>{item.subsections}</Text>}
+                </View>
+              )}
+            />
+          ) : null}
         </View>
       )}
     </View>

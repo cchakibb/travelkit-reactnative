@@ -2,13 +2,16 @@ import React from "react";
 import { Image, StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-function BtnIcone({ title, iconeBtn, page }) {
+function BtnIcone({ title, iconeBtn, page, passParams }) {
   const navigation = useNavigation();
+
   return (
     <View style={{ height: 85 }}>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate(page);
+          navigation.navigate(page, {
+            passParams
+          });
         }}
         style={styles.btn}
       >

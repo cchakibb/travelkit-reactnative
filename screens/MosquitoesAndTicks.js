@@ -11,11 +11,10 @@ import {
 import HeaderTopImage from "../components/HeaderTopImage";
 import BtnIcone from "../components/BtnIcone";
 
-export default function MosquitoesAndTicks({ userToken }) {
+export default function MosquitoesAndTicks({ userToken, route }) {
   const navigation = useNavigation();
   const { params } = useRoute();
-
-  console.log(params);
+  console.log("MosquitoesAndTicks = ", route.params);
 
   return (
     <ScrollView style={styles.container}>
@@ -31,12 +30,13 @@ export default function MosquitoesAndTicks({ userToken }) {
           title={"Moustiques"}
           iconeBtn={require("../assets/general/icone-quotidien/moustique.png")}
           page="Mosquitoes"
+          passParams={route.params.travelId}
         ></BtnIcone>
         <BtnIcone
           title={"Tiques"}
           iconeBtn={require("../assets/quotidien/animaux/tique.png")}
           page="Ticks"
-          /* travelId={params.travelId} */
+          passParams={route.params.travelId}
         ></BtnIcone>
       </View>
     </ScrollView>

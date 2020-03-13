@@ -4,8 +4,9 @@ import HeaderTopImage from "../components/HeaderTopImage";
 import BtnIcone from "../components/BtnIcone";
 import { useNavigation, useRoute } from "@react-navigation/core";
 
-export default function EatAndDrink({ userToken }) {
+export default function EatAndDrink({ userToken, route }) {
   const { params } = useRoute();
+  console.log("EatAndDrink =", route.params);
 
   return (
     <ScrollView style={styles.container}>
@@ -21,11 +22,13 @@ export default function EatAndDrink({ userToken }) {
           title={"L'alimentation"}
           iconeBtn={require("../assets/general/icone-quotidien/assiette.png")}
           page="Food"
+          passParams={route.params.travelId}
         ></BtnIcone>
         <BtnIcone
           title={"La boisson"}
           iconeBtn={require("../assets/general/icone-quotidien/boisson.png")}
           page="Drinks"
+          passParams={route.params.travelId}
         ></BtnIcone>
       </View>
     </ScrollView>

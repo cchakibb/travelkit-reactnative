@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/core";
+
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
-export default function Ticks({ userToken }) {
+export default function Ticks({ userToken, route }) {
   const [getMoreInfo, setGetMoreInfo] = useState();
   const navigation = useNavigation();
+  const { params } = useRoute();
+  console.log("Ticks =", route.params.passParams);
   return (
     <View style={styles.container}>
       <TouchableOpacity>
