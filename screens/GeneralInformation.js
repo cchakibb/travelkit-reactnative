@@ -17,10 +17,6 @@ import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 export default function GeneralInformation({ userToken, route }) {
   const [getInfo, setGetInfo] = useState();
   const [showInfo, setShowInfo] = useState([]);
-  /*   const [showInfo2, setShowInfo2] = useState(false);
-  const [showInfo3, setShowInfo3] = useState(false);
-  const [showInfo4, setShowInfo4] = useState(false);
-  const [showInfo5, setShowInfo5] = useState(false); */
   const [isLoading, setIsloading] = useState(true);
   const navigation = useNavigation();
   const { params } = useRoute();
@@ -57,7 +53,6 @@ export default function GeneralInformation({ userToken, route }) {
         showInfo[i].visible = !showInfo[i].visible;
       }
     }
-
     setShowInfo(copy);
   };
 
@@ -137,31 +132,6 @@ export default function GeneralInformation({ userToken, route }) {
                 />
               ) : null}
             </View>
-
-            {/* <TouchableOpacity onPress={() => setShowInfo1(!showInfo1)}>
-              <BtnInfo title={getInfo.sections[0].title} />
-            </TouchableOpacity>
-            {showInfo1 ? <Text>{getInfo.sections[0].subsections}</Text> : null}
-            <TouchableOpacity onPress={() => setShowInfo2(!showInfo2)}>
-              <BtnInfo title={getInfo.sections[1].title} />
-            </TouchableOpacity>
-            {showInfo2 ? <Text>{getInfo.sections[1].subsections}</Text> : null}
-            <TouchableOpacity onPress={() => setShowInfo3(!showInfo3)}>
-              <BtnInfo title={getInfo.sections[2].title} />
-            </TouchableOpacity>
-            {showInfo3 ? <Text>{getInfo.sections[2].subsections}</Text> : null}
-            <TouchableOpacity onPress={() => setShowInfo4(!showInfo4)}>
-              <BtnInfo title={getInfo.sections[3].title} />
-            </TouchableOpacity>
-            {showInfo4 ? <Text>{getInfo.sections[3].subsections}</Text> : null}
-            <TouchableOpacity onPress={() => setShowInfo4(!showInfo4)}>
-              <BtnInfo title={getInfo.sections[3].title} />
-            </TouchableOpacity>
-            {showInfo4 ? <Text>{getInfo.sections[3].subsections}</Text> : null}
-            <TouchableOpacity onPress={() => setShowInfo5(!showInfo5)}>
-              <BtnInfo title={getInfo.sections[4].title} />
-            </TouchableOpacity>
-            {showInfo5 ? <Text>{getInfo.sections[4].subsections}</Text> : null} */}
           </View>
         )}
       </View>

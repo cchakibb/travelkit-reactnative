@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import {
   StyleSheet,
   Text,
@@ -13,6 +13,10 @@ import BtnIcone from "../components/BtnIcone";
 
 export default function MosquitoesAndTicks({ userToken }) {
   const navigation = useNavigation();
+  const { params } = useRoute();
+
+  console.log(params);
+
   return (
     <ScrollView style={styles.container}>
       <View>
@@ -32,6 +36,7 @@ export default function MosquitoesAndTicks({ userToken }) {
           title={"Tiques"}
           iconeBtn={require("../assets/quotidien/animaux/tique.png")}
           page="Ticks"
+          /* travelId={params.travelId} */
         ></BtnIcone>
       </View>
     </ScrollView>

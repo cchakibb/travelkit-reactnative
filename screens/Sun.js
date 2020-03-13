@@ -16,9 +16,7 @@ import axios from "axios";
 
 export default function Sun({ userToken, route }) {
   const [getInfo, setGetInfo] = useState();
-  const [showInfo1, setShowInfo1] = useState(false);
-  const [showInfo2, setShowInfo2] = useState(false);
-  const [showInfo3, setShowInfo3] = useState(false);
+  const [showInfo, setShowInfo] = useState([]);
   const [isLoading, setIsloading] = useState(true);
   const navigation = useNavigation();
   const id = route.params.travelId;
@@ -33,6 +31,8 @@ export default function Sun({ userToken, route }) {
           }
         }
       );
+
+      setShowInfo(response.data.sections);
       setGetInfo(response.data);
 
       setIsloading(false);
@@ -76,7 +76,7 @@ export default function Sun({ userToken, route }) {
                 <FlatList
                   data={showInfo}
                   keyExtractor={item => {
-                    return String(item.title);
+                    return item.title;
                   }}
                   renderItem={({ item }) => (
                     <View>
